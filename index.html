@@ -1,1 +1,374 @@
+tml>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aaron | Aspiring Product Manager Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #4f46e5 0%, #06b6d4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #4f46e5;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 overflow-x-hidden">
 
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 top-0 bg-white/80 backdrop-blur-md border-b border-slate-200">
+        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+            <span class="text-xl font-bold tracking-tight text-slate-800">AARON<span class="text-indigo-600">.</span></span>
+            <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-600">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <a href="mailto:Aaronbnzn@gmail.com" class="bg-indigo-600 text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-indigo-700 transition-colors shadow-lg shadow-indigo-100">
+                Contact Me
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="about" class="pt-32 pb-20 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="w-full md:w-3/5">
+                    <h2 class="text-indigo-600 font-semibold tracking-wider uppercase text-sm mb-4">Aspiring Product Manager</h2>
+                    <h1 class="text-5xl md:text-6xl font-extrabold text-slate-900 mb-6 leading-tight">
+                        Hi, I'm <span class="gradient-text">Aaron</span>.
+                    </h1>
+                    <p class="text-xl text-slate-600 mb-8 leading-relaxed max-w-2xl">
+                        With an MBA in Marketing and experience across market research, digital growth, and business banking, I thrive at the intersection of users, data, and business strategy.
+                    </p>
+                    <div class="flex flex-wrap gap-4 mb-10 text-sm">
+                        <span class="bg-indigo-50 text-indigo-700 px-3 py-1 rounded-md border border-indigo-100 font-medium">MBA in Marketing</span>
+                        <span class="bg-emerald-50 text-emerald-700 px-3 py-1 rounded-md border border-emerald-100 font-medium">Ex-Axis Bank</span>
+                        <span class="bg-amber-50 text-amber-700 px-3 py-1 rounded-md border border-amber-100 font-medium">Market Research</span>
+                    </div>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#projects" class="bg-slate-900 text-white px-8 py-3 rounded-lg font-semibold hover:bg-slate-800 transition-all transform hover:-translate-y-1">View Portfolio</a>
+                        <a href="https://linkedin.com/in/aaron-benzion-27202a201" target="_blank" class="bg-white border border-slate-200 text-slate-700 px-8 py-3 rounded-lg font-semibold hover:bg-slate-50 transition-all flex items-center gap-2">
+                            LinkedIn
+                        </a>
+                    </div>
+                </div>
+                <div class="w-full md:w-2/5 flex justify-center">
+                    <div class="relative">
+                        <div class="absolute inset-0 bg-indigo-200 rounded-3xl rotate-6 -z-10"></div>
+                        <div class="w-64 h-80 bg-slate-200 rounded-3xl overflow-hidden shadow-2xl border-4 border-white flex items-center justify-center">
+                            <span class="text-indigo-300 font-bold text-4xl">AB</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-slate-100/50">
+        <div class="max-w-6xl mx-auto px-6">
+            <h3 class="text-3xl font-bold text-slate-900 mb-12 text-center">Professional Skills</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Skill Card 1 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                    <div class="w-10 h-10 bg-indigo-100 text-indigo-600 rounded-xl flex items-center justify-center mb-4">
+                        <span class="text-xl">🤖</span>
+                    </div>
+                    <h4 class="text-lg font-bold mb-2">AI Productivity</h4>
+                    <p class="text-slate-600 text-sm">Leveraging AI tools for research and strategy framing.</p>
+                </div>
+                <!-- Skill Card 2 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                    <div class="w-10 h-10 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center mb-4">
+                        <span class="text-xl">🎯</span>
+                    </div>
+                    <h4 class="text-lg font-bold mb-2">Research Strategy</h4>
+                    <p class="text-slate-600 text-sm">Execution of quant/qual research to uncover gaps.</p>
+                </div>
+                <!-- Skill Card 3 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                    <div class="w-10 h-10 bg-amber-100 text-amber-600 rounded-xl flex items-center justify-center mb-4">
+                        <span class="text-xl">👥</span>
+                    </div>
+                    <h4 class="text-lg font-bold mb-2">Stakeholder Comm</h4>
+                    <p class="text-slate-600 text-sm">Bridging gaps between user needs and business goals.</p>
+                </div>
+                <!-- Skill Card 4 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                    <div class="w-10 h-10 bg-rose-100 text-rose-600 rounded-xl flex items-center justify-center mb-4">
+                        <span class="text-xl">📊</span>
+                    </div>
+                    <h4 class="text-lg font-bold mb-2">Data Analytics</h4>
+                    <p class="text-slate-600 text-sm">Using data for structured decision making.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="mb-12">
+                <h3 class="text-3xl font-bold text-slate-900 mb-4">Featured Projects</h3>
+                <p class="text-slate-600 max-w-2xl">A collection of product case studies focused on retention, engagement, and market strategy.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- Project: Lenskart -->
+                <div class="group bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-sm transition-all hover:shadow-xl">
+                    <div class="h-64 bg-slate-900 relative flex items-center justify-center overflow-hidden">
+                        <div class="absolute inset-0 bg-indigo-600/20 mix-blend-overlay"></div>
+                        <span class="text-white text-4xl font-bold tracking-widest opacity-20 uppercase">Lenskart</span>
+                        <div class="absolute bottom-4 left-4 flex gap-2">
+                            <span class="bg-white/20 backdrop-blur-md text-white text-xs px-2 py-1 rounded font-medium">Retention</span>
+                            <span class="bg-white/20 backdrop-blur-md text-white text-xs px-2 py-1 rounded font-medium">Engagement</span>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h4 class="text-2xl font-bold mb-3 text-slate-900">Lenskart — Reimagining Engagement</h4>
+                        <p class="text-slate-600 mb-6">Designed a data-backed engagement framework to increase post-purchase interaction and non-transactional MAU.</p>
+                        <button onclick="openProject('lenskart')" class="bg-indigo-50 text-indigo-700 px-6 py-2 rounded-lg font-bold hover:bg-indigo-600 hover:text-white transition-all">
+                            Explore Project?
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project: Amul -->
+                <div class="group bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-sm transition-all hover:shadow-xl">
+                    <div class="h-64 bg-slate-100 relative flex items-center justify-center">
+                        <span class="text-slate-300 text-3xl font-bold tracking-widest opacity-50 uppercase">Amul Organic</span>
+                        <div class="absolute bottom-4 left-4 flex gap-2">
+                            <span class="bg-slate-900/10 text-slate-600 text-xs px-2 py-1 rounded font-medium">Market Research</span>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h4 class="text-2xl font-bold mb-3 text-slate-900">Market Research for Amul Organic</h4>
+                        <p class="text-slate-600 mb-6">Consumer demand and retailer adoption positioning for Amul Organic in a premium segment.</p>
+                        <button class="bg-slate-50 text-slate-400 px-6 py-2 rounded-lg font-bold cursor-not-allowed">
+                            Coming Soon
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project: VivaFit -->
+                <div class="group bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-sm transition-all hover:shadow-xl">
+                    <div class="h-64 bg-indigo-50 relative flex items-center justify-center">
+                        <span class="text-indigo-200 text-3xl font-bold tracking-widest opacity-50 uppercase">VivaFit</span>
+                    </div>
+                    <div class="p-8">
+                        <h4 class="text-2xl font-bold mb-3 text-slate-900">VivaFit — Motivation Drop-Off</h4>
+                        <p class="text-slate-600 mb-6">Designed community-led engagement loops to solve retention issues in a fitness app.</p>
+                        <button class="bg-slate-50 text-slate-400 px-6 py-2 rounded-lg font-bold cursor-not-allowed">
+                            Coming Soon
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project: MealBud -->
+                <div class="group bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-sm transition-all hover:shadow-xl">
+                    <div class="h-64 bg-slate-900 relative flex items-center justify-center">
+                        <span class="text-white text-3xl font-bold tracking-widest opacity-20 uppercase">MealBud</span>
+                    </div>
+                    <div class="p-8">
+                        <h4 class="text-2xl font-bold mb-3 text-slate-900">MealBud — Smart Meal Planning</h4>
+                        <p class="text-slate-600 mb-6">Reducing decision fatigue for busy users through intelligent ingredient-based recommendations.</p>
+                        <button class="bg-slate-50 text-slate-400 px-6 py-2 rounded-lg font-bold cursor-not-allowed">
+                            Coming Soon
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Modal: Lenskart -->
+    <div id="lenskart-modal" class="fixed inset-0 z-[100] hidden">
+        <div class="absolute inset-0 bg-slate-900/70 backdrop-blur-sm" onclick="closeProject('lenskart')"></div>
+        <div class="absolute inset-4 md:inset-10 lg:inset-16 bg-white rounded-3xl shadow-2xl overflow-y-auto max-w-5xl mx-auto">
+            
+            <button onclick="closeProject('lenskart')" class="sticky top-6 right-6 float-right z-50 bg-white shadow-xl p-2 rounded-full hover:bg-slate-100 transition-colors border border-slate-200">
+                <svg class="w-6 h-6 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+
+            <div class="p-8 md:p-14">
+                <div class="max-w-4xl">
+                    <h2 class="text-3xl md:text-5xl font-extrabold text-slate-900 mb-6">Lenskart — Reimagining User Engagement</h2>
+                    
+                    <p class="text-xl text-slate-600 mb-10 leading-relaxed">
+                        This project explores how Lenskart can increase non-transactional monthly active users (MAU) by addressing post-purchase disengagement. Using structured problem framing and RICE prioritization, I identified that while users trust the brand, they fail to see value in the app beyond eyewear transactions.
+                    </p>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                        <div class="lg:col-span-2 space-y-10">
+                            <!-- Section: Methodology -->
+                            <section>
+                                <h3 class="text-indigo-600 font-bold uppercase tracking-widest text-sm mb-4">Methodology & Research</h3>
+                                <p class="text-slate-700 mb-4">I conducted 35 survey responses and 5 in-depth interviews to uncover behavioral gaps. Core drop-offs were identified through user journey mapping of existing post-purchase flows.</p>
+                                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100">
+                                    <h4 class="font-bold mb-3">Key Highlights:</h4>
+                                    <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-slate-600">
+                                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-indigo-500 rounded-full"></span> 35 Survey Responses</li>
+                                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-indigo-500 rounded-full"></span> 5 In-depth Interviews</li>
+                                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-indigo-500 rounded-full"></span> RICE Prioritization</li>
+                                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-indigo-500 rounded-full"></span> High-fidelity Prototyping</li>
+                                    </ul>
+                                </div>
+                            </section>
+
+                            <!-- Section: Solutions -->
+                            <section>
+                                <h3 class="text-indigo-600 font-bold uppercase tracking-widest text-sm mb-4">The Strategic Solution</h3>
+                                <p class="text-slate-700 mb-6">I strategically selected two synergistic features to build habitual engagement:</p>
+                                <div class="space-y-4">
+                                    <div class="flex gap-4 p-5 rounded-2xl border border-slate-100 hover:border-indigo-200 transition-colors">
+                                        <div class="w-12 h-12 bg-indigo-100 rounded-xl flex-shrink-0 flex items-center justify-center font-bold text-indigo-600">01</div>
+                                        <div>
+                                            <h4 class="font-bold text-slate-900">Omnichannel Continuity Layer</h4>
+                                            <p class="text-slate-600 text-sm mt-1">Digitally linking offline store interactions with the app for loyalty integration and seamless record tracking.</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex gap-4 p-5 rounded-2xl border border-slate-100 hover:border-indigo-200 transition-colors">
+                                        <div class="w-12 h-12 bg-indigo-100 rounded-xl flex-shrink-0 flex items-center justify-center font-bold text-indigo-600">02</div>
+                                        <div>
+                                            <h4 class="font-bold text-slate-900">Expert Eye-Care Content</h4>
+                                            <p class="text-slate-600 text-sm mt-1">Building habitual app opens through expert-led content and community participation around eye health.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <!-- Section: Metrics -->
+                            <section>
+                                <h3 class="text-indigo-600 font-bold uppercase tracking-widest text-sm mb-4">Success Metrics & Impact</h3>
+                                <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                                    <div class="p-4 bg-slate-900 text-white rounded-2xl text-center">
+                                        <div class="text-2xl font-bold">50%</div>
+                                        <div class="text-[10px] opacity-60 uppercase tracking-tighter">Target MAU</div>
+                                    </div>
+                                    <div class="p-4 bg-slate-900 text-white rounded-2xl text-center">
+                                        <div class="text-2xl font-bold">₹1.8k</div>
+                                        <div class="text-[10px] opacity-60 uppercase tracking-tighter">LTV Unlock</div>
+                                    </div>
+                                    <div class="p-4 bg-slate-900 text-white rounded-2xl text-center">
+                                        <div class="text-2xl font-bold">2X</div>
+                                        <div class="text-[10px] opacity-60 uppercase tracking-tighter">Repeat Opens</div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+
+                        <!-- Sidebar Actions -->
+                        <div class="space-y-6">
+                            <div class="bg-indigo-50 p-6 rounded-3xl">
+                                <h4 class="font-bold text-indigo-900 mb-4">Explore Project</h4>
+                                <div class="space-y-3">
+                                    <a href="https://drive.google.com/drive/folders/1JNV5QJJRDlxFinc4hyeJIjzF9uAmS1fv" target="_blank" class="flex items-center justify-center gap-2 w-full bg-indigo-600 text-white py-3 rounded-xl font-bold hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-100">
+                                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z"/></svg>
+                                        Full Case Study
+                                    </a>
+                                    <a href="https://prototype-aaron-product.lovable.app/" target="_blank" class="flex items-center justify-center gap-2 w-full bg-white border border-indigo-200 text-indigo-600 py-3 rounded-xl font-bold hover:bg-indigo-50 transition-all">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"/></svg>
+                                        Live Prototype
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="p-6 border border-slate-100 rounded-3xl">
+                                <h5 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">Tools Used</h5>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-slate-100 px-3 py-1 rounded-md text-[10px] font-bold text-slate-600">FIGMA</span>
+                                    <span class="bg-slate-100 px-3 py-1 rounded-md text-[10px] font-bold text-slate-600">RICE FRAMEWORK</span>
+                                    <span class="bg-slate-100 px-3 py-1 rounded-md text-[10px] font-bold text-slate-600">USER JOURNEY MAPPING</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-slate-900 text-white">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <h3 class="text-3xl md:text-4xl font-bold mb-4 uppercase tracking-tighter">Thanks for taking the time to explore.</h3>
+            <p class="text-slate-400 mb-10 text-lg">This is just the beginning; more to come.</p>
+            <div class="flex flex-col md:flex-row items-center justify-center gap-8">
+                <a href="mailto:Aaronbnzn@gmail.com" class="text-xl font-bold hover:text-indigo-400 transition-colors">Aaronbnzn@gmail.com</a>
+                <span class="hidden md:inline text-slate-700">|</span>
+                <a href="https://linkedin.com/in/aaron-benzion-27202a201" target="_blank" class="text-xl font-bold hover:text-indigo-400 transition-colors uppercase tracking-widest text-sm">LinkedIn</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function openProject(projectId) {
+            const modal = document.getElementById(projectId + '-modal');
+            if (modal) {
+                modal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeProject(projectId) {
+            const modal = document.getElementById(projectId + '-modal');
+            if (modal) {
+                modal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                const modals = document.querySelectorAll('[id$="-modal"]');
+                modals.forEach(modal => modal.classList.add('hidden'));
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
+</body>
+</html>
