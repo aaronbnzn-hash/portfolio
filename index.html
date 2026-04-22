@@ -1,4 +1,4 @@
- html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,13 +13,19 @@
             --accent-blue: #3b82f6;
             --glass: rgba(255, 255, 255, 0.03);
             --glass-border: rgba(255, 255, 255, 0.1);
+            --body-bg: #0a0514;
         }
 
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--bg-deep);
+            background-color: var(--body-bg);
             color: #ffffff;
             scroll-behavior: smooth;
+            transition: background-color 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body.blackout {
+            background-color: #000000 !important;
         }
 
         .glow-mesh {
@@ -32,25 +38,26 @@
             background: 
                 radial-gradient(circle at 20% 30%, rgba(147, 51, 234, 0.12) 0%, transparent 40%),
                 radial-gradient(circle at 80% 70%, rgba(59, 130, 246, 0.12) 0%, transparent 40%);
+            transition: opacity 0.8s ease;
         }
 
-        .glass-card {
-            background: var(--glass);
-            backdrop-filter: blur(12px);
-            border: 1px solid var(--glass-border);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        body.blackout .glow-mesh {
+            opacity: 0;
         }
 
-        .glass-card:hover {
-            border-color: rgba(147, 51, 234, 0.4);
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        /* HEADLINE ANIMATIONS */
+        @keyframes gloss {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
         }
 
         .hero-gradient {
-            background: linear-gradient(135deg, #fff 0%, #a78bfa 100%);
+            background: linear-gradient(135deg, #fff 0%, #a78bfa 50%, #fff 100%);
+            background-size: 200% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            display: inline-block;
+            animation: gloss 8s linear infinite;
         }
 
         .nav-blur {
@@ -75,12 +82,264 @@
             box-shadow: 0 0 20px rgba(147, 51, 234, 0.4);
         }
 
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
+        .glass-card {
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        .float-anim { animation: float 5s ease-in-out infinite; }
+
+        /* --- STABILIZED DEEP SPACE ORBIT --- */
+        .galaxy-section {
+            position: relative;
+            padding: 140px 0;
+            overflow: hidden;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            background: black;
+        }
+
+        .starfield-layer {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+
+        .stars-distant {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(1px 1px at 10% 10%, #fff, rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 50% 50%, #fff, rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 90% 90%, #fff, rgba(0,0,0,0));
+            background-size: 200px 200px;
+            opacity: 0.2;
+        }
+
+        .stars-medium {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(1.5px 1.5px at 20% 30%, #fff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 70% 80%, #a78bfa, rgba(0,0,0,0)),
+                radial-gradient(1.5px 1.5px at 40% 40%, #fff, rgba(0,0,0,0));
+            background-size: 400px 400px;
+            animation: pulseStars 6s infinite ease-in-out alternate;
+            opacity: 0.5;
+        }
+
+        @keyframes pulseStars {
+            0% { opacity: 0.3; transform: scale(1); }
+            100% { opacity: 0.7; transform: scale(1.05); }
+        }
+
+        .nebula-cloud {
+            position: absolute;
+            width: 800px;
+            height: 800px;
+            border-radius: 50%;
+            filter: blur(100px);
+            z-index: 1;
+            opacity: 0.15;
+            mix-blend-mode: screen;
+            pointer-events: none;
+        }
+        .nebula-1 { top: -200px; left: -200px; background: radial-gradient(circle, var(--accent-purple), transparent 70%); }
+        .nebula-2 { bottom: -200px; right: -200px; background: radial-gradient(circle, var(--accent-blue), transparent 70%); }
+
+        .shooting-stars-container {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .comet {
+            position: absolute;
+            height: 2px;
+            background: linear-gradient(-90deg, #fff, rgba(255, 255, 255, 0));
+            border-radius: 999px;
+            filter: drop-shadow(0 0 10px #fff);
+            animation: fallDiagonal 5s ease-in-out infinite;
+            width: 0;
+            opacity: 0;
+        }
+
+        @keyframes fallDiagonal {
+            0% { width: 0; transform: translate(100vw, -20vh) rotate(225deg); opacity: 0; }
+            10% { width: 200px; opacity: 1; }
+            30% { width: 0; transform: translate(30vw, 50vh) rotate(225deg); opacity: 0; }
+            100% { width: 0; transform: translate(30vw, 50vh) rotate(225deg); opacity: 0; }
+        }
+
+        .comet:nth-child(1) { top: 0%; right: 10%; animation-delay: 0s; }
+        .comet:nth-child(2) { top: 20%; right: -10%; animation-delay: 4s; animation-duration: 7s; }
+        .comet:nth-child(3) { top: -10%; right: 40%; animation-delay: 2.5s; animation-duration: 6s; }
+        .comet:nth-child(4) { top: 15%; right: 25%; animation-delay: 9s; }
+
+        .orbit-stage {
+            position: relative;
+            width: 100%;
+            height: 650px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: visible;
+            z-index: 5;
+        }
+
+        .orbit-stage.is-paused .planet-node {
+            animation-play-state: paused !important;
+        }
+
+        .core-star-aj {
+            position: absolute;
+            width: 90px;
+            height: 90px;
+            background: radial-gradient(circle, #fff 0%, #9333ea 50%, #3b82f6 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            color: white;
+            box-shadow: 0 0 80px rgba(147, 51, 234, 1), 0 0 160px rgba(59, 130, 246, 0.4);
+            z-index: 50;
+            font-size: 1.5rem;
+            letter-spacing: -1px;
+        }
+
+        .ring-path-visual {
+            position: absolute;
+            border-radius: 50%;
+            border: 1px dashed rgba(255, 255, 255, 0.12);
+            pointer-events: none;
+            transform: scaleY(0.35);
+        }
+        .v-ring-1 { width: 320px; height: 320px; border-style: solid; opacity: 0.3; }
+        .v-ring-2 { width: 550px; height: 550px; }
+        .v-ring-3 { width: 850px; height: 850px; border-style: dotted; }
+
+        @keyframes orbitAnim {
+            0%   { transform: translate(var(--rx), 0px) scale(var(--sc-front)); z-index: 100; opacity: 1; filter: blur(0); }
+            25%  { transform: translate(0px, var(--ry)) scale(1.1); z-index: 100; opacity: 1; }
+            50%  { transform: translate(calc(-1 * var(--rx)), 0px) scale(var(--sc-back)); z-index: 10; opacity: 0.5; filter: blur(1px); }
+            75%  { transform: translate(0px, calc(-1 * var(--ry))) scale(0.85); z-index: 10; opacity: 0.5; }
+            100% { transform: translate(var(--rx), 0px) scale(var(--sc-front)); z-index: 100; opacity: 1; filter: blur(0); }
+        }
+
+        .planet-node {
+            position: absolute;
+            animation: orbitAnim var(--dur) linear infinite;
+            animation-delay: var(--delay);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .node-capsule {
+            background: #000;
+            border: 1.8px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,1);
+            transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        .inner-skill-planet .node-capsule {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            color: #a78bfa;
+        }
+
+        .inner-skill-planet:hover .node-capsule {
+            width: auto;
+            padding: 0 18px;
+            border-radius: 30px;
+            background: var(--accent-purple);
+            color: white;
+            border-color: white;
+            transform: scale(1.15);
+        }
+
+        .label-popup {
+            display: none;
+            font-size: 0.65rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-left: 10px;
+            white-space: nowrap;
+        }
+        .inner-skill-planet:hover .label-popup { display: inline-block; }
+
+        .outer-tech-planet .node-capsule {
+            width: 70px;
+            height: 70px;
+            border-radius: 20px;
+            cursor: pointer;
+            flex-direction: column;
+            padding: 12px;
+        }
+
+        .outer-tech-planet:hover .node-capsule {
+            width: 200px;
+            height: auto;
+            min-height: 110px;
+            padding: 24px;
+            background: #0a0510;
+            border-color: var(--accent-purple);
+            box-shadow: 0 0 50px rgba(147, 51, 234, 0.6);
+            transform: translateY(-25px);
+        }
+
+        .main-icon-svg {
+            width: 32px;
+            height: 32px;
+            stroke-width: 2.2;
+            transition: all 0.3s ease;
+        }
+        .outer-tech-planet:hover .main-icon-svg {
+            width: 22px;
+            height: 22px;
+            margin-bottom: 12px;
+        }
+
+        .grid-reveal {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            width: 100%;
+            transition: all 0.4s ease;
+        }
+
+        .outer-tech-planet:hover .grid-reveal {
+            max-height: 180px;
+            opacity: 1;
+        }
+
+        .badge-mini {
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding: 5px 8px;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 6px;
+            text-align: center;
+            color: #eee;
+        }
+
+        @media (max-width: 768px) {
+            .orbit-stage { height: 450px; }
+            .v-ring-1 { width: 260px; height: 260px; }
+            .v-ring-2 { width: 440px; height: 440px; }
+            .outer-tech-planet:hover .node-capsule { width: 150px; }
+        }
     </style>
 </head>
 <body class="overflow-x-hidden">
@@ -90,11 +349,11 @@
     <!-- Navigation -->
     <nav class="fixed w-full z-50 top-0 nav-blur">
         <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
-            <span class="text-2xl font-extrabold tracking-tighter">AARON<span class="text-purple-500 text-3xl">.</span>JOHN</span>
+            <span class="text-2xl font-extrabold tracking-tighter uppercase">Aaron<span class="text-purple-500 text-3xl">.</span>John</span>
             <div class="hidden md:flex space-x-10 text-sm font-medium text-slate-400">
                 <a href="#about" class="hover:text-white transition-colors">Background</a>
                 <a href="#projects" class="hover:text-white transition-colors">Portfolio</a>
-                <a href="#skills" class="hover:text-white transition-colors">Skills</a>
+                <a href="#tech-stack" class="hover:text-white transition-colors">Skills</a>
                 <a href="#contact" class="hover:text-white transition-colors">Connect</a>
             </div>
             <a href="mailto:aaronbnzn@gmail.com" class="btn-primary text-white px-6 py-2.5 rounded-full text-sm font-bold shadow-lg">
@@ -114,25 +373,32 @@
                     </span>
                     Product-Focused Professional
                 </div>
-                <h1 class="text-6xl md:text-7xl font-extrabold mb-8 leading-[0.9] hero-gradient">
-                    Insights Driven. <br/>Strategy Focused.
+                <h1 class="text-6xl md:text-7xl font-extrabold mb-8 leading-[1.3] pb-6">
+                    <span class="hero-gradient">Product Strategy</span><br/>
+                    <span class="hero-gradient">& Execution.</span>
                 </h1>
                 <p class="text-xl text-slate-400 mb-10 leading-relaxed max-w-xl mx-auto md:mx-0">
-                    With 2 years of experience in high-value portfolio strategy and market research, I bridge business logic with AI-powered user experiences. 
+                    I think in systems, not silos.<br/>
+                    Connecting business goals, user needs, and execution.<br/>
+                    Leveraging AI to move faster from insight to outcome.
                 </p>
                 <div class="flex flex-wrap justify-center md:justify-start gap-4">
                     <a href="#projects" class="btn-primary px-10 py-4 rounded-2xl font-bold shadow-xl">View Case Studies</a>
-                    <a href="https://linkedin.com/in/aaron-benzion-27202a201" target="_blank" class="px-10 py-4 rounded-2xl font-bold bg-white/5 border border-white/10 hover:bg-white/10 transition-all">
-                        LinkedIn
+                    <a href="mailto:aaronbnzn@gmail.com" class="px-10 py-4 rounded-2xl font-bold bg-white/5 border border-white/10 hover:bg-white/10 transition-all">
+                        Let's Talk
                     </a>
                 </div>
             </div>
             <div class="w-full md:w-2/5 flex justify-center">
-                <div class="relative float-anim">
+                <div class="relative">
                     <div class="absolute -inset-4 bg-gradient-to-tr from-purple-600 to-blue-600 rounded-full blur-3xl opacity-20"></div>
-                    <div class="w-72 h-72 md:w-80 md:h-80 rounded-[40px] glass-card overflow-hidden flex items-center justify-center relative z-10">
-                        <span class="text-8xl font-black opacity-10">AJ</span>
-                        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-purple-900/30"></div>
+                    <!-- PERSONALIZED HERO IMAGE -->
+                    <div class="w-72 h-72 md:w-80 md:h-80 rounded-[40px] glass-card overflow-hidden flex items-center justify-center relative z-10 border border-white/20">
+                        <img src="WhatsApp Image 2026-04-09 at 22.12.51.jpeg" 
+                             alt="Aaron John" 
+                             class="w-full h-full object-cover block"
+                             onerror="this.src='https://via.placeholder.com/400x400?text=Aaron+John'">
+                        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-purple-900/10 pointer-events-none"></div>
                     </div>
                 </div>
             </div>
@@ -161,233 +427,331 @@
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="py-32 px-6">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-indigo-500 font-bold uppercase tracking-widest text-xs mb-6">Professional Background</h2>
-            <div class="space-y-10">
-                <p class="text-2xl md:text-3xl font-medium leading-snug">
-                    I currently lead <span class="text-white">Client Strategy at Axis Bank</span>, managing high-value portfolios and driving insight-led growth. My transition into Product Management is fueled by my experience in <span class="text-purple-400">customer discovery, data-backed strategy, and AI-led optimization.</span>
-                </p>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-slate-400 text-lg leading-relaxed">
-                    <p>
-                        From managing ₹44.4 Cr in transactions to conducting on-ground consumer research for Amul Organic, I have consistently focused on translating user pain points into structured business solutions.
-                    </p>
-                    <p>
-                        I hold an MBA in Marketing and a BA in Economics, providing me with a unique perspective on behavioral triggers and market dynamics that drive product success.
-                    </p>
+    <!-- IMMERSIVE GALAXY SKILLS ✨ -->
+    <section id="tech-stack" class="galaxy-section">
+        <div class="starfield-layer stars-distant"></div>
+        <div class="starfield-layer stars-medium"></div>
+        <div class="nebula-cloud nebula-1"></div>
+        <div class="nebula-cloud nebula-2"></div>
+        
+        <div class="shooting-stars-container">
+            <div class="comet"></div>
+            <div class="comet"></div>
+            <div class="comet"></div>
+            <div class="comet"></div>
+        </div>
+        
+        <div class="max-w-6xl mx-auto text-center z-20 relative">
+            <h2 class="text-xs font-bold uppercase tracking-[1.5em] text-slate-500 mb-2">SKILLS</h2>
+        </div>
+
+        <div id="orbit-stage" class="orbit-stage">
+            <div class="core-star-aj">AJ</div>
+
+            <div class="ring-path-visual v-ring-1"></div>
+            <div class="ring-path-visual v-ring-2"></div>
+            <div class="ring-path-visual v-ring-3"></div>
+
+            <!-- INNER ORBIT: 8 SOFT SKILLS -->
+            <div class="planet-node inner-skill-planet" style="--rx: 160px; --ry: 56px; --dur: 40s; --delay: 0s; --sc-front: 1.1; --sc-back: 0.85;">
+                <div class="node-capsule"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg><span class="label-popup">Customer Empathy</span></div>
+            </div>
+            <div class="planet-node inner-skill-planet" style="--rx: 160px; --ry: 56px; --dur: 40s; --delay: -5s; --sc-front: 1.1; --sc-back: 0.85;">
+                <div class="node-capsule"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg><span class="label-popup">Strategic Thinking</span></div>
+            </div>
+            <div class="planet-node inner-skill-planet" style="--rx: 160px; --ry: 56px; --dur: 40s; --delay: -10s; --sc-front: 1.1; --sc-back: 0.85;">
+                <div class="node-capsule"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg><span class="label-popup">Problem Solving</span></div>
+            </div>
+            <div class="planet-node inner-skill-planet" style="--rx: 160px; --ry: 56px; --dur: 40s; --delay: -15s; --sc-front: 1.1; --sc-back: 0.85;">
+                <div class="node-capsule"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg><span class="label-popup">Decision Making</span></div>
+            </div>
+            <div class="planet-node inner-skill-planet" style="--rx: 160px; --ry: 56px; --dur: 40s; --delay: -20s; --sc-front: 1.1; --sc-back: 0.85;">
+                <div class="node-capsule"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg><span class="label-popup">Collaboration</span></div>
+            </div>
+            <div class="planet-node inner-skill-planet" style="--rx: 160px; --ry: 56px; --dur: 40s; --delay: -25s; --sc-front: 1.1; --sc-back: 0.85;">
+                <div class="node-capsule"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg><span class="label-popup">Stakeholders</span></div>
+            </div>
+            <div class="planet-node inner-skill-planet" style="--rx: 160px; --ry: 56px; --dur: 40s; --delay: -30s; --sc-front: 1.1; --sc-back: 0.85;">
+                <div class="node-capsule"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg><span class="label-popup">Ownership</span></div>
+            </div>
+            <div class="planet-node inner-skill-planet" style="--rx: 160px; --ry: 56px; --dur: 40s; --delay: -35s; --sc-front: 1.1; --sc-back: 0.85;">
+                <div class="node-capsule"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg><span class="label-popup">Execution</span></div>
+            </div>
+
+            <!-- OUTER ORBIT: 4 TECH CATEGORIES -->
+            <div class="planet-node outer-tech-planet" style="--rx: 275px; --ry: 96px; --dur: 80s; --delay: 0s; --sc-front: 1.05; --sc-back: 0.8;">
+                <div class="node-capsule">
+                    <svg class="main-icon-svg" fill="none" stroke="#10b981" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7V4a2 2 0 012-2h12a2 2 0 012 2v3M4 17v3a2 2 0 002 2h12a2 2 0 002-2v-3M9 12h6M12 9v6"></path></svg>
+                    <div class="grid-reveal">
+                        <span class="badge-mini">Figma</span><span class="badge-mini">Make</span>
+                        <span class="badge-mini">Canva</span><span class="badge-mini">Sketch</span>
+                    </div>
+                </div>
+            </div>
+            <div class="planet-node outer-tech-planet" style="--rx: 275px; --ry: 96px; --dur: 80s; --delay: -20s; --sc-front: 1.05; --sc-back: 0.8;">
+                <div class="node-capsule">
+                    <svg class="main-icon-svg" fill="none" stroke="#8b5cf6" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2L14.8 9.2L22 12L14.8 14.8L12 22L9.2 14.8L2 12L9.2 9.2L12 2Z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 4l1 2 2 1-2 1-1 2-1-2-2-1 2-1z"></path></svg>
+                    <div class="grid-reveal">
+                        <span class="badge-mini">Gemini</span><span class="badge-mini">Lovable</span>
+                        <span class="badge-mini">GPT-4</span><span class="badge-mini">Claude</span>
+                    </div>
+                </div>
+            </div>
+            <div class="planet-node outer-tech-planet" style="--rx: 275px; --ry: 96px; --dur: 80s; --delay: -40s; --sc-front: 1.05; --sc-back: 0.8;">
+                <div class="node-capsule">
+                    <svg class="main-icon-svg" fill="none" stroke="#3b82f6" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3C7.5 3 4 4.8 4 7s3.5 4 8 4 8-1.8 8-4-3.5-4-8-4z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.2 3.6 4 8 4s8-1.8 8-4V7M4 12c0 2.2 3.6 4 8 4s8-1.8 8-4"></path></svg>
+                    <div class="grid-reveal">
+                        <span class="badge-mini">SQL</span><span class="badge-mini">Sheets</span>
+                        <span class="badge-mini">Analytics</span><span class="badge-mini">Forms</span>
+                    </div>
+                </div>
+            </div>
+            <div class="planet-node outer-tech-planet" style="--rx: 275px; --ry: 96px; --dur: 80s; --delay: -60s; --sc-front: 1.05; --sc-back: 0.8;">
+                <div class="node-capsule">
+                    <svg class="main-icon-svg" fill="none" stroke="#ec4899" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                    <div class="grid-reveal">
+                        <span class="badge-mini">Loom</span><span class="badge-mini">Slides</span>
+                        <span class="badge-mini">PPT</span><span class="badge-mini">Notion</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="py-20 px-6">
-        <div class="max-w-6xl mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+    <!-- Professional Background Section -->
+    <section id="about" class="py-32 px-6">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-indigo-500 font-bold uppercase tracking-widest text-xs mb-8">Professional Background</h2>
+            <div class="space-y-16">
                 <div>
-                    <h2 class="text-5xl font-bold mb-4">Portfolio <span class="text-purple-500">Case Studies</span></h2>
-                    <p class="text-slate-400 text-lg max-w-xl">Connecting user insights, business goals, and execution.</p>
+                    <p class="text-2xl md:text-3xl font-medium leading-relaxed text-slate-200">
+                        I led Client Strategy at <span class="text-white font-bold">Axis Bank</span>, driving <span class="text-white font-bold">₹32Cr+</span> in portfolio growth through insight-led decisions and structured execution.
+                        Today, I focus on <span class="text-white font-bold">Product</span>, connecting business goals, user needs, and execution.
+                        Leveraging AI and data to turn insights into outcomes that actually work.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 text-slate-400 text-lg leading-relaxed pt-12 border-t border-white/5">
+                    <div>
+                        <p>With an <span class="text-slate-200 font-medium">MBA in Marketing</span> and a BA in Economics, I specialize in connecting user insights with business goals. My experience spans market research and business banking, giving me exposure to users, data, and complex business decisions.</p>
+                    </div>
+                    <div>
+                        <p>From <span class="text-slate-200 font-medium">on-ground consumer research at Amul</span> to managing high-value clients at Axis Bank, I’ve worked closely with customer discovery and process improvement.</p>
+                    </div>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <div class="grid grid-cols-1 gap-12">
-                
-                <!-- Project: Lenskart -->
-                <div class="glass-card rounded-[40px] overflow-hidden group">
-                    <div class="flex flex-col lg:flex-row">
-                        <div class="lg:w-1/2 h-[450px] relative overflow-hidden bg-slate-900">
-                             <div class="absolute inset-0 bg-gradient-to-tr from-purple-900/50 to-blue-900/50 opacity-40"></div>
-                             <div class="absolute inset-0 flex items-center justify-center">
-                                 <span class="text-6xl font-black text-white/5 uppercase tracking-tighter group-hover:scale-110 transition-transform duration-700">Engagement</span>
-                             </div>
-                        </div>
-                        <div class="lg:w-1/2 p-10 md:p-16 flex flex-col justify-center">
-                            <div class="text-purple-500 font-bold uppercase tracking-widest text-xs mb-4">Engagement Framework</div>
-                            <h3 class="text-4xl font-bold mb-6">Lenskart: Reimagining Post-Purchase Interaction</h3>
-                            <p class="text-slate-400 text-lg mb-8 leading-relaxed">
-                                Designing a data-backed engagement model using AI tools to shift Lenskart from a transactional eyewear store to a habitual eye-care companion.
-                            </p>
-                            <div class="flex flex-wrap gap-3 mb-10">
-                                <span class="px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs text-white/60">Retention</span>
-                                <span class="px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs text-white/60">Omnichannel</span>
-                                <span class="px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs text-white/60">RICE Prioritization</span>
-                            </div>
-                            <button onclick="openProject('lenskart')" class="inline-flex items-center gap-2 font-bold text-white hover:text-purple-400 transition-all group/link">
-                                EXPLORE DEEP DIVE 
-                                <svg class="w-5 h-5 group-hover/link:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+    <!-- MULTI-PROJECT PORTFOLIO GRID -->
+    <section id="projects" class="py-20 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="mb-20">
+                <h2 class="text-5xl font-bold mb-4">Portfolio <span class="text-purple-500">Case Studies</span></h2>
+                <p class="text-slate-400 text-lg max-w-xl">Connecting user insights, business goals, and execution across high-impact projects.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Lenskart -->
+                <div class="glass-card rounded-[32px] overflow-hidden group flex flex-col h-full">
+                    <div class="h-56 relative overflow-hidden bg-slate-900 border-b border-white/10">
+                         <img src="https://images.unsplash.com/photo-1591076482161-42ce6da69f67?auto=format&fit=crop&q=80&w=1200" 
+                              alt="Lenskart Project" 
+                              class="w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700">
+                         <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-60"></div>
+                         <div class="absolute bottom-4 left-6">
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-purple-400 bg-purple-500/10 px-2 py-1 rounded">Growth</span>
+                         </div>
+                    </div>
+                    <div class="p-8 flex flex-col flex-grow">
+                        <h3 class="text-2xl font-bold mb-4 group-hover:text-purple-400 transition-colors">Lenskart Engagement</h3>
+                        <p class="text-slate-400 text-sm mb-8 leading-relaxed">Reframing engagement loops to shift from transactional store to eye-care companion.</p>
+                        <div class="mt-auto">
+                            <button onclick="openProject('lenskart')" class="inline-flex items-center gap-2 text-xs font-bold text-white uppercase tracking-widest hover:text-purple-400 transition-all group/link">
+                                View Deep Dive 
+                                <svg class="w-4 h-4 group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                             </button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Secondary Projects -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Project: Amul -->
-                    <div class="glass-card p-8 rounded-[32px] group">
-                        <div class="h-48 rounded-2xl bg-slate-900/50 mb-8 flex items-center justify-center overflow-hidden border border-white/5">
-                            <span class="text-white/5 font-black text-2xl uppercase tracking-widest">Market Strategy</span>
-                        </div>
-                        <h4 class="text-2xl font-bold mb-4">Amul Organic Strategy</h4>
-                        <p class="text-slate-500 text-sm leading-relaxed mb-6">Conducted research on consumer demand and retailer adoption for positioning in the premium organic segment.</p>
-                        <span class="text-xs font-bold text-slate-700 uppercase tracking-widest">Research Case Study</span>
+                <!-- Axis Bank -->
+                <div class="glass-card rounded-[32px] overflow-hidden group flex flex-col h-full">
+                    <div class="h-56 relative overflow-hidden bg-slate-900 border-b border-white/10">
+                         <img src="https://images.unsplash.com/photo-1611974714851-eb605161ca81?auto=format&fit=crop&q=80&w=1200" 
+                              alt="Axis Bank Growth" 
+                              class="w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700">
+                         <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-60"></div>
+                         <div class="absolute bottom-4 left-6">
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-blue-400 bg-blue-500/10 px-2 py-1 rounded">Strategy</span>
+                         </div>
                     </div>
-
-                    <!-- Project: MealBud -->
-                    <div class="glass-card p-8 rounded-[32px] group">
-                        <div class="h-48 rounded-2xl bg-slate-900/50 mb-8 flex items-center justify-center overflow-hidden border border-white/5">
-                            <span class="text-white/5 font-black text-2xl uppercase tracking-widest">AI UX</span>
+                    <div class="p-8 flex flex-col flex-grow">
+                        <h3 class="text-2xl font-bold mb-4 group-hover:text-blue-400 transition-colors">Axis Bank Strategy</h3>
+                        <p class="text-slate-400 text-sm mb-8 leading-relaxed">Driving ₹32Cr+ growth through data mapping and retention frameworks.</p>
+                        <div class="mt-auto">
+                            <a href="#contact" class="inline-flex items-center gap-2 text-xs font-bold text-white uppercase tracking-widest hover:text-blue-400 transition-all group/link">
+                                Discuss Results
+                                <svg class="w-4 h-4 group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                            </a>
                         </div>
-                        <h4 class="text-2xl font-bold mb-4">MealBud: Planning</h4>
-                        <p class="text-slate-500 text-sm leading-relaxed mb-6">Reducing decision fatigue via smart ingredient recommendations and time-based meal optimization.</p>
-                        <span class="text-xs font-bold text-slate-700 uppercase tracking-widest">Prototype Complete</span>
                     </div>
+                </div>
 
-                    <!-- Project: VivaFit -->
-                    <div class="glass-card p-8 rounded-[32px] group">
-                        <div class="h-48 rounded-2xl bg-slate-900/50 mb-8 flex items-center justify-center overflow-hidden border border-white/5">
-                            <span class="text-white/5 font-black text-2xl uppercase tracking-widest">Retention</span>
+                <!-- Amul -->
+                <div class="glass-card rounded-[32px] overflow-hidden group flex flex-col h-full">
+                    <div class="h-56 relative overflow-hidden bg-slate-900 border-b border-white/10">
+                         <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200" 
+                              alt="Amul Discovery" 
+                              class="w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700">
+                         <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-60"></div>
+                         <div class="absolute bottom-4 left-6">
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-emerald-400 bg-emerald-500/10 px-2 py-1 rounded">Insight</span>
+                         </div>
+                    </div>
+                    <div class="p-8 flex flex-col flex-grow">
+                        <h3 class="text-2xl font-bold mb-4 group-hover:text-emerald-400 transition-colors">Consumer Discovery</h3>
+                        <p class="text-slate-400 text-sm mb-8 leading-relaxed">On-ground research identifying friction points in new product lines.</p>
+                        <div class="mt-auto">
+                            <a href="#contact" class="inline-flex items-center gap-2 text-xs font-bold text-white uppercase tracking-widest hover:text-emerald-400 transition-all group/link">
+                                Review Process
+                                <svg class="w-4 h-4 group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                            </a>
                         </div>
-                        <h4 class="text-2xl font-bold mb-4">VivaFit: Engagement</h4>
-                        <p class="text-slate-500 text-sm leading-relaxed mb-6">Solving motivation drop-off via community-led loops and skill-based fitness engagement frameworks.</p>
-                        <span class="text-xs font-bold text-slate-700 uppercase tracking-widest">UX Case Study</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Modal System: Lenskart -->
-    <div id="lenskart-modal" class="fixed inset-0 z-[100] hidden overflow-y-auto bg-slate-950/95 backdrop-blur-xl p-4 md:p-8">
-        <div class="max-w-5xl mx-auto glass-card rounded-[40px] overflow-hidden border-white/10 shadow-3xl">
-            <!-- Modal Header -->
-            <div class="sticky top-0 p-8 flex justify-between items-center bg-slate-900/80 backdrop-blur-md border-b border-white/10 z-10">
+    <!-- Footer -->
+    <footer id="contact" class="py-40 px-6 text-center">
+        <div class="flex flex-col md:flex-row justify-center gap-12 items-center mb-40">
+            <div><p class="text-slate-500 uppercase text-[10px] font-bold mb-2">Direct Channel</p><a href="mailto:aaronbnzn@gmail.com" class="text-2xl font-bold hover:text-purple-400 transition-colors">aaronbnzn@gmail.com</a></div>
+            <div><p class="text-slate-500 uppercase text-[10px] font-bold mb-2">Professional Network</p><a href="https://linkedin.com/in/aaron-benzion-27202a201" target="_blank" class="text-2xl font-bold hover:text-blue-400 transition-colors">LinkedIn</a></div>
+        </div>
+        <div class="mt-40 pt-10 pb-16 border-t border-white/5 text-slate-500 text-sm font-medium">
+            Aaron John Portfolio
+        </div>
+    </footer>
+
+    <!-- LENSKART MODAL WITH STRUCTURED CONTENT & PROTOTYPE LINK -->
+    <div id="lenskart-modal" class="fixed inset-0 z-[100] hidden overflow-y-auto bg-slate-950/98 backdrop-blur-2xl p-4 md:p-8">
+        <div class="max-w-4xl mx-auto glass-card rounded-[40px] overflow-hidden border-white/10 shadow-4xl my-8">
+            <div class="sticky top-0 p-8 flex justify-between items-center bg-slate-900/90 backdrop-blur-md border-b border-white/10 z-10">
                 <div>
-                    <h2 class="text-2xl md:text-3xl font-extrabold hero-gradient">Lenskart: Beyond the Transaction</h2>
-                    <p class="text-slate-500 text-xs mt-1 uppercase tracking-widest font-bold">Strategy & Design Deep Dive</p>
+                    <h2 class="text-2xl md:text-3xl font-extrabold hero-gradient">Lenskart: Deep Dive</h2>
+                    <p class="text-slate-500 text-xs uppercase tracking-widest mt-1">From Eyewear to Eye-Care Strategy</p>
                 </div>
-                <button onclick="closeProject('lenskart')" class="w-10 h-10 flex items-center justify-center rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-all">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                <button onclick="closeProject('lenskart')" class="w-10 h-10 flex items-center justify-center rounded-full bg-white/5 border border-white/10 hover:bg-white/20 transition-all">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
                 </button>
             </div>
-
-            <div class="p-8 md:p-14">
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-16">
-                    <div class="lg:col-span-2 space-y-12">
-                        <section>
-                            <h3 class="text-lg font-bold mb-4 text-purple-400 uppercase tracking-wider">The Problem Statement</h3>
-                            <p class="text-slate-300 text-lg leading-relaxed">
-                                Lenskart users have high trust during transactions but fail to see value in the app post-purchase. This leads to a massive drop-off in Monthly Active Users (MAU) once the glasses are delivered. My project focuses on increasing non-transactional MAU from 25% to 50%.
-                            </p>
-                        </section>
-
-                        <section>
-                            <h3 class="text-lg font-bold mb-6 text-purple-400 uppercase tracking-wider">Key Research Findings</h3>
-                            <div class="grid grid-cols-2 gap-4 mb-8">
-                                <div class="p-5 rounded-2xl bg-white/5 border border-white/5">
-                                    <div class="text-2xl font-bold text-white">35+</div>
-                                    <div class="text-[10px] text-slate-500 uppercase tracking-widest mt-1">Survey Participants</div>
-                                </div>
-                                <div class="p-5 rounded-2xl bg-white/5 border border-white/5">
-                                    <div class="text-2xl font-bold text-white">5</div>
-                                    <div class="text-[10px] text-slate-500 uppercase tracking-widest mt-1">In-Depth Interviews</div>
-                                </div>
-                            </div>
-                            <ul class="space-y-4 text-slate-400">
-                                <li class="flex gap-3"><span class="text-purple-500 font-bold">•</span> Identified core drop-offs through journey mapping of post-purchase states.</li>
-                                <li class="flex gap-3"><span class="text-purple-500 font-bold">•</span> Discovered a "value gap" between offline store visits and app functionality.</li>
-                            </ul>
-                        </section>
-
-                        <section>
-                            <h3 class="text-lg font-bold mb-6 text-purple-400 uppercase tracking-wider">Solution Framework</h3>
-                            <div class="space-y-6">
-                                <div class="p-6 rounded-3xl bg-gradient-to-r from-purple-500/5 to-transparent border border-purple-500/20">
-                                    <h4 class="font-bold text-white mb-2">Omnichannel Continuity</h4>
-                                    <p class="text-slate-400 text-sm">Linking store eye-check results and trial data directly to the user profile to build a digital eye-care vault.</p>
-                                </div>
-                                <div class="p-6 rounded-3xl bg-gradient-to-r from-blue-500/5 to-transparent border border-blue-500/20">
-                                    <h4 class="font-bold text-white mb-2">Expert Eye-Care Content</h4>
-                                    <p class="text-slate-400 text-sm">Habit-building through AI-personalized content and community triggers related to visual wellness.</p>
-                                </div>
-                            </div>
-                        </section>
+            
+            <div class="p-8 md:p-12 space-y-12">
+                <!-- PART 1: RESEARCH CONTENTS -->
+                <section>
+                    <div class="flex items-center gap-3 mb-8">
+                        <div class="w-8 h-8 rounded-lg bg-purple-500/20 flex items-center justify-center text-purple-400 font-bold">1</div>
+                        <h3 class="text-xl font-bold text-white uppercase tracking-tight">Market & User Research Findings</h3>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-slate-300">
+                        <div class="p-6 rounded-3xl bg-white/[0.03] border border-white/5">
+                            <h4 class="text-purple-400 font-bold text-sm mb-4 uppercase">Core Problem</h4>
+                            <p class="text-sm leading-relaxed">Eyewear is a low-frequency transactional category. Once a purchase is made, app engagement drops significantly, leading to high churn between buy cycles.</p>
+                        </div>
+                        <div class="p-6 rounded-3xl bg-white/[0.03] border border-white/5">
+                            <h4 class="text-blue-400 font-bold text-sm mb-4 uppercase">Reframing the Solution</h4>
+                            <p class="text-sm leading-relaxed">Shifting perception from a one-time retailer to a continuous eye-care companion by leveraging first-party health data (prescriptions & test history).</p>
+                        </div>
                     </div>
 
-                    <!-- Sidebar Stats & Links -->
-                    <div class="space-y-10">
-                        <div class="p-8 rounded-[32px] bg-white/5 border border-white/10">
-                            <h4 class="font-bold mb-6 text-xs uppercase tracking-[0.2em] text-slate-500">Metric Targets</h4>
-                            <div class="space-y-8">
-                                <div>
-                                    <div class="text-4xl font-extrabold hero-gradient">50%</div>
-                                    <p class="text-[10px] text-slate-500 uppercase tracking-widest mt-1">Non-Transact MAU Target</p>
-                                </div>
-                                <div>
-                                    <div class="text-4xl font-extrabold hero-gradient">₹1,800</div>
-                                    <p class="text-[10px] text-slate-500 uppercase tracking-widest mt-1">Projected LTV Increase</p>
-                                </div>
+                    <div class="mt-8 space-y-4">
+                        <div class="flex gap-4 p-4 rounded-2xl hover:bg-white/5 transition-colors group">
+                            <span class="text-slate-600 font-mono text-sm">01</span>
+                            <div>
+                                <h5 class="text-white font-bold text-sm">Competitor Analysis</h5>
+                                <p class="text-slate-400 text-xs mt-1">Lenskart vs Titan Eye+: Mapping value propositions, omnichannel presence, and customer experience gaps.</p>
                             </div>
                         </div>
-
-                        <div class="flex flex-col gap-4">
-                            <a href="https://drive.google.com/drive/folders/1JNV5QJJRDlxFinc4hyeJIjzF9uAmS1fv" target="_blank" class="btn-primary w-full py-5 rounded-2xl text-center font-bold text-lg shadow-xl">
-                                Full Case Study
-                            </a>
-                            <a href="https://prototype-aaron-product.lovable.app/" target="_blank" class="w-full py-5 rounded-2xl text-center font-bold text-lg bg-white/5 border border-white/10 hover:bg-white/10 transition-all">
-                                Launch Prototype
-                            </a>
+                        <div class="flex gap-4 p-4 rounded-2xl hover:bg-white/5 transition-colors group border-t border-white/5">
+                            <span class="text-slate-600 font-mono text-sm">02</span>
+                            <div>
+                                <h5 class="text-white font-bold text-sm">User Engagement Survey</h5>
+                                <p class="text-slate-400 text-xs mt-1">Analyzing feedback from real users to identify post-purchase drop-off points and the demand for expert reassurance.</p>
+                            </div>
                         </div>
+                        <div class="flex gap-4 p-4 rounded-2xl hover:bg-white/5 transition-colors group border-t border-white/5">
+                            <span class="text-slate-600 font-mono text-sm">03</span>
+                            <div>
+                                <h5 class="text-white font-bold text-sm">Behavioral Personas</h5>
+                                <p class="text-slate-400 text-xs mt-1">Identifying high-value 'ideal brand advocates' vs 'offline-only users' to tailor retention notifications.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- PROTOTYPE SECTION -->
+                <div class="pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-6">
+                    <div class="text-center sm:text-left">
+                        <p class="text-white font-bold">Interactive User Flow</p>
+                        <p class="text-slate-500 text-xs">Explore the reimagined post-purchase engagement loops in Figma.</p>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                        <a href="https://drive.google.com/drive/folders/1JNV5QJJRDlxFinc4hyeJIjzF9uAmS1fv?usp=sharing" target="_blank" class="btn-primary px-8 py-4 rounded-2xl text-white font-bold text-sm flex items-center justify-center gap-2 group">
+                            <span>ACCESS PROTOTYPE</span>
+                            <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </a>
+                        <a href="https://drive.google.com/drive/folders/1JNV5QJJRDlxFinc4hyeJIjzF9uAmS1fv?usp=sharing" target="_blank" class="px-8 py-4 rounded-2xl bg-white/5 border border-white/10 text-white font-bold text-sm hover:bg-white/10 transition-all text-center">
+                            RESEARCH FILES
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-40 px-6">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-6xl md:text-8xl font-extrabold mb-10 hero-gradient tracking-tighter">Let's connect.</h2>
-            <div class="flex flex-col md:flex-row justify-center gap-12 items-center">
-                <div class="text-center md:text-left">
-                    <p class="text-slate-500 uppercase tracking-[0.2em] text-[10px] font-bold mb-2">Direct Channel</p>
-                    <a href="mailto:aaronbnzn@gmail.com" class="text-2xl font-bold hover:text-purple-400 transition-colors">aaronbnzn@gmail.com</a>
-                </div>
-                <div class="text-center md:text-left">
-                    <p class="text-slate-500 uppercase tracking-[0.2em] text-[10px] font-bold mb-2">Professional Network</p>
-                    <a href="https://linkedin.com/in/aaron-benzion-27202a201" target="_blank" class="text-2xl font-bold hover:text-blue-400 transition-colors">LinkedIn</a>
-                </div>
-            </div>
-            <div class="mt-40 pt-10 border-t border-white/5 text-slate-600 text-xs font-bold uppercase tracking-[0.5em]">
-                Fast Learner. AI Adaptable. Growth Focused.
-            </div>
-        </div>
-    </section>
-
     <script>
-        function openProject(projectId) {
-            const modal = document.getElementById(projectId + '-modal');
-            if (modal) {
-                modal.classList.remove('hidden');
-                document.body.style.overflow = 'hidden';
-            }
-        }
+        const observerOptions = { threshold: 0.3 };
+        const blackoutObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    document.body.classList.add('blackout');
+                } else {
+                    document.body.classList.remove('blackout');
+                }
+            });
+        }, observerOptions);
 
-        function closeProject(projectId) {
-            const modal = document.getElementById(projectId + '-modal');
-            if (modal) {
-                modal.classList.add('hidden');
-                document.body.style.overflow = 'auto';
-            }
-        }
+        const techSection = document.getElementById('tech-stack');
+        if (techSection) blackoutObserver.observe(techSection);
 
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                const modals = document.querySelectorAll('[id$="-modal"]');
-                modals.forEach(m => m.classList.add('hidden'));
-                document.body.style.overflow = 'auto';
-            }
+        const orbitStage = document.getElementById('orbit-stage');
+        const nodes = document.querySelectorAll('.planet-node');
+
+        nodes.forEach(node => {
+            node.addEventListener('mouseenter', () => {
+                orbitStage.classList.add('is-paused');
+            });
+            node.addEventListener('mouseleave', () => {
+                orbitStage.classList.remove('is-paused');
+            });
         });
+
+        function openProject(id) { 
+            const modal = document.getElementById(id + '-modal');
+            if(modal) {
+                modal.classList.remove('hidden'); 
+                document.body.style.overflow = 'hidden'; 
+            }
+        }
+        function closeProject(id) { 
+            const modal = document.getElementById(id + '-modal');
+            if(modal) {
+                modal.classList.add('hidden'); 
+                document.body.style.overflow = 'auto'; 
+            }
+        }
     </script>
 </body>
 </html>
