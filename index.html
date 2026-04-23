@@ -45,7 +45,6 @@
             opacity: 0;
         }
 
-        /* HEADLINE ANIMATIONS */
         @keyframes gloss {
             0% { background-position: -200% 0; }
             100% { background-position: 200% 0; }
@@ -65,12 +64,6 @@
             backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--glass-border);
         }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: var(--bg-deep); }
-        ::-webkit-scrollbar-thumb { background: var(--glass-border); border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: var(--accent-purple); }
 
         .btn-primary {
             background: linear-gradient(90deg, var(--accent-purple), var(--accent-blue));
@@ -174,9 +167,8 @@
         }
 
         .comet:nth-child(1) { top: 0%; right: 10%; animation-delay: 0s; }
-        .comet:nth-child(2) { top: 20%; right: -10%; animation-delay: 4s; animation-duration: 7s; }
-        .comet:nth-child(3) { top: -10%; right: 40%; animation-delay: 2.5s; animation-duration: 6s; }
-        .comet:nth-child(4) { top: 15%; right: 25%; animation-delay: 9s; }
+        .comet:nth-child(2) { top: 20%; right: -10%; animation-delay: 4s; }
+        .comet:nth-child(3) { top: -10%; right: 40%; animation-delay: 2.5s; }
 
         .orbit-stage {
             position: relative;
@@ -392,12 +384,11 @@
             <div class="w-full md:w-2/5 flex justify-center">
                 <div class="relative">
                     <div class="absolute -inset-4 bg-gradient-to-tr from-purple-600 to-blue-600 rounded-full blur-3xl opacity-20"></div>
-                    <!-- PERSONALIZED HERO IMAGE -->
                     <div class="w-72 h-72 md:w-80 md:h-80 rounded-[40px] glass-card overflow-hidden flex items-center justify-center relative z-10 border border-white/20">
                         <img src="WhatsApp Image 2026-04-09 at 22.12.51.jpeg" 
                              alt="Aaron John" 
                              class="w-full h-full object-cover block"
-                             onerror="this.src='https://via.placeholder.com/400x400?text=Aaron+John'">
+                             onerror="this.src='https://via.placeholder.com/400x400?text=AJ'">
                         <div class="absolute inset-0 bg-gradient-to-b from-transparent to-purple-900/10 pointer-events-none"></div>
                     </div>
                 </div>
@@ -438,7 +429,6 @@
             <div class="comet"></div>
             <div class="comet"></div>
             <div class="comet"></div>
-            <div class="comet"></div>
         </div>
         
         <div class="max-w-6xl mx-auto text-center z-20 relative">
@@ -452,7 +442,6 @@
             <div class="ring-path-visual v-ring-2"></div>
             <div class="ring-path-visual v-ring-3"></div>
 
-            <!-- INNER ORBIT: 8 SOFT SKILLS -->
             <div class="planet-node inner-skill-planet" style="--rx: 160px; --ry: 56px; --dur: 40s; --delay: 0s; --sc-front: 1.1; --sc-back: 0.85;">
                 <div class="node-capsule"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg><span class="label-popup">Customer Empathy</span></div>
             </div>
@@ -478,7 +467,6 @@
                 <div class="node-capsule"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg><span class="label-popup">Execution</span></div>
             </div>
 
-            <!-- OUTER ORBIT: 4 TECH CATEGORIES -->
             <div class="planet-node outer-tech-planet" style="--rx: 275px; --ry: 96px; --dur: 80s; --delay: 0s; --sc-front: 1.05; --sc-back: 0.8;">
                 <div class="node-capsule">
                     <svg class="main-icon-svg" fill="none" stroke="#10b981" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7V4a2 2 0 012-2h12a2 2 0 012 2v3M4 17v3a2 2 0 002 2h12a2 2 0 002-2v-3M9 12h6M12 9v6"></path></svg>
@@ -518,7 +506,7 @@
         </div>
     </section>
 
-    <!-- Professional Background Section -->
+    <!-- Professional Background -->
     <section id="about" class="py-32 px-6">
         <div class="max-w-4xl mx-auto">
             <h2 class="text-indigo-500 font-bold uppercase tracking-widest text-xs mb-8">Professional Background</h2>
@@ -542,79 +530,72 @@
         </div>
     </section>
 
-    <!-- MULTI-PROJECT PORTFOLIO GRID -->
+    <!-- PORTFOLIO SECTION: ORIGINAL LARGE CARDS RESTORED -->
     <section id="projects" class="py-20 px-6">
         <div class="max-w-6xl mx-auto">
             <div class="mb-20">
                 <h2 class="text-5xl font-bold mb-4">Portfolio <span class="text-purple-500">Case Studies</span></h2>
-                <p class="text-slate-400 text-lg max-w-xl">Connecting user insights, business goals, and execution across high-impact projects.</p>
+                <p class="text-slate-400 text-lg max-w-xl">Connecting user insights, business goals, and execution.</p>
             </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Lenskart -->
-                <div class="glass-card rounded-[32px] overflow-hidden group flex flex-col h-full">
-                    <div class="h-56 relative overflow-hidden bg-slate-900 border-b border-white/10">
-                         <img src="https://images.unsplash.com/photo-1591076482161-42ce6da69f67?auto=format&fit=crop&q=80&w=1200" 
-                              alt="Lenskart Project" 
-                              class="w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700">
-                         <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-60"></div>
-                         <div class="absolute bottom-4 left-6">
-                            <span class="text-[10px] font-bold uppercase tracking-widest text-purple-400 bg-purple-500/10 px-2 py-1 rounded">Growth</span>
-                         </div>
-                    </div>
-                    <div class="p-8 flex flex-col flex-grow">
-                        <h3 class="text-2xl font-bold mb-4 group-hover:text-purple-400 transition-colors">Lenskart Engagement</h3>
-                        <p class="text-slate-400 text-sm mb-8 leading-relaxed">Reframing engagement loops to shift from transactional store to eye-care companion.</p>
-                        <div class="mt-auto">
-                            <button onclick="openProject('lenskart')" class="inline-flex items-center gap-2 text-xs font-bold text-white uppercase tracking-widest hover:text-purple-400 transition-all group/link">
-                                View Deep Dive 
-                                <svg class="w-4 h-4 group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+            <div class="grid grid-cols-1 gap-16">
+                <!-- Case Study 1: Lenskart -->
+                <div class="glass-card rounded-[40px] overflow-hidden group">
+                    <div class="flex flex-col lg:flex-row">
+                        <div class="lg:w-1/2 h-[450px] relative overflow-hidden bg-slate-900 border-b lg:border-b-0 lg:border-r border-white/10">
+                             <img src="https://images.unsplash.com/photo-1591076482161-42ce6da69f67?auto=format&fit=crop&q=80&w=1200" 
+                                  alt="Lenskart Project" 
+                                  class="w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700">
+                             <div class="absolute inset-0 bg-gradient-to-tr from-purple-900/40 to-transparent"></div>
+                        </div>
+                        <div class="lg:w-1/2 p-10 md:p-16 flex flex-col justify-center">
+                            <div class="text-purple-500 font-bold uppercase tracking-widest text-xs mb-4">Engagement Framework</div>
+                            <h3 class="text-4xl font-bold mb-6">Lenskart: Engagement Strategy</h3>
+                            <p class="text-slate-400 text-lg mb-8 leading-relaxed">Designing a data-backed engagement model using AI tools to shift Lenskart from a transactional store to a habitual eye-care companion.</p>
+                            <button onclick="openProject('lenskart')" class="inline-flex items-center gap-2 font-bold text-white hover:text-purple-400 transition-all group/link">
+                                EXPLORE DEEP DIVE 
+                                <svg class="w-5 h-5 group-hover/link:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                             </button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Axis Bank -->
-                <div class="glass-card rounded-[32px] overflow-hidden group flex flex-col h-full">
-                    <div class="h-56 relative overflow-hidden bg-slate-900 border-b border-white/10">
-                         <img src="https://images.unsplash.com/photo-1611974714851-eb605161ca81?auto=format&fit=crop&q=80&w=1200" 
-                              alt="Axis Bank Growth" 
-                              class="w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700">
-                         <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-60"></div>
-                         <div class="absolute bottom-4 left-6">
-                            <span class="text-[10px] font-bold uppercase tracking-widest text-blue-400 bg-blue-500/10 px-2 py-1 rounded">Strategy</span>
-                         </div>
-                    </div>
-                    <div class="p-8 flex flex-col flex-grow">
-                        <h3 class="text-2xl font-bold mb-4 group-hover:text-blue-400 transition-colors">Axis Bank Strategy</h3>
-                        <p class="text-slate-400 text-sm mb-8 leading-relaxed">Driving ₹32Cr+ growth through data mapping and retention frameworks.</p>
-                        <div class="mt-auto">
-                            <a href="#contact" class="inline-flex items-center gap-2 text-xs font-bold text-white uppercase tracking-widest hover:text-blue-400 transition-all group/link">
-                                Discuss Results
-                                <svg class="w-4 h-4 group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                <!-- Case Study 2: Axis Bank -->
+                <div class="glass-card rounded-[40px] overflow-hidden group">
+                    <div class="flex flex-col lg:flex-row-reverse">
+                        <div class="lg:w-1/2 h-[450px] relative overflow-hidden bg-slate-900 border-b lg:border-b-0 lg:border-l border-white/10">
+                             <img src="https://images.unsplash.com/photo-1611974714851-eb605161ca81?auto=format&fit=crop&q=80&w=1200" 
+                                  alt="Axis Bank Growth" 
+                                  class="w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700">
+                             <div class="absolute inset-0 bg-gradient-to-tl from-blue-900/40 to-transparent"></div>
+                        </div>
+                        <div class="lg:w-1/2 p-10 md:p-16 flex flex-col justify-center">
+                            <div class="text-blue-500 font-bold uppercase tracking-widest text-xs mb-4">Portfolio Strategy</div>
+                            <h3 class="text-4xl font-bold mb-6">Axis Bank: ₹32Cr+ Growth</h3>
+                            <p class="text-slate-400 text-lg mb-8 leading-relaxed">Optimized client retention and portfolio cross-sell through precision data mapping and automated retention frameworks.</p>
+                            <a href="mailto:aaronbnzn@gmail.com" class="inline-flex items-center gap-2 font-bold text-white hover:text-blue-400 transition-all group/link">
+                                REQUEST DETAILS 
+                                <svg class="w-5 h-5 group-hover/link:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Amul -->
-                <div class="glass-card rounded-[32px] overflow-hidden group flex flex-col h-full">
-                    <div class="h-56 relative overflow-hidden bg-slate-900 border-b border-white/10">
-                         <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200" 
-                              alt="Amul Discovery" 
-                              class="w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700">
-                         <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-60"></div>
-                         <div class="absolute bottom-4 left-6">
-                            <span class="text-[10px] font-bold uppercase tracking-widest text-emerald-400 bg-emerald-500/10 px-2 py-1 rounded">Insight</span>
-                         </div>
-                    </div>
-                    <div class="p-8 flex flex-col flex-grow">
-                        <h3 class="text-2xl font-bold mb-4 group-hover:text-emerald-400 transition-colors">Consumer Discovery</h3>
-                        <p class="text-slate-400 text-sm mb-8 leading-relaxed">On-ground research identifying friction points in new product lines.</p>
-                        <div class="mt-auto">
-                            <a href="#contact" class="inline-flex items-center gap-2 text-xs font-bold text-white uppercase tracking-widest hover:text-emerald-400 transition-all group/link">
-                                Review Process
-                                <svg class="w-4 h-4 group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                <!-- Case Study 3: Amul -->
+                <div class="glass-card rounded-[40px] overflow-hidden group">
+                    <div class="flex flex-col lg:flex-row">
+                        <div class="lg:w-1/2 h-[450px] relative overflow-hidden bg-slate-900 border-b lg:border-b-0 lg:border-r border-white/10">
+                             <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200" 
+                                  alt="Amul Discovery" 
+                                  class="w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700">
+                             <div class="absolute inset-0 bg-gradient-to-tr from-emerald-900/40 to-transparent"></div>
+                        </div>
+                        <div class="lg:w-1/2 p-10 md:p-16 flex flex-col justify-center">
+                            <div class="text-emerald-500 font-bold uppercase tracking-widest text-xs mb-4">Consumer Research</div>
+                            <h3 class="text-4xl font-bold mb-6">Amul: Consumer Discovery</h3>
+                            <p class="text-slate-400 text-lg mb-8 leading-relaxed">Conducted on-ground retail research to identify supply friction and map unaddressed user needs for frozen category products.</p>
+                            <a href="mailto:aaronbnzn@gmail.com" class="inline-flex items-center gap-2 font-bold text-white hover:text-emerald-400 transition-all group/link">
+                                DISCUSS PROCESS 
+                                <svg class="w-5 h-5 group-hover/link:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                             </a>
                         </div>
                     </div>
@@ -634,13 +615,13 @@
         </div>
     </footer>
 
-    <!-- LENSKART MODAL WITH STRUCTURED CONTENT & PROTOTYPE LINK -->
+    <!-- LENSKART DEEP DIVE MODAL: STRUCTURED RESEARCH -->
     <div id="lenskart-modal" class="fixed inset-0 z-[100] hidden overflow-y-auto bg-slate-950/98 backdrop-blur-2xl p-4 md:p-8">
-        <div class="max-w-4xl mx-auto glass-card rounded-[40px] overflow-hidden border-white/10 shadow-4xl my-8">
+        <div class="max-w-5xl mx-auto glass-card rounded-[40px] overflow-hidden border-white/10 shadow-4xl my-8">
             <div class="sticky top-0 p-8 flex justify-between items-center bg-slate-900/90 backdrop-blur-md border-b border-white/10 z-10">
                 <div>
                     <h2 class="text-2xl md:text-3xl font-extrabold hero-gradient">Lenskart: Deep Dive</h2>
-                    <p class="text-slate-500 text-xs uppercase tracking-widest mt-1">From Eyewear to Eye-Care Strategy</p>
+                    <p class="text-slate-500 text-xs uppercase tracking-widest mt-1">Market Research & User Insights</p>
                 </div>
                 <button onclick="closeProject('lenskart')" class="w-10 h-10 flex items-center justify-center rounded-full bg-white/5 border border-white/10 hover:bg-white/20 transition-all">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
@@ -648,64 +629,72 @@
             </div>
             
             <div class="p-8 md:p-12 space-y-12">
-                <!-- PART 1: RESEARCH CONTENTS -->
+                <!-- Research Section -->
                 <section>
                     <div class="flex items-center gap-3 mb-8">
                         <div class="w-8 h-8 rounded-lg bg-purple-500/20 flex items-center justify-center text-purple-400 font-bold">1</div>
-                        <h3 class="text-xl font-bold text-white uppercase tracking-tight">Market & User Research Findings</h3>
+                        <h3 class="text-xl font-bold text-white uppercase tracking-tight">Market & User Research Summary</h3>
                     </div>
                     
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-slate-300">
-                        <div class="p-6 rounded-3xl bg-white/[0.03] border border-white/5">
-                            <h4 class="text-purple-400 font-bold text-sm mb-4 uppercase">Core Problem</h4>
-                            <p class="text-sm leading-relaxed">Eyewear is a low-frequency transactional category. Once a purchase is made, app engagement drops significantly, leading to high churn between buy cycles.</p>
+                    <div class="space-y-8">
+                        <!-- Points from Research PDF -->
+                        <div class="p-8 rounded-[32px] bg-white/[0.03] border border-white/5">
+                            <h4 class="text-purple-400 font-bold text-sm mb-6 uppercase tracking-widest">Key Insights</h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                <div class="space-y-4">
+                                    <div class="flex gap-4">
+                                        <span class="text-slate-600 font-mono text-sm pt-1">01</span>
+                                        <p class="text-slate-300 text-sm leading-relaxed"><strong class="text-white">Engagement Decay:</strong> Eyewear is perceived as a long-term (1-2 year) purchase, leading to sharp engagement drops after delivery.</p>
+                                    </div>
+                                    <div class="flex gap-4 border-t border-white/5 pt-4">
+                                        <span class="text-slate-600 font-mono text-sm pt-1">02</span>
+                                        <p class="text-slate-300 text-sm leading-relaxed"><strong class="text-white">Expert Reassurance:</strong> 57.5% of users experience eye strain or needs between purchases but seek offline validation due to a lack of digital trust.</p>
+                                    </div>
+                                </div>
+                                <div class="space-y-4">
+                                    <div class="flex gap-4">
+                                        <span class="text-slate-600 font-mono text-sm pt-1">03</span>
+                                        <p class="text-slate-300 text-sm leading-relaxed"><strong class="text-white">AR Try-On Friction:</strong> User dissatisfaction arises when the virtual expectations don't match the physical fit reality.</p>
+                                    </div>
+                                    <div class="flex gap-4 border-t border-white/5 pt-4">
+                                        <span class="text-slate-600 font-mono text-sm pt-1">04</span>
+                                        <p class="text-slate-300 text-sm leading-relaxed"><strong class="text-white">Retail Preference:</strong> Users strongly favor offline stores for tests due to higher perceived medical accuracy and the "human touch".</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="p-6 rounded-3xl bg-white/[0.03] border border-white/5">
-                            <h4 class="text-blue-400 font-bold text-sm mb-4 uppercase">Reframing the Solution</h4>
-                            <p class="text-sm leading-relaxed">Shifting perception from a one-time retailer to a continuous eye-care companion by leveraging first-party health data (prescriptions & test history).</p>
-                        </div>
-                    </div>
 
-                    <div class="mt-8 space-y-4">
-                        <div class="flex gap-4 p-4 rounded-2xl hover:bg-white/5 transition-colors group">
-                            <span class="text-slate-600 font-mono text-sm">01</span>
-                            <div>
-                                <h5 class="text-white font-bold text-sm">Competitor Analysis</h5>
-                                <p class="text-slate-400 text-xs mt-1">Lenskart vs Titan Eye+: Mapping value propositions, omnichannel presence, and customer experience gaps.</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-4 p-4 rounded-2xl hover:bg-white/5 transition-colors group border-t border-white/5">
-                            <span class="text-slate-600 font-mono text-sm">02</span>
-                            <div>
-                                <h5 class="text-white font-bold text-sm">User Engagement Survey</h5>
-                                <p class="text-slate-400 text-xs mt-1">Analyzing feedback from real users to identify post-purchase drop-off points and the demand for expert reassurance.</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-4 p-4 rounded-2xl hover:bg-white/5 transition-colors group border-t border-white/5">
-                            <span class="text-slate-600 font-mono text-sm">03</span>
-                            <div>
-                                <h5 class="text-white font-bold text-sm">Behavioral Personas</h5>
-                                <p class="text-slate-400 text-xs mt-1">Identifying high-value 'ideal brand advocates' vs 'offline-only users' to tailor retention notifications.</p>
+                        <!-- Persona Section -->
+                        <div class="p-8 rounded-[32px] bg-white/[0.03] border border-white/5">
+                            <h4 class="text-blue-400 font-bold text-sm mb-6 uppercase tracking-widest">Behavioral Personas</h4>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                <div class="p-5 rounded-2xl bg-white/5 border border-white/5 hover:bg-white/10 transition-colors">
+                                    <p class="text-white font-bold text-xs uppercase mb-3">Needy Loyal Nitya</p>
+                                    <p class="text-slate-400 text-xs leading-relaxed">Purchases via app for discounts but deletes it immediately after. Views brand as purely transactional.</p>
+                                </div>
+                                <div class="p-5 rounded-2xl bg-white/5 border border-white/5 hover:bg-white/10 transition-colors">
+                                    <p class="text-white font-bold text-xs uppercase mb-3">Skeptical Sudeep</p>
+                                    <p class="text-slate-400 text-xs leading-relaxed">Tech-oriented but distrusts digital medical integrity. Favors offline feedback for medical reassurance.</p>
+                                </div>
+                                <div class="p-5 rounded-2xl bg-white/5 border border-white/5 hover:bg-white/10 transition-colors">
+                                    <p class="text-white font-bold text-xs uppercase mb-3">Omnichannel Om</p>
+                                    <p class="text-slate-400 text-xs leading-relaxed">Books app appointments but buys offline. Potential advocate if non-transactional value is provided.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </section>
 
-                <!-- PROTOTYPE SECTION -->
-                <div class="pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-6">
+                <!-- Prototype Button -->
+                <div class="pt-10 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-8 bg-purple-500/5 p-8 rounded-[32px]">
                     <div class="text-center sm:text-left">
-                        <p class="text-white font-bold">Interactive User Flow</p>
-                        <p class="text-slate-500 text-xs">Explore the reimagined post-purchase engagement loops in Figma.</p>
+                        <h4 class="text-white font-bold text-lg">Interactive Prototype & Research Repository</h4>
+                        <p class="text-slate-400 text-sm mt-1">Access the full Figma user flows and market research documentation.</p>
                     </div>
-                    <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-                        <a href="https://drive.google.com/drive/folders/1JNV5QJJRDlxFinc4hyeJIjzF9uAmS1fv?usp=sharing" target="_blank" class="btn-primary px-8 py-4 rounded-2xl text-white font-bold text-sm flex items-center justify-center gap-2 group">
-                            <span>ACCESS PROTOTYPE</span>
-                            <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                        </a>
-                        <a href="https://drive.google.com/drive/folders/1JNV5QJJRDlxFinc4hyeJIjzF9uAmS1fv?usp=sharing" target="_blank" class="px-8 py-4 rounded-2xl bg-white/5 border border-white/10 text-white font-bold text-sm hover:bg-white/10 transition-all text-center">
-                            RESEARCH FILES
-                        </a>
-                    </div>
+                    <a href="https://drive.google.com/drive/folders/1JNV5QJJRDlxFinc4hyeJIjzF9uAmS1fv?usp=sharing" target="_blank" class="btn-primary px-10 py-5 rounded-2xl text-white font-bold text-sm flex items-center justify-center gap-3 group">
+                        <span>ACCESS PROTOTYPE</span>
+                        <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </a>
                 </div>
             </div>
         </div>
@@ -715,43 +704,21 @@
         const observerOptions = { threshold: 0.3 };
         const blackoutObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    document.body.classList.add('blackout');
-                } else {
-                    document.body.classList.remove('blackout');
-                }
+                if (entry.isIntersecting) { document.body.classList.add('blackout'); } 
+                else { document.body.classList.remove('blackout'); }
             });
         }, observerOptions);
-
         const techSection = document.getElementById('tech-stack');
         if (techSection) blackoutObserver.observe(techSection);
 
         const orbitStage = document.getElementById('orbit-stage');
-        const nodes = document.querySelectorAll('.planet-node');
-
-        nodes.forEach(node => {
-            node.addEventListener('mouseenter', () => {
-                orbitStage.classList.add('is-paused');
-            });
-            node.addEventListener('mouseleave', () => {
-                orbitStage.classList.remove('is-paused');
-            });
+        document.querySelectorAll('.planet-node').forEach(node => {
+            node.addEventListener('mouseenter', () => orbitStage.classList.add('is-paused'));
+            node.addEventListener('mouseleave', () => orbitStage.classList.remove('is-paused'));
         });
 
-        function openProject(id) { 
-            const modal = document.getElementById(id + '-modal');
-            if(modal) {
-                modal.classList.remove('hidden'); 
-                document.body.style.overflow = 'hidden'; 
-            }
-        }
-        function closeProject(id) { 
-            const modal = document.getElementById(id + '-modal');
-            if(modal) {
-                modal.classList.add('hidden'); 
-                document.body.style.overflow = 'auto'; 
-            }
-        }
+        function openProject(id) { document.getElementById(id + '-modal')?.classList.remove('hidden'); document.body.style.overflow = 'hidden'; }
+        function closeProject(id) { document.getElementById(id + '-modal')?.classList.add('hidden'); document.body.style.overflow = 'auto'; }
     </script>
 </body>
 </html>
