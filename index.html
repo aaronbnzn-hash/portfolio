@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { 
   Linkedin, 
   Mail, 
@@ -9,14 +9,27 @@ import {
   Lightbulb, 
   TrendingUp, 
   Users, 
-  Search,
-  Database,
-  Cpu,
-  Layout
+  Search, 
+  Database, 
+  Cpu, 
+  Layout,
+  ArrowLeft,
+  CheckCircle2,
+  Target,
+  Rocket,
+  FolderSearch,
+  FileText,
+  AlertCircle,
+  Sparkles,
+  Zap
 } from 'lucide-react';
 
 const App = () => {
+  const [view, setView] = useState('home'); // 'home' or 'project'
+  const [selectedProject, setSelectedProject] = useState(null);
   const [scrolled, setScrolled] = useState(false);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const skillsRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -24,36 +37,143 @@ const App = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleMouseMove = (e) => {
+    if (skillsRef.current) {
+      const rect = skillsRef.current.getBoundingClientRect();
+      setMousePos({
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top,
+      });
+    }
+  };
+
   const projects = [
     {
+      id: 'amul',
       title: "Amul Organic",
       subtitle: "Market Research & Product Strategy",
       description: "Conducted deep-dive research on consumer demand and retailer adoption to define positioning for a new organic product line.",
       tags: ["Market Research", "Strategy", "FMCG"],
-      icon: <Search className="w-6 h-6" />
+      icon: <Search className="w-6 h-6" />,
+      artifacts: [],
+      details: {
+        challenge: "Amul needed to identify if the premium organic segment was ready for mass-market penetration and what retailers required to stock organic products over conventional ones.",
+        painPoints: ["Consumers found organic products too expensive and hard to find", "Retailers were hesitant to allocate shelf space to unproven, low-turnover organic stock"],
+        chosenSolutions: [
+          {
+            title: "Value-Based Tiering",
+            description: "Strategized a tiered pricing model that introduced 'entry-level' organic products to lower the barrier for skeptical consumers."
+          }
+        ],
+        impact: "Developed a market entry roadmap that identified 'Healthy Convenience' as the primary positioning lever for the organic range.",
+        steps: ["Consumer persona mapping", "Retailer sentiment analysis", "Competitive benchmarking", "Positioning strategy"]
+      }
     },
     {
+      id: 'vivafit',
       title: "VivaFit",
       subtitle: "Solving Motivation Drop-Off",
       description: "Identified retention leaks and designed community-led engagement loops to drive repeat usage in a competitive fitness landscape.",
       tags: ["Product Design", "Retention", "UX Research"],
-      icon: <TrendingUp className="w-6 h-6" />
+      icon: <TrendingUp className="w-6 h-6" />,
+      artifacts: [],
+      details: {
+        challenge: "Users were dropping off after the 14-day 'honeymoon phase'. The app felt lonely, leading to a lack of accountability.",
+        painPoints: ["Lack of social pressure", "Repetitive workout content", "High friction in manual logging made users feel the effort didn't justify the reward"],
+        chosenSolutions: [
+          {
+            title: "Social Accountability Loops",
+            description: "Introduced peer-to-peer challenges and community leaderboards to create emotional investment and social stickiness."
+          }
+        ],
+        impact: "Projected a 20% increase in D30 retention by shifting from a solo tracking app to a social fitness platform.",
+        steps: ["Churn analysis", "User interviews", "Gamification framework", "A/B test prototypes"]
+      }
     },
     {
+      id: 'mealbud',
       title: "MealBud",
       subtitle: "Smart Meal Planning",
       description: "Reduced decision fatigue for busy users by designing a recommendation engine based on ingredients, time, and personal preferences.",
       tags: ["User Experience", "AI/ML Logic", "Problem Solving"],
-      icon: <Layout className="w-6 h-6" />
+      icon: <Layout className="w-6 h-6" />,
+      artifacts: [],
+      details: {
+        challenge: "Working professionals spend 30+ minutes daily deciding what to cook, leading to increased takeout orders and food waste.",
+        painPoints: ["High cognitive load during grocery shopping", "Food spoilage due to unused ingredients", "Lack of personalized options for dietary restrictions"],
+        chosenSolutions: [
+          {
+            title: "Inventory-First Logic",
+            description: "Engineered a matching algorithm that prioritizes recipes based on expiring ingredients in the user's digital pantry."
+          }
+        ],
+        impact: "Reduced meal-decision time by 70% in initial user testing sessions.",
+        steps: ["User flow optimization", "Ingredient-logic mapping", "Constraint-based design", "Low-fi prototyping"]
+      }
     },
     {
+      id: 'lenskart',
       title: "Lenskart",
       subtitle: "Reimagining User Engagement",
       description: "Developed a data-backed framework using AI tools to deepen post-purchase interaction and move beyond transactional touchpoints.",
       tags: ["Engagement", "Data Analytics", "AI Integration"],
-      icon: <Users className="w-6 h-6" />
+      icon: <Users className="w-6 h-6" />,
+      artifacts: [
+        {
+          title: "Interactive Prototype",
+          description: "Explore the high-fidelity user flows and interaction design in the live prototype.",
+          link: "https://prototype-aaron-product.lovable.app/",
+          icon: <ExternalLink className="w-6 h-6 text-indigo-500" />
+        },
+        {
+          title: "Full Project Artifacts",
+          description: "Deep dive into the comprehensive case study, PRD, and supporting research documentation.",
+          link: "https://drive.google.com/drive/folders/1JNV5QJJRDlxFinc4hyeJIjzF9uAmS1fv?usp=drive_link",
+          icon: <FolderSearch className="w-6 h-6 text-indigo-500" />
+        }
+      ],
+      details: {
+        challenge: "Users only engaged with Lenskart during purchases, resulting in low repeat engagement and limited app stickiness. The goal was to increase active user engagement by 25–45%.",
+        painPoints: [
+          "Users had no strong reason to return to the app after completing a purchase.",
+          "The app experience was heavily transaction-focused rather than engagement-focused.",
+          "Lack of personalized daily value or interactive experiences reduced repeat visits.",
+          "Users only interacted with the platform during specific needs (buying glasses, checking orders, etc.).",
+          "Minimal habit-forming loops compared to high-retention consumer apps.",
+          "Limited emotional connection and lifestyle integration with users.",
+          "Low post-purchase engagement opportunities led to weaker long-term retention.",
+          "Existing user journey felt functional but not sticky or community-driven."
+        ],
+        chosenSolutions: [
+          {
+            title: "Omnichannel Experience",
+            description: "Designed a seamless omnichannel journey that connected online browsing with offline store experiences, reducing friction and improving convenience across the customer journey."
+          },
+          {
+            title: "Community-Based Engagement Content",
+            description: "Introduced lifestyle-driven and community-focused content such as styling inspiration, trends, and user interaction to encourage repeat engagement beyond transactions."
+          },
+          {
+            title: "Loyalty & Gamification System",
+            description: "Integrated a loyalty points system that rewarded users for engagement and purchases with discounts and incentives. This added a layer of gamification, encouraged repeat visits, and provided continuous value to users while increasing app stickiness."
+          }
+        ],
+        impact: "Aiming to transform Lenskart from a store into a long-term eye-health partner for the user.",
+        steps: ["Data audit", "Engagement lifecycle mapping", "AI feature ideation", "KPI definition"]
+      }
     }
   ];
+
+  const navigateToProject = (project) => {
+    setSelectedProject(project);
+    setView('project');
+    window.scrollTo(0, 0);
+  };
+
+  const navigateHome = () => {
+    setView('home');
+    setSelectedProject(null);
+  };
 
   const skills = [
     { 
@@ -88,9 +208,141 @@ const App = () => {
     }
   ];
 
+  // --- RENDERING LOGIC ---
+
+  if (view === 'project' && selectedProject) {
+    return (
+      <div className="min-h-screen bg-[#030712] text-slate-200 font-sans selection:bg-indigo-500/30 selection:text-indigo-200">
+        <nav className="fixed top-0 w-full z-50 bg-[#030712]/80 backdrop-blur-md border-b border-slate-800/50 py-4">
+          <div className="max-w-6xl mx-auto px-6 flex justify-between items-center">
+            <button onClick={navigateHome} className="flex items-center gap-2 text-slate-400 hover:text-white transition-colors group">
+              <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+              Back to Portfolio
+            </button>
+            <span className="text-sm font-bold text-indigo-500 tracking-widest uppercase">{selectedProject.title}</span>
+          </div>
+        </nav>
+
+        <div className="pt-32 pb-20 px-6">
+          <div className="max-w-4xl mx-auto">
+            <div className="mb-16">
+              <div className="flex gap-3 mb-6">
+                {selectedProject.tags.map((tag, i) => (
+                  <span key={i} className="text-[10px] font-bold uppercase tracking-widest bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 px-3 py-1 rounded-full">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              <h1 className="text-4xl md:text-6xl font-extrabold mb-4 text-white">{selectedProject.title}</h1>
+              <p className="text-xl text-indigo-400 font-medium mb-8 uppercase tracking-wider text-sm">{selectedProject.subtitle}</p>
+              <div className="h-px bg-gradient-to-r from-indigo-500/50 to-transparent w-full mb-12"></div>
+            </div>
+
+            <div className="grid gap-12">
+              {/* Challenge */}
+              <section className="bg-[#050a18] border border-slate-800 p-8 rounded-3xl shadow-xl shadow-indigo-900/10 transition-transform duration-300 hover:scale-[1.01]">
+                <div className="flex items-center gap-3 mb-4 text-indigo-400">
+                  <Target className="w-5 h-5" />
+                  <h2 className="text-xl font-bold uppercase tracking-widest text-white">The Challenge</h2>
+                </div>
+                <p className="text-slate-400 leading-relaxed text-lg">{selectedProject.details.challenge}</p>
+              </section>
+
+              {/* Pain Points */}
+              <section className="bg-[#050a18] border border-slate-800 p-8 rounded-3xl shadow-xl shadow-indigo-900/10 transition-transform duration-300 hover:scale-[1.01]">
+                <div className="flex items-center gap-3 mb-6 text-indigo-400">
+                  <AlertCircle className="w-5 h-5" />
+                  <h2 className="text-xl font-bold uppercase tracking-widest text-white">PAIN POINTS</h2>
+                </div>
+                <div className="space-y-4">
+                  {Array.isArray(selectedProject.details.painPoints) ? (
+                    selectedProject.details.painPoints.map((point, idx) => (
+                      <div key={idx} className="flex items-start gap-3 group">
+                        <div className="mt-2 w-1.5 h-1.5 rounded-full bg-indigo-500 shrink-0 group-hover:scale-125 transition-transform" />
+                        <p className="text-slate-400 leading-relaxed text-lg group-hover:text-slate-300 transition-colors">{point}</p>
+                      </div>
+                    ))
+                  ) : (
+                    <p className="text-slate-400 leading-relaxed text-lg">{selectedProject.details.painPoints}</p>
+                  )}
+                </div>
+              </section>
+
+              {/* Chosen Solutions */}
+              <section className="bg-[#050a18] border border-slate-800 p-8 rounded-3xl shadow-xl shadow-indigo-900/10 transition-transform duration-300 hover:scale-[1.01]">
+                <div className="flex items-center gap-3 mb-8 text-indigo-400">
+                  <Zap className="w-5 h-5" />
+                  <h2 className="text-xl font-bold uppercase tracking-widest text-white">THE SOLUTIONS I CHOSE</h2>
+                </div>
+                <div className="grid gap-6">
+                  {selectedProject.details.chosenSolutions.map((sol, idx) => (
+                    <div key={idx} className="p-6 bg-[#030712] border border-slate-800 rounded-2xl group hover:border-indigo-500/30 transition-all">
+                      <div className="flex items-center gap-4 mb-3">
+                        <div className="w-8 h-8 bg-indigo-500/10 rounded-lg flex items-center justify-center group-hover:bg-indigo-600 transition-colors">
+                          <CheckCircle2 className="w-4 h-4 text-indigo-500 group-hover:text-white" />
+                        </div>
+                        <h3 className="font-bold text-white text-lg tracking-tight">{sol.title}</h3>
+                      </div>
+                      <p className="text-slate-400 leading-relaxed font-light pl-12">{sol.description}</p>
+                    </div>
+                  ))}
+                </div>
+              </section>
+
+              {/* Case Artifacts */}
+              <section className="bg-[#050a18] border border-slate-800 p-8 rounded-3xl min-h-[300px] shadow-xl shadow-indigo-900/10">
+                <div className="flex items-center gap-3 mb-8 text-indigo-400">
+                  <Rocket className="w-5 h-5" />
+                  <h2 className="text-xl font-bold uppercase tracking-widest text-white">CASE ARTIFACTS</h2>
+                </div>
+                
+                {selectedProject.artifacts && selectedProject.artifacts.length > 0 ? (
+                  <div className="grid sm:grid-cols-2 gap-6">
+                    {selectedProject.artifacts.map((artifact, i) => (
+                      <div key={i} className="flex flex-col p-8 border border-indigo-500/20 bg-indigo-500/[0.03] rounded-2xl hover:border-indigo-500/40 transition-all duration-300 group">
+                        <div className="w-12 h-12 bg-indigo-500/10 rounded-xl flex items-center justify-center mb-6 border border-indigo-500/20 shadow-lg shadow-indigo-900/10 group-hover:bg-indigo-500/20 transition-colors">
+                          {artifact.icon}
+                        </div>
+                        <h3 className="text-lg font-bold text-white mb-2 tracking-tight">{artifact.title}</h3>
+                        <p className="text-slate-400 mb-8 font-light text-sm leading-relaxed flex-1">
+                          {artifact.description}
+                        </p>
+                        <a 
+                          href={artifact.link} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-indigo-600 text-white rounded-xl font-bold hover:bg-indigo-500 transition-all hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-indigo-900/40"
+                        >
+                          View Artifact
+                          <ChevronRight className="w-4 h-4" />
+                        </a>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="flex flex-col items-center justify-center py-16 px-6 border-2 border-dashed border-slate-800 rounded-2xl text-center opacity-40">
+                    <p className="text-slate-500 font-mono text-xs uppercase tracking-widest">Artifacts coming soon</p>
+                  </div>
+                )}
+              </section>
+            </div>
+
+            <div className="mt-20 text-center">
+              <button 
+                onClick={navigateHome}
+                className="px-10 py-4 bg-slate-900 border border-slate-800 text-slate-300 rounded-xl font-bold hover:bg-slate-800 hover:text-white transition-all active:scale-95"
+              >
+                Back to Projects
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-[#030712] text-slate-200 font-sans selection:bg-indigo-500/30 selection:text-indigo-200">
-      {/* Navigation */}
       <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-[#030712]/80 backdrop-blur-md border-b border-slate-800/50 py-3' : 'bg-transparent py-5'}`}>
         <div className="max-w-6xl mx-auto px-6 flex justify-between items-center">
           <span className="text-xl font-bold tracking-tight text-indigo-500">AARON<span className="text-white">.</span></span>
@@ -102,11 +354,9 @@ const App = () => {
         </div>
       </nav>
 
-      {/* Hero Section */}
       <section className="pt-32 pb-20 md:pt-48 md:pb-32 px-6 relative overflow-hidden">
         <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-[500px] h-[500px] bg-indigo-600/10 rounded-full blur-[120px] pointer-events-none"></div>
         <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/4 w-[400px] h-[400px] bg-violet-600/10 rounded-full blur-[100px] pointer-events-none"></div>
-
         <div className="max-w-6xl mx-auto relative z-10">
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-bold uppercase tracking-widest mb-6">
@@ -134,16 +384,17 @@ const App = () => {
         </div>
       </section>
 
-      {/* Skills Grid */}
-      <section id="about" className="py-24 bg-[#050a18] border-y border-slate-900/50">
-        <div className="max-w-6xl mx-auto px-6">
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-slate-800 to-transparent"></div>
+
+      <section id="about" className="py-24 bg-[#050a18] relative">
+        <div className="max-w-6xl mx-auto px-6 relative z-10">
           <div className="grid md:grid-cols-2 gap-20 items-center">
             <div>
               <h3 className="text-3xl font-bold mb-6 text-white">The PM Perspective</h3>
               <p className="text-slate-400 mb-8 leading-relaxed text-lg">
                 My journey hasn't been linear, and that's my strength. From conducting on-ground consumer research for Amul to managing high-stakes relationships at Axis Bank, I've learned that great products are built at the intersection of empathy and economics.
               </p>
-              <div className="flex items-center gap-5 p-6 bg-indigo-500/5 border border-indigo-500/10 rounded-2xl">
+              <div className="flex items-center gap-5 p-6 bg-indigo-500/5 border border-indigo-500/10 rounded-2xl transition-transform hover:scale-[1.02]">
                 <div className="w-12 h-12 bg-indigo-500/10 rounded-xl flex items-center justify-center shrink-0">
                   <GraduationCap className="text-indigo-400 w-7 h-7" />
                 </div>
@@ -153,26 +404,22 @@ const App = () => {
                 </div>
               </div>
             </div>
-            
-            <div className="grid grid-cols-2 gap-4">
+            <div ref={skillsRef} onMouseMove={handleMouseMove} className="grid grid-cols-2 gap-4 relative group/grid">
+              <div className="absolute inset-0 pointer-events-none opacity-0 group-hover/grid:opacity-100 transition-opacity duration-500 z-0" style={{ background: `radial-gradient(400px circle at ${mousePos.x}px ${mousePos.y}px, rgba(99, 102, 241, 0.15), transparent 80%)` }} />
               {skills.map((skill, idx) => (
-                <div key={idx} className="relative h-40 p-5 bg-[#030712] border border-slate-800 rounded-2xl hover:border-indigo-500/30 hover:bg-indigo-500/[0.02] transition-all group overflow-hidden">
-                  {/* Static content that fades out on hover */}
-                  <div className="absolute inset-0 p-5 flex flex-col gap-4 transition-all duration-500 group-hover:opacity-0 group-hover:scale-95">
+                <div key={idx} className="relative h-40 p-5 bg-[#030712] border border-slate-800 rounded-2xl hover:border-indigo-500/50 hover:bg-indigo-500/[0.05] transition-all duration-300 group overflow-hidden z-10 shadow-xl">
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-indigo-500/10 via-transparent to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 p-5 flex flex-col gap-4 transition-all duration-500 group-hover:opacity-0 group-hover:-translate-y-4">
                     <div className="w-10 h-10 bg-slate-900 text-slate-400 rounded-lg flex items-center justify-center group-hover:text-indigo-400 transition-colors">
                       {skill.icon}
                     </div>
                     <span className="font-semibold text-slate-300 text-sm leading-tight">{skill.name}</span>
                   </div>
-
-                  {/* List content that fades in on hover */}
-                  <div className="absolute inset-0 p-5 opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-center">
+                  <div className="absolute inset-0 p-5 opacity-0 translate-y-4 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-center">
                     <p className="text-[10px] font-bold uppercase tracking-widest text-indigo-400 mb-2">Capabilities</p>
                     <div className="flex flex-wrap gap-1.5">
                       {skill.subSkills.map((sub, sIdx) => (
-                        <span key={sIdx} className="text-[10px] text-slate-400 px-2 py-0.5 rounded bg-white/5 border border-white/5">
-                          {sub}
-                        </span>
+                        <span key={sIdx} className="text-[10px] text-slate-400 px-2 py-0.5 rounded bg-white/5 border border-white/5 whitespace-nowrap">{sub}</span>
                       ))}
                     </div>
                   </div>
@@ -183,39 +430,30 @@ const App = () => {
         </div>
       </section>
 
-      {/* Projects Section */}
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-slate-800 to-transparent"></div>
+
       <section id="projects" className="py-28 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="mb-20 text-center md:text-left">
             <h2 className="text-4xl font-bold mb-4 text-white">Featured Projects</h2>
             <p className="text-slate-400 max-w-xl">Case studies exploring strategy, user retention, and data-backed product design.</p>
           </div>
-          
           <div className="grid md:grid-cols-2 gap-10">
             {projects.map((project, idx) => (
               <div key={idx} className="group bg-[#050a18] rounded-[2rem] border border-slate-800/60 p-10 hover:border-indigo-500/40 hover:shadow-[0_20px_50px_rgba(79,70,229,0.1)] transition-all duration-500 relative overflow-hidden">
                 <div className="absolute -top-4 -right-4 w-32 h-32 bg-indigo-500/5 rounded-full blur-3xl group-hover:bg-indigo-500/10 transition-colors"></div>
-                
                 <div className="flex justify-between items-start mb-8 relative z-10">
-                  <div className="p-3 bg-slate-900 border border-slate-800 rounded-xl text-indigo-400">
-                     {project.icon}
-                  </div>
+                  <div className="p-3 bg-slate-900 border border-slate-800 rounded-xl text-indigo-400">{project.icon}</div>
                   <div className="flex gap-2">
                     {project.tags.slice(0, 2).map((tag, tIdx) => (
-                      <span key={tIdx} className="text-[10px] font-bold uppercase tracking-widest bg-slate-900/80 text-slate-500 border border-slate-800 px-3 py-1 rounded-full group-hover:border-indigo-500/20 group-hover:text-indigo-400 transition-colors">
-                        {tag}
-                      </span>
+                      <span key={tIdx} className="text-[10px] font-bold uppercase tracking-widest bg-slate-900/80 text-slate-500 border border-slate-800 px-3 py-1 rounded-full group-hover:border-indigo-500/20 group-hover:text-indigo-400 transition-colors">{tag}</span>
                     ))}
                   </div>
                 </div>
-
                 <h3 className="text-2xl font-bold mb-1 text-white group-hover:text-indigo-400 transition-colors">{project.title}</h3>
                 <p className="text-indigo-500/80 font-bold text-xs uppercase tracking-widest mb-5">{project.subtitle}</p>
-                <p className="text-slate-400 leading-relaxed mb-10 text-sm">
-                  {project.description}
-                </p>
-                
-                <button className="inline-flex items-center gap-2 font-bold text-sm text-white group-hover:gap-4 transition-all uppercase tracking-widest border-b-2 border-indigo-500/20 pb-1 group-hover:border-indigo-500">
+                <p className="text-slate-400 leading-relaxed mb-10 text-sm">{project.description}</p>
+                <button onClick={() => navigateToProject(project)} className="inline-flex items-center gap-2 font-bold text-sm text-white group-hover:gap-4 transition-all uppercase tracking-widest border-b-2 border-indigo-500/20 pb-1 group-hover:border-indigo-500">
                   Case Study <ExternalLink className="w-3 h-3 text-indigo-500" />
                 </button>
               </div>
@@ -224,34 +462,28 @@ const App = () => {
         </div>
       </section>
 
-      {/* Footer / Contact */}
-      <footer id="contact" className="bg-[#020610] text-white py-24 px-6 border-t border-slate-900">
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-slate-800 to-transparent"></div>
+
+      <footer id="contact" className="bg-[#020610] text-white py-24 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-start gap-16">
             <div className="max-w-xl">
               <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-tight">Let's build something <span className="italic text-indigo-500">impactful</span> together.</h2>
-              <p className="text-slate-400 text-lg mb-10 font-light">
-                Currently open to Product Management roles where I can combine marketing intelligence with user-centric execution.
-              </p>
+              <p className="text-slate-400 text-lg mb-10 font-light">Currently open to Product Management roles where I can combine marketing intelligence with user-centric execution.</p>
               <div className="flex flex-col sm:flex-row gap-6 sm:gap-12">
                 <a href="mailto:Aaronbnzn@gmail.com" className="group flex items-center gap-3 text-slate-300 hover:text-white transition-colors">
-                  <div className="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center group-hover:bg-indigo-600 transition-colors">
-                    <Mail className="w-5 h-5" />
-                  </div>
+                  <div className="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center group-hover:bg-indigo-600 transition-colors"><Mail className="w-5 h-5" /></div>
                   <span className="font-semibold">Aaronbnzn@gmail.com</span>
                 </a>
                 <a href="#" className="group flex items-center gap-3 text-slate-300 hover:text-white transition-colors">
-                  <div className="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center group-hover:bg-[#0077b5] transition-colors">
-                    <Linkedin className="w-5 h-5" />
-                  </div>
+                  <div className="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center group-hover:bg-[#0077b5] transition-colors"><Linkedin className="w-5 h-5" /></div>
                   <span className="font-semibold">LinkedIn Profile</span>
                 </a>
               </div>
             </div>
-            
             <div className="flex flex-col items-start md:items-end gap-4 self-end">
               <div className="text-indigo-500 font-bold tracking-widest text-xs uppercase">Stay Connected</div>
-              <p className="text-slate-500 text-sm text-left md:text-right">Based in Mumbai, India<br/>Available for Remote/Hybrid Roles</p>
+              <p className="text-slate-500 text-sm text-left md:text-right">Based in Noida Uttar Pradesh<br/>Available for Remote/Hybrid Roles</p>
               <p className="text-slate-600 italic text-xs mt-4">"The beginning of more to come."</p>
             </div>
           </div>
