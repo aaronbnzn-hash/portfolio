@@ -52,12 +52,14 @@
             border: 1px solid rgba(255, 255, 255, 0.04);
             border-radius: 1.75rem;
             padding: 1.75rem;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
         }
 
         .skill-box-exact:hover {
             border-color: rgba(168, 85, 247, 0.25);
-            background: rgba(255, 255, 255, 0.025);
+            background: rgba(255, 255, 255, 0.02);
             transform: translateY(-2px);
         }
 
@@ -70,6 +72,20 @@
             justify-content: center;
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Animation for the Slabs */
+        @keyframes popIn {
+            0% { transform: scale(0.9) translateY(15px); opacity: 0; }
+            100% { transform: scale(1) translateY(0); opacity: 1; }
+        }
+
+        .animate-pop {
+            opacity: 0;
+        }
+
+        .skill-box-exact:hover .animate-pop {
+            animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
         }
     </style>
 </head>
@@ -130,27 +146,27 @@
 
         <div class="divider-gradient"></div>
 
-        <!-- 50/50 SPLIT SECTION: STRICTLY MATCHING 3:34:09 PM SCREENSHOT -->
+        <!-- 50/50 SPLIT SECTION -->
         <section id="about" class="py-32 relative">
             <div class="max-w-6xl mx-auto px-6 relative z-10">
-                <div class="grid lg:grid-cols-2 gap-20 items-stretch">
+                <div class="grid lg:grid-cols-2 gap-20 items-start">
                     
-                    <!-- LEFT COLUMN: Narrative + MBA -->
-                    <div class="flex flex-col h-full">
-                        <div class="mb-14">
-                            <h2 class="text-5xl font-black text-white mb-8 tracking-tighter leading-tight italic">The PM Perspective</h2>
+                    <!-- LEFT COLUMN -->
+                    <div class="flex flex-col text-left">
+                        <div class="mb-8">
+                            <h2 class="text-5xl font-black text-white mb-8 tracking-tighter leading-tight italic text-left">The PM Perspective</h2>
                             <p class="text-slate-400 text-lg font-light leading-relaxed max-w-lg">
                                 My journey hasn't been linear, and that's my strength. From conducting on-ground consumer research for Amul to managing high-stakes relationships at Axis Bank, I've learned that great products are built at the intersection of empathy and economics.
                             </p>
                         </div>
                         
-                        <div class="mt-auto">
+                        <div>
                             <!-- MBA Card -->
-                            <div class="p-10 bg-white/[0.015] border border-white/5 rounded-[2.5rem] flex flex-row items-center gap-8 shadow-xl transition-all hover:border-purple-500/20 group">
+                            <div class="p-10 bg-white/[0.015] border border-white/5 rounded-[2.5rem] flex flex-row items-center gap-8 shadow-xl transition-all hover:border-purple-500/20 group text-left">
                                 <div class="w-20 h-20 bg-purple-500/10 rounded-2xl flex items-center justify-center shrink-0 border border-purple-500/10 group-hover:scale-105 transition-transform shadow-lg shadow-purple-950/20">
                                     <i data-lucide="graduation-cap" class="text-purple-400 w-10 h-10"></i>
                                 </div>
-                                <div>
+                                <div class="text-left">
                                     <h4 class="text-2xl font-bold text-white mb-1.5 tracking-tight">MBA in Marketing</h4>
                                     <p class="text-slate-500 text-sm font-light leading-relaxed">Deep understanding of market dynamics & strategic growth</p>
                                 </div>
@@ -162,13 +178,29 @@
                     <div id="skills-container" class="grid grid-cols-1 sm:grid-cols-2 gap-6 relative group/grid">
                         <div id="spotlight" class="absolute inset-0 pointer-events-none opacity-0 group-hover/grid:opacity-100 transition-opacity duration-500 spotlight"></div>
                         
-                        <div class="skill-box-exact z-10">
-                            <div class="icon-square-exact">
-                                <i data-lucide="cpu" class="w-6 h-6 text-blue-400"></i>
+                        <!-- AI & Productivity -->
+                        <div class="skill-box-exact z-10 group/skill">
+                            <div class="flex flex-col h-full justify-between transition-all duration-500 group-hover/skill:opacity-0 group-hover/skill:-translate-y-4">
+                                <div class="icon-square-exact">
+                                    <i data-lucide="cpu" class="w-6 h-6 text-blue-400"></i>
+                                </div>
+                                <span class="font-bold text-white text-xl tracking-tight">AI & Productivity</span>
                             </div>
-                            <span class="font-bold text-white text-xl tracking-tight">AI & Productivity</span>
+                            <div class="absolute inset-0 p-5 flex flex-col justify-center opacity-0 translate-y-4 group-hover/skill:opacity-100 group-hover/skill:translate-y-0 transition-all duration-500 bg-black/40 backdrop-blur-md">
+                                <p class="text-[9px] font-black uppercase tracking-[0.2em] text-blue-500 mb-3 italic text-left">AI Stack</p>
+                                <div class="grid grid-cols-2 gap-2">
+                                    <div class="bg-white/5 border border-white/10 py-1.5 px-2 rounded-lg text-[9px] font-bold text-white animate-pop [animation-delay:0.05s]">Lovable</div>
+                                    <div class="bg-white/5 border border-white/10 py-1.5 px-2 rounded-lg text-[9px] font-bold text-white animate-pop [animation-delay:0.1s]">Cursor</div>
+                                    <div class="bg-white/5 border border-white/10 py-1.5 px-2 rounded-lg text-[9px] font-bold text-white animate-pop [animation-delay:0.15s]">Gemini</div>
+                                    <div class="bg-white/5 border border-white/10 py-1.5 px-2 rounded-lg text-[9px] font-bold text-white animate-pop [animation-delay:0.2s]">N8N</div>
+                                    <div class="bg-white/5 border border-white/10 py-1.5 px-2 rounded-lg text-[9px] font-bold text-white animate-pop [animation-delay:0.25s]">Figma</div>
+                                    <div class="bg-white/5 border border-white/10 py-1.5 px-2 rounded-lg text-[9px] font-bold text-white animate-pop [animation-delay:0.3s]">Canva</div>
+                                    <div class="col-span-2 bg-white/5 border border-white/10 py-1.5 px-2 rounded-lg text-[9px] font-bold text-blue-400 animate-pop [animation-delay:0.35s] text-center">AI Productivity Tools</div>
+                                </div>
+                            </div>
                         </div>
 
+                        <!-- Research Strategy -->
                         <div class="skill-box-exact z-10">
                             <div class="icon-square-exact">
                                 <i data-lucide="search" class="w-6 h-6 text-emerald-400"></i>
@@ -176,6 +208,7 @@
                             <span class="font-bold text-white text-xl tracking-tight">Research Strategy</span>
                         </div>
 
+                        <!-- Stakeholder Comms -->
                         <div class="skill-box-exact z-10">
                             <div class="icon-square-exact">
                                 <i data-lucide="users" class="w-6 h-6 text-purple-400"></i>
@@ -183,6 +216,7 @@
                             <span class="font-bold text-white text-xl tracking-tight">Stakeholder Comms</span>
                         </div>
 
+                        <!-- Business Acumen -->
                         <div class="skill-box-exact z-10">
                             <div class="icon-square-exact">
                                 <i data-lucide="briefcase" class="w-6 h-6 text-orange-400"></i>
@@ -190,18 +224,39 @@
                             <span class="font-bold text-white text-xl tracking-tight">Business Acumen</span>
                         </div>
 
-                        <div class="skill-box-exact z-10">
-                            <div class="icon-square-exact">
-                                <i data-lucide="database" class="w-6 h-6 text-cyan-400"></i>
+                        <!-- Data Analytics -->
+                        <div class="skill-box-exact z-10 group/skill-da">
+                            <div class="flex flex-col h-full justify-between transition-all duration-500 group-hover/skill-da:opacity-0 group-hover/skill-da:-translate-y-4">
+                                <div class="icon-square-exact">
+                                    <i data-lucide="database" class="w-6 h-6 text-cyan-400"></i>
+                                </div>
+                                <span class="font-bold text-white text-xl tracking-tight">Data Analytics</span>
                             </div>
-                            <span class="font-bold text-white text-xl tracking-tight">Data Analytics</span>
+                            <div class="absolute inset-0 p-6 flex flex-col justify-center opacity-0 translate-y-4 group-hover/skill-da:opacity-100 group-hover/skill-da:translate-y-0 transition-all duration-500 bg-black/40 backdrop-blur-md">
+                                <p class="text-[9px] font-black uppercase tracking-[0.2em] text-cyan-500 mb-4 italic text-left">Core Stack</p>
+                                <div class="flex flex-col gap-2">
+                                    <div class="bg-white/5 border border-white/10 py-2 px-4 rounded-xl text-[11px] font-bold text-white animate-pop [animation-delay:0.1s]">SQL</div>
+                                    <div class="bg-white/5 border border-white/10 py-2 px-4 rounded-xl text-[11px] font-bold text-white animate-pop [animation-delay:0.2s]">Google Analytics</div>
+                                    <div class="bg-white/5 border border-white/10 py-2 px-4 rounded-xl text-[11px] font-bold text-white animate-pop [animation-delay:0.3s]">Perplexity</div>
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="skill-box-exact z-10">
-                            <div class="icon-square-exact">
-                                <i data-lucide="lightbulb" class="w-6 h-6 text-yellow-400"></i>
+                        <!-- Decision Making (UPDATED WITH SLABS) -->
+                        <div class="skill-box-exact z-10 group/skill-dm">
+                            <div class="flex flex-col h-full justify-between transition-all duration-500 group-hover/skill-dm:opacity-0 group-hover/skill-dm:-translate-y-4">
+                                <div class="icon-square-exact">
+                                    <i data-lucide="lightbulb" class="w-6 h-6 text-yellow-400"></i>
+                                </div>
+                                <span class="font-bold text-white text-xl tracking-tight">Decision Making</span>
                             </div>
-                            <span class="font-bold text-white text-xl tracking-tight">Decision Making</span>
+                            <div class="absolute inset-0 p-6 flex flex-col justify-center opacity-0 translate-y-4 group-hover/skill-dm:opacity-100 group-hover/skill-dm:translate-y-0 transition-all duration-500 bg-black/40 backdrop-blur-md">
+                                <p class="text-[9px] font-black uppercase tracking-[0.2em] text-yellow-500 mb-4 italic text-left">Process</p>
+                                <div class="flex flex-col gap-2">
+                                    <div class="bg-white/5 border border-white/10 py-2.5 px-4 rounded-xl text-[11px] font-bold text-white shadow-xl animate-pop [animation-delay:0.1s]">Strategic Thinking</div>
+                                    <div class="bg-white/5 border border-white/10 py-2.5 px-4 rounded-xl text-[11px] font-bold text-white shadow-xl animate-pop [animation-delay:0.2s]">Structured Problem Solving</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -216,8 +271,8 @@
             <div class="max-w-6xl mx-auto">
                 <div class="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-6">
                     <div class="max-w-xl">
-                        <h2 class="text-xs font-bold uppercase tracking-[0.4em] text-blue-500 mb-4 italic">Selected Artifacts</h2>
-                        <h3 class="text-5xl font-bold text-white tracking-tight">Strategy & Research</h3>
+                        <h2 class="text-xs font-bold uppercase tracking-[0.4em] text-blue-500 mb-4 italic text-left">Selected Artifacts</h2>
+                        <h3 class="text-5xl font-bold text-white tracking-tight text-left">Projects</h3>
                     </div>
                     <p class="text-slate-600 font-mono text-[10px] uppercase tracking-widest">Selected Works</p>
                 </div>
@@ -232,7 +287,7 @@
                                 <span class="text-[9px] font-black uppercase tracking-widest bg-white/5 text-slate-400 px-4 py-2 rounded-lg border border-white/5">AI</span>
                             </div>
                         </div>
-                        <div class="mt-auto">
+                        <div class="mt-auto text-left">
                             <h3 class="text-4xl font-bold mb-3 text-white group-hover:text-purple-400 transition-colors tracking-tight italic">Lenskart</h3>
                             <p class="text-slate-500 font-bold text-[10px] uppercase tracking-[0.25em] mb-6">REIMAGINING USER ENGAGEMENT</p>
                             <p class="text-slate-400 leading-relaxed mb-12 text-lg font-light">Developed a data-backed engagement framework using AI tools to increase post-purchase interaction.</p>
@@ -243,11 +298,11 @@
                     </div>
                     <div class="group bg-[#121214] rounded-[3rem] border border-white/5 p-12 opacity-50 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-500 flex flex-col min-h-[450px]">
                         <div class="flex justify-between items-start mb-12">
-                            <div class="p-5 bg-white/5 rounded-2xl text-slate-600">
+                            <div class="p-5 bg-white/5 rounded-2xl text-slate-600 text-left">
                                 <i data-lucide="trending-up" class="w-10 h-10"></i>
                             </div>
                         </div>
-                        <div class="mt-auto">
+                        <div class="mt-auto text-left">
                             <h3 class="text-4xl font-bold mb-3 text-white tracking-tight italic">VivaFit</h3>
                             <p class="text-slate-500 font-bold text-[10px] uppercase tracking-[0.25em] mb-6">SOLVING MOTIVATION DROP-OFF</p>
                             <p class="text-slate-400 leading-relaxed mb-12 text-lg font-light italic">Documentation in progress.</p>
@@ -262,43 +317,47 @@
     <main id="view-lenskart" data-view="project-lenskart" class="relative z-10">
         <div class="pt-32 pb-20 px-6">
             <div class="max-w-6xl mx-auto">
-                <div class="mb-16">
-                    <div class="flex flex-col items-center justify-center mb-12 text-center">
-                        <div class="flex justify-center gap-2 mb-8">
-                            <span class="text-[10px] font-bold uppercase bg-white/5 text-slate-400 border border-white/10 px-4 py-1.5 rounded-full tracking-widest">ENGAGEMENT</span>
-                            <span class="text-[10px] font-bold uppercase bg-white/5 text-slate-400 border border-white/10 px-4 py-1.5 rounded-full tracking-widest">AI INTEGRATION</span>
-                        </div>
-                        <h1 class="text-6xl md:text-9xl font-black mb-4 text-white tracking-tighter italic leading-none">Lenskart</h1>
-                        <p class="text-xl md:text-2xl text-purple-400 font-bold uppercase tracking-[0.3em]">REIMAGINING USER ENGAGEMENT</p>
+                <div class="mb-12 flex items-center justify-between">
+                    <button onclick="navigateTo('home')" class="flex items-center gap-3 text-slate-400 hover:text-white transition-all bg-white/[0.03] border border-white/10 px-8 py-4 rounded-2xl group active:scale-95 shadow-lg">
+                        <i data-lucide="arrow-left" class="w-5 h-5 group-hover:-translate-x-1 transition-transform"></i>
+                        <span class="font-bold text-xs uppercase tracking-[0.2em]">Back to Portfolio</span>
+                    </button>
+                    <div class="flex gap-2">
+                        <span class="text-[10px] font-bold uppercase bg-white/5 text-slate-500 border border-white/10 px-4 py-1.5 rounded-full tracking-widest">LENSKART</span>
                     </div>
                 </div>
 
                 <div class="divider-gradient mb-16"></div>
 
-                <div class="max-w-4xl mx-auto grid gap-12 text-center lg:text-left">
-                    <div class="glass-card p-12 rounded-[2.5rem]">
-                        <div class="flex items-center justify-center lg:justify-start gap-4 mb-8 text-purple-400">
-                            <i data-lucide="target" class="w-8 h-8"></i>
-                            <h2 class="text-xl font-black uppercase tracking-[0.2em] text-white">THE CHALLENGE</h2>
-                        </div>
-                        <p class="text-slate-400 leading-relaxed text-xl font-light">Users only engaged with Lenskart during purchases, resulting in low repeat engagement and limited app stickiness. The goal was to increase active user engagement by 25–45%.</p>
+                <div class="max-w-4xl mx-auto grid gap-12 text-left">
+                    <div class="mb-8 text-left">
+                        <h1 class="text-5xl font-black text-white tracking-tighter italic mb-2">Lenskart</h1>
+                        <p class="text-purple-400 font-bold uppercase tracking-[0.3em] text-sm">REIMAGINING USER ENGAGEMENT</p>
                     </div>
 
                     <div class="glass-card p-12 rounded-[2.5rem]">
-                        <div class="flex items-center justify-center lg:justify-start gap-4 mb-10 text-purple-400">
+                        <div class="flex items-center justify-start gap-4 mb-8 text-purple-400">
+                            <i data-lucide="target" class="w-8 h-8"></i>
+                            <h2 class="text-xl font-black uppercase tracking-[0.2em] text-white text-left">THE CHALLENGE</h2>
+                        </div>
+                        <p class="text-slate-400 leading-relaxed text-xl font-light text-left">Users only engaged with Lenskart during purchases, resulting in low repeat engagement and limited app stickiness. The goal was to increase active user engagement by 25–45%.</p>
+                    </div>
+
+                    <div class="glass-card p-12 rounded-[2.5rem]">
+                        <div class="flex items-center justify-start gap-4 mb-10 text-purple-400">
                             <i data-lucide="alert-triangle" class="w-8 h-8"></i>
-                            <h2 class="text-xl font-black uppercase tracking-[0.2em] text-white">PAIN POINTS</h2>
+                            <h2 class="text-xl font-black uppercase tracking-[0.2em] text-white text-left">PAIN POINTS</h2>
                         </div>
                         <div class="grid gap-6">
-                            <div class="flex items-start gap-4"><div class="mt-2.5 w-2 h-2 rounded-full bg-purple-500 shrink-0 shadow-lg"></div><p class="text-slate-400 text-lg font-light leading-relaxed">Users had no strong reason to return to the app after completing a purchase.</p></div>
-                            <div class="flex items-start gap-4"><div class="mt-2.5 w-2 h-2 rounded-full bg-purple-500 shrink-0 shadow-lg"></div><p class="text-slate-400 text-lg font-light leading-relaxed">Existing user journey felt functional but not sticky or community-driven.</p></div>
+                            <div class="flex items-start gap-4"><div class="mt-2.5 w-2 h-2 rounded-full bg-purple-500 shrink-0 shadow-lg"></div><p class="text-slate-400 text-lg font-light leading-relaxed text-left">Users had no strong reason to return to the app after completing a purchase.</p></div>
+                            <div class="flex items-start gap-4"><div class="mt-2.5 w-2 h-2 rounded-full bg-purple-500 shrink-0 shadow-lg"></div><p class="text-slate-400 text-lg font-light leading-relaxed text-left">Existing user journey felt functional but not sticky or community-driven.</p></div>
                         </div>
                     </div>
 
                     <div class="glass-card p-12 rounded-[2.5rem]">
-                        <div class="flex items-center justify-center lg:justify-start gap-4 mb-12 text-purple-400">
+                        <div class="flex items-center justify-start gap-4 mb-12 text-purple-400">
                             <i data-lucide="zap" class="w-8 h-8"></i>
-                            <h2 class="text-xl font-black uppercase tracking-[0.2em] text-white">THE SOLUTIONS I CHOSE</h2>
+                            <h2 class="text-xl font-black uppercase tracking-[0.2em] text-white text-left">THE SOLUTIONS I CHOSE</h2>
                         </div>
                         <div class="grid gap-8">
                             <div class="p-10 bg-black/40 border border-white/5 rounded-[2.5rem] hover:border-purple-500/30 transition-all text-left">
@@ -310,31 +369,10 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="glass-card p-12 rounded-[2.5rem]">
-                        <div class="flex items-center justify-center lg:justify-start gap-4 mb-12 text-purple-400">
-                            <i data-lucide="rocket" class="w-8 h-8"></i>
-                            <h2 class="text-xl font-black uppercase tracking-[0.2em] text-white">CASE ARTIFACTS</h2>
-                        </div>
-                        <div class="grid sm:grid-cols-2 gap-8">
-                            <div class="p-10 border border-white/5 bg-black/20 rounded-[2.5rem] hover:border-purple-500/40 transition-all group flex flex-col h-full">
-                                <i data-lucide="external-link" class="w-10 h-10 text-purple-500 mb-8"></i>
-                                <h3 class="text-2xl font-bold text-white mb-3 tracking-tight">Interactive Prototype</h3>
-                                <p class="text-slate-400 mb-10 font-light text-lg flex-grow leading-relaxed">Explore high-fidelity user flows in the live prototype.</p>
-                                <a href="https://prototype-aaron-product.lovable.app/" target="_blank" class="inline-flex items-center justify-center gap-2 w-full py-5 bg-purple-600 text-white rounded-[1.25rem] font-bold text-lg hover:bg-purple-500 transition-all active:scale-95 shadow-xl shadow-purple-950/20">View Prototype</a>
-                            </div>
-                            <div class="p-10 border border-white/5 bg-black/20 rounded-[2.5rem] hover:border-purple-500/40 transition-all group flex flex-col h-full">
-                                <i data-lucide="folder-search" class="w-10 h-10 text-purple-500 mb-8"></i>
-                                <h3 class="text-2xl font-bold text-white mb-3 tracking-tight">Full Case Artifacts</h3>
-                                <p class="text-slate-400 mb-10 font-light text-lg flex-grow leading-relaxed">PRD, research docs, and strategy decks.</p>
-                                <a href="https://drive.google.com/drive/folders/1JNV5QJJRDlxFinc4hyeJIjzF9uAmS1fv?usp=drive_link" target="_blank" class="inline-flex items-center justify-center gap-2 w-full py-5 bg-purple-600 text-white rounded-[1.25rem] font-bold text-lg hover:bg-purple-500 transition-all active:scale-95 shadow-lg shadow-purple-950/20">View Assets</a>
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
                 <div class="mt-40 text-center">
-                    <button onclick="navigateTo('home')" class="px-14 py-6 bg-white/5 border border-white/10 text-slate-400 rounded-full font-bold hover:text-white hover:border-white/20 transition-all active:scale-95 text-xs uppercase tracking-[0.4em] mb-20 shadow-2xl">Return to Home</button>
+                    <button onclick="navigateTo('home')" class="px-14 py-6 bg-white/5 border border-white/10 text-slate-400 rounded-full font-bold hover:text-white hover:border-white/20 transition-all active:scale-95 text-xs uppercase tracking-[0.4em] mb-20 shadow-2xl">Return to Portfolio</button>
                 </div>
             </div>
         </div>
@@ -343,16 +381,16 @@
     <!-- Footer -->
     <footer id="contact" class="bg-[#080809] text-white py-40 px-6 border-t border-white/5 relative z-10">
         <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-start gap-24">
-            <div class="flex-1">
-                <h2 class="text-6xl md:text-8xl font-black mb-12 leading-tight tracking-tighter italic">Let's <span class="text-purple-500">connect.</span></h2>
+            <div class="flex-1 text-left">
+                <h2 class="text-6xl md:text-8xl font-black mb-12 leading-tight tracking-tighter italic text-left">Let's <span class="text-purple-500">connect.</span></h2>
                 <a href="mailto:Aaronbnzn@gmail.com" class="flex items-center gap-5 p-6 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 transition-all group max-w-md shadow-2xl">
                     <i data-lucide="mail" class="w-8 h-8 text-purple-400 group-hover:scale-110 transition-transform"></i>
                     <span class="font-bold tracking-tight text-xl text-white">Aaronbnzn@gmail.com</span>
                 </a>
             </div>
             <div class="lg:text-right flex flex-col items-start lg:items-end gap-8 border-l lg:border-l-0 lg:border-r border-white/10 pl-10 lg:pl-0 lg:pr-12 py-4">
-                <div class="text-xs font-bold uppercase tracking-[0.5em] text-slate-500 italic">Availability</div>
-                <p class="text-slate-400 text-xl max-w-xs lg:text-right font-light leading-relaxed">Based in Noida Uttar Pradesh. Currently open for Remote / Hybrid PM Roles.</p>
+                <div class="text-xs font-bold uppercase tracking-[0.5em] text-slate-500 italic text-left lg:text-right">Availability</div>
+                <p class="text-slate-400 text-xl max-w-xs lg:text-right font-light leading-relaxed text-left">Based in Noida Uttar Pradesh. Currently open for Remote / Hybrid PM Roles.</p>
                 <div class="h-14 w-[1px] bg-gradient-to-b from-purple-500 to-transparent my-4"></div>
                 <p class="text-slate-600 font-mono text-[10px] tracking-widest uppercase">Aaron Bnzn &copy; 2024</p>
             </div>
