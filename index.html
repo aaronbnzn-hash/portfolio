@@ -1,487 +1,311 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aaron | Product Manager Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0B0B0C;
-            color: #94a3b8;
-            overflow-x: hidden;
-        }
 
-        .technical-grid {
-            background-image: 
-                linear-gradient(to right, rgba(128, 128, 128, 0.07) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(128, 128, 128, 0.07) 1px, transparent 1px);
-            background-size: 40px 40px;
-            mask-image: radial-gradient(ellipse 60% 50% at 50% 0%, #000 70%, transparent 100%);
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AARON | The Way of the PM</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Serif:ital,wght@0,400;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary": "#ffb4ac",
+                      "on-secondary-fixed-variant": "#5d4201",
+                      "inverse-surface": "#e5e2e1",
+                      "on-error-container": "#ffdad6",
+                      "on-surface": "#e5e2e1",
+                      "tertiary-container": "#4d5d78",
+                      "tertiary": "#b7c7e7",
+                      "inverse-on-surface": "#313030",
+                      "on-tertiary": "#21314a",
+                      "surface-container-lowest": "#0e0e0e",
+                      "on-primary-container": "#ffc8c2",
+                      "secondary-fixed-dim": "#e9c176",
+                      "on-primary": "#690007",
+                      "inverse-primary": "#b52424",
+                      "on-primary-fixed": "#410003",
+                      "surface-container-high": "#2a2a2a",
+                      "on-secondary": "#412d00",
+                      "surface": "#131313",
+                      "on-background": "#e5e2e1",
+                      "secondary-fixed": "#ffdea5",
+                      "surface-container": "#20201f",
+                      "surface-tint": "#ffb4ac",
+                      "primary-fixed-dim": "#ffb4ac",
+                      "secondary-container": "#604403",
+                      "surface-container-low": "#1c1b1b",
+                      "surface-container-highest": "#353535",
+                      "primary-fixed": "#ffdad6",
+                      "surface-variant": "#353535",
+                      "surface-bright": "#393939",
+                      "on-tertiary-fixed": "#0a1c34",
+                      "outline": "#aa8986",
+                      "on-surface-variant": "#e2beba",
+                      "on-tertiary-fixed-variant": "#384762",
+                      "background": "#131313",
+                      "on-primary-fixed-variant": "#92030f",
+                      "on-tertiary-container": "#c6d6f6",
+                      "outline-variant": "#5a403e",
+                      "surface-dim": "#131313",
+                      "secondary": "#e9c176",
+                      "error-container": "#93000a",
+                      "on-secondary-container": "#dab36a",
+                      "primary-container": "#b22222",
+                      "error": "#ffb4ab",
+                      "on-secondary-fixed": "#261900",
+                      "on-error": "#690005",
+                      "tertiary-fixed": "#d6e3ff",
+                      "tertiary-fixed-dim": "#b7c7e7"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "ma-md": "4rem",
+                      "gutter": "24px",
+                      "ma-sm": "2rem",
+                      "ma-lg": "8rem",
+                      "max-width": "1200px",
+                      "unit": "8px"
+              },
+              "fontFamily": {
+                      "body-md": ["Inter"],
+                      "h1": ["Noto Serif"],
+                      "h3": ["Noto Serif"],
+                      "body-lg": ["Inter"],
+                      "h2": ["Noto Serif"],
+                      "label-caps": ["Inter"]
+              },
+              "fontSize": {
+                      "body-md": ["16px", {"lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "400"}],
+                      "h1": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "h3": ["24px", {"lineHeight": "1.4", "letterSpacing": "0em", "fontWeight": "500"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "400"}],
+                      "h2": ["32px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.15em", "fontWeight": "600"}]
+              }
+            },
+          },
         }
-
-        .text-gradient {
-            background: linear-gradient(to right, #a855f7, #60a5fa, #34d399);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+    </script>
+<style>
+        .washi-texture {
+            background-image: radial-gradient(#ffffff05 1px, transparent 0);
+            background-size: 4px 4px;
         }
-
-        .spotlight {
-            background: radial-gradient(600px circle at var(--x) var(--y), rgba(168, 85, 247, 0.08), transparent 80%);
+        .ink-bleed-hover:hover {
+            box-shadow: 0 0 20px 5px rgba(178, 34, 34, 0.4);
+            filter: blur(0.5px);
         }
-
-        [data-view] { display: none; }
-        [data-view].active { display: block; }
-        
-        .divider-gradient {
-            height: 1px;
-            background: linear-gradient(to right, transparent, rgba(128, 128, 128, 0.2), transparent);
+        .seigaiha-pattern {
+            background-color: transparent;
+            background-image: radial-gradient(circle at 100% 150%, transparent 24%, #e9c17610 25%, #e9c17610 28%, transparent 29%, transparent 36%, #e9c17610 36%, #e9c17610 40%, transparent 41%, transparent 48%, #e9c17610 48%, #e9c17610 52%, transparent 53%);
+            background-size: 40px 20px;
         }
-
-        /* Skill Card strictly matching 3:34:09 PM Screenshot */
-        .skill-box-exact {
-            min-height: 200px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            background: rgba(255, 255, 255, 0.012);
-            border: 1px solid rgba(255, 255, 255, 0.04);
-            border-radius: 1.75rem;
-            padding: 1.75rem;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .skill-box-exact:hover {
-            border-color: rgba(168, 85, 247, 0.25);
-            background: rgba(255, 255, 255, 0.02);
-            transform: translateY(-2px);
-        }
-
-        .icon-square-exact {
-            width: 3.25rem;
-            height: 3.25rem;
-            border-radius: 0.85rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        @keyframes popIn {
-            0% { transform: scale(0.9) translateY(15px); opacity: 0; }
-            100% { transform: scale(1) translateY(0); opacity: 1; }
-        }
-
-        .animate-pop {
-            opacity: 0;
-        }
-
-        .skill-box-exact:hover .animate-pop {
-            animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-        }
-
-        .artifact-card {
-            background: rgba(255, 255, 255, 0.01);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.3s ease;
-        }
-        
-        .artifact-card:hover {
-            border-color: rgba(168, 85, 247, 0.3);
-            background: rgba(255, 255, 255, 0.02);
+        .katana-path {
+            width: 1px;
+            background: linear-gradient(to bottom, transparent, #e9c17640 10%, #e9c176 50%, #e9c17640 90%, transparent);
         }
     </style>
-</head>
-<body>
-    <!-- Navigation -->
-    <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 py-6 border-b border-transparent">
-        <div class="max-w-6xl mx-auto px-6 flex justify-between items-center">
-            <div class="flex items-center gap-2 cursor-pointer" onclick="navigateTo('home')">
-                <div class="w-8 h-8 bg-gradient-to-br from-purple-600 to-blue-600 rounded-lg flex items-center justify-center font-bold text-white text-xs shadow-lg">A</div>
-                <span class="text-sm font-bold tracking-tighter text-white uppercase">AARON<span class="text-purple-500 italic">BNZN.</span></span>
-            </div>
-            
-            <div id="main-nav-links" class="flex gap-10 text-[10px] font-bold uppercase tracking-[0.25em] text-slate-500">
-                <a href="#about" class="hover:text-white transition-colors">About</a>
-                <a href="#projects" class="hover:text-white transition-colors">Projects</a>
-                <a href="#contact" class="hover:text-white transition-colors">Contact</a>
-            </div>
-
-            <div id="project-nav-links" class="hidden w-full flex justify-between items-center">
-                <button onclick="navigateTo('home')" class="flex items-center gap-2 text-slate-400 hover:text-white transition-colors text-xs font-bold uppercase tracking-widest">
-                    <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Portfolio
-                </button>
-                <span id="nav-project-title" class="text-[10px] font-black tracking-[0.4em] text-purple-500 uppercase">PROJECT</span>
-            </div>
-        </div>
-    </nav>
-
-    <!-- HOME VIEW -->
-    <main data-view="home" class="active relative">
-        <section class="pt-40 pb-20 md:pt-48 md:pb-32 px-6 relative">
-            <div class="absolute inset-0 technical-grid pointer-events-none"></div>
-            <div class="max-w-6xl mx-auto relative z-10">
-                <div class="max-w-3xl">
-                    <div class="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-white text-[10px] font-bold uppercase tracking-[0.2em] mb-8">
-                        <i data-lucide="terminal" class="w-3 h-3 text-purple-400"></i>
-                        MBA Marketing &bull; Product Aspirant
-                    </div>
-                    <h1 class="text-5xl md:text-8xl font-black mb-8 leading-[0.95] tracking-tight text-white">
-                        User Insights.<br />
-                        Business Goals.<br />
-                        <span class="text-gradient italic">Execution.</span>
-                    </h1>
-                    <p class="text-xl md:text-2xl text-slate-400 mb-10 leading-relaxed font-light max-w-2xl">
-                        I transform complex consumer needs from the ground floor at <span class="text-white font-medium">Amul</span> to high-stakes banking at <span class="text-white font-medium">Axis</span> into strategic product decisions.
-                    </p>
-                    <div class="flex flex-wrap gap-5">
-                        <a href="#projects" class="px-10 py-5 bg-white text-black rounded-full font-bold hover:bg-purple-500 hover:text-white transition-all flex items-center gap-3 shadow-xl shadow-purple-950/20 active:scale-95">
-                            Explore Work <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                        </a>
-                        <a href="mailto:Aaronbnzn@gmail.com" class="px-10 py-5 bg-white/5 border border-white/10 text-white rounded-full font-bold hover:border-white/40 transition-all flex items-center gap-3 active:scale-95">
-                            Get In Touch
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <div class="divider-gradient"></div>
-
-        <!-- 50/50 SPLIT SECTION -->
-        <section id="about" class="py-24 relative">
-            <div class="max-w-6xl mx-auto px-6 relative z-10">
-                <div class="grid lg:grid-cols-2 gap-16 items-start">
-                    <!-- LEFT COLUMN -->
-                    <div class="flex flex-col">
-                        <div class="mb-6">
-                            <h2 class="text-5xl font-black text-white mb-6 tracking-tighter leading-tight italic text-left">The PM Perspective</h2>
-                            <p class="text-slate-400 text-lg font-light leading-relaxed max-w-lg text-left">
-                                My journey hasn't been linear, and that's my strength. From conducting on-ground consumer research for Amul to managing high-stakes relationships at Axis Bank, I've learned that great products are built at the intersection of empathy and economics.
-                            </p>
-                        </div>
-                        
-                        <div>
-                            <div class="p-8 bg-white/[0.015] border border-white/5 rounded-[2.5rem] flex flex-row items-center gap-8 shadow-xl transition-all hover:border-purple-500/20 group text-left">
-                                <div class="w-20 h-20 bg-purple-500/10 rounded-2xl flex items-center justify-center shrink-0 border border-purple-500/10 group-hover:scale-105 transition-transform shadow-lg shadow-purple-950/20">
-                                    <i data-lucide="graduation-cap" class="text-purple-400 w-10 h-10"></i>
-                                </div>
-                                <div class="text-left">
-                                    <h4 class="text-2xl font-bold text-white mb-1.5 tracking-tight">MBA in Marketing</h4>
-                                    <p class="text-slate-500 text-sm font-light leading-relaxed">Deep understanding of market dynamics & strategic growth</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- RIGHT COLUMN: Skills Grid -->
-                    <div id="skills-container" class="grid grid-cols-1 sm:grid-cols-2 gap-6 relative group/grid">
-                        <div id="spotlight" class="absolute inset-0 pointer-events-none opacity-0 group-hover/grid:opacity-100 transition-opacity duration-500 spotlight"></div>
-                        
-                        <!-- AI & Productivity -->
-                        <div class="skill-box-exact z-10 group/skill">
-                            <div class="flex flex-col h-full justify-between transition-all duration-500 group-hover/skill:opacity-0 group-hover/skill:-translate-y-4">
-                                <div class="icon-square-exact">
-                                    <i data-lucide="cpu" class="w-6 h-6 text-blue-400"></i>
-                                </div>
-                                <div class="flex items-end justify-between">
-                                    <span class="font-bold text-white text-xl tracking-tight">AI & Productivity</span>
-                                    <span class="text-[9px] font-black text-blue-500 uppercase tracking-widest opacity-40">Hover</span>
-                                </div>
-                            </div>
-                            
-                            <div class="absolute inset-0 p-5 flex flex-col justify-center opacity-0 translate-y-4 group-hover/skill:opacity-100 group-hover/skill:translate-y-0 transition-all duration-500 bg-black/40 backdrop-blur-md">
-                                <p class="text-[9px] font-black uppercase tracking-[0.2em] text-blue-500 mb-3 italic">AI Stack</p>
-                                <div class="grid grid-cols-2 gap-2">
-                                    <div class="bg-white/5 border border-white/10 py-1.5 px-2 rounded-lg text-[9px] font-bold text-white animate-pop [animation-delay:0.05s]">Lovable</div>
-                                    <div class="bg-white/5 border border-white/10 py-1.5 px-2 rounded-lg text-[9px] font-bold text-white animate-pop [animation-delay:0.1s]">Cursor</div>
-                                    <div class="bg-white/5 border border-white/10 py-1.5 px-2 rounded-lg text-[9px] font-bold text-white animate-pop [animation-delay:0.15s]">Gemini</div>
-                                    <div class="bg-white/5 border border-white/10 py-1.5 px-2 rounded-lg text-[9px] font-bold text-white animate-pop [animation-delay:0.2s]">N8N</div>
-                                    <div class="bg-white/5 border border-white/10 py-1.5 px-2 rounded-lg text-[9px] font-bold text-white animate-pop [animation-delay:0.25s]">Figma</div>
-                                    <div class="bg-white/5 border border-white/10 py-1.5 px-2 rounded-lg text-[9px] font-bold text-white animate-pop [animation-delay:0.3s]">Canva</div>
-                                    <div class="col-span-2 bg-white/5 border border-white/10 py-1.5 px-2 rounded-lg text-[9px] font-bold text-blue-400 animate-pop [animation-delay:0.35s] text-center uppercase tracking-widest">AI Productivity Tools</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Research Strategy -->
-                        <div class="skill-box-exact z-10">
-                            <div class="icon-square-exact">
-                                <i data-lucide="search" class="w-6 h-6 text-emerald-400"></i>
-                            </div>
-                            <span class="font-bold text-white text-xl tracking-tight">Research Strategy</span>
-                        </div>
-
-                        <!-- Stakeholder Comms -->
-                        <div class="skill-box-exact z-10">
-                            <div class="icon-square-exact">
-                                <i data-lucide="users" class="w-6 h-6 text-purple-400"></i>
-                            </div>
-                            <span class="font-bold text-white text-xl tracking-tight">Stakeholder Comms</span>
-                        </div>
-
-                        <!-- Business Acumen -->
-                        <div class="skill-box-exact z-10">
-                            <div class="icon-square-exact">
-                                <i data-lucide="briefcase" class="w-6 h-6 text-orange-400"></i>
-                            </div>
-                            <span class="font-bold text-white text-xl tracking-tight">Business Acumen</span>
-                        </div>
-
-                        <!-- Data Analytics -->
-                        <div class="skill-box-exact z-10 group/skill-da text-left">
-                            <div class="flex flex-col h-full justify-between transition-all duration-500 group-hover/skill-da:opacity-0 group-hover/skill-da:-translate-y-4">
-                                <div class="icon-square-exact">
-                                    <i data-lucide="database" class="w-6 h-6 text-cyan-400"></i>
-                                </div>
-                                <div class="flex items-end justify-between">
-                                    <span class="font-bold text-white text-xl tracking-tight">Data Analytics</span>
-                                    <span class="text-[9px] font-black text-cyan-500 uppercase tracking-widest opacity-40">Hover</span>
-                                </div>
-                            </div>
-                            
-                            <div class="absolute inset-0 p-6 flex flex-col justify-center opacity-0 translate-y-4 group-hover/skill-da:opacity-100 group-hover/skill-da:translate-y-0 transition-all duration-500 bg-black/40 backdrop-blur-md">
-                                <p class="text-[9px] font-black uppercase tracking-[0.2em] text-cyan-500 mb-4 italic text-left">Core Stack</p>
-                                <div class="flex flex-col gap-2">
-                                    <div class="bg-white/5 border border-white/10 py-2 px-4 rounded-xl text-[11px] font-bold text-white shadow-xl animate-pop [animation-delay:0.1s]">SQL</div>
-                                    <div class="bg-white/5 border border-white/10 py-2 px-4 rounded-xl text-[11px] font-bold text-white shadow-xl animate-pop [animation-delay:0.2s]">Google Analytics</div>
-                                    <div class="bg-white/5 border border-white/10 py-2 px-4 rounded-xl text-[11px] font-bold text-white shadow-xl animate-pop [animation-delay:0.3s]">Perplexity</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Decision Making -->
-                        <div class="skill-box-exact z-10 group/skill-dm">
-                            <div class="flex flex-col h-full justify-between transition-all duration-500 group-hover/skill-dm:opacity-0 group-hover/skill-dm:-translate-y-4">
-                                <div class="icon-square-exact">
-                                    <i data-lucide="lightbulb" class="w-6 h-6 text-yellow-400"></i>
-                                </div>
-                                <div class="flex items-end justify-between">
-                                    <span class="font-bold text-white text-xl tracking-tight">Decision Making</span>
-                                    <span class="text-[9px] font-black text-yellow-500 uppercase tracking-widest opacity-40">Hover</span>
-                                </div>
-                            </div>
-                            <div class="absolute inset-0 p-6 flex flex-col justify-center opacity-0 translate-y-4 group-hover/skill-dm:opacity-100 group-hover/skill-dm:translate-y-0 transition-all duration-500 bg-black/40 backdrop-blur-md">
-                                <p class="text-[9px] font-black uppercase tracking-[0.2em] text-yellow-500 mb-4 italic text-left">Process</p>
-                                <div class="flex flex-col gap-2">
-                                    <div class="bg-white/5 border border-white/10 py-2.5 px-4 rounded-xl text-[11px] font-bold text-white shadow-xl animate-pop [animation-delay:0.1s]">Strategic Thinking</div>
-                                    <div class="bg-white/5 border border-white/10 py-2.5 px-4 rounded-xl text-[11px] font-bold text-white shadow-xl animate-pop [animation-delay:0.2s]">Structured Problem Solving</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <div class="divider-gradient"></div>
-
-        <!-- Artifacts -->
-        <section id="projects" class="py-24 px-6">
-            <div class="max-w-6xl mx-auto">
-                <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-                    <div class="max-w-xl">
-                        <h2 class="text-xs font-bold uppercase tracking-[0.4em] text-blue-500 mb-4 italic text-left">Selected Artifacts</h2>
-                        <h3 class="text-5xl font-bold text-white tracking-tight text-left leading-none">Projects</h3>
-                    </div>
-                    <p class="text-slate-600 font-mono text-[10px] uppercase tracking-widest">Selected Works</p>
-                </div>
-                <div class="grid md:grid-cols-2 gap-10">
-                    <div onclick="navigateTo('lenskart')" class="group bg-[#121214] rounded-[3rem] border border-purple-500/20 p-12 hover:shadow-2xl transition-all duration-500 relative flex flex-col min-h-[450px] cursor-pointer">
-                        <div class="flex justify-between items-start mb-12">
-                            <div class="p-5 bg-white/5 rounded-2xl text-white group-hover:bg-purple-600 transition-colors shadow-lg">
-                                <i data-lucide="users" class="w-10 h-10"></i>
-                            </div>
-                            <div class="flex gap-2">
-                                <span class="text-[9px] font-black uppercase tracking-widest bg-white/5 text-slate-400 px-4 py-2 rounded-lg border border-white/5">ENGAGEMENT</span>
-                                <span class="text-[9px] font-black uppercase tracking-widest bg-white/5 text-slate-400 px-4 py-2 rounded-lg border border-white/5">AI</span>
-                            </div>
-                        </div>
-                        <div class="mt-auto text-left">
-                            <h3 class="text-4xl font-bold mb-3 text-white group-hover:text-purple-400 transition-colors tracking-tight italic">Lenskart</h3>
-                            <p class="text-slate-500 font-bold text-[10px] uppercase tracking-[0.25em] mb-6">REIMAGINING USER ENGAGEMENT</p>
-                            <p class="text-slate-400 leading-relaxed mb-12 text-lg font-light">Developed a data-backed engagement framework using AI tools to increase post-purchase interaction.</p>
-                            <span class="inline-flex items-center gap-3 font-bold text-xs text-white uppercase tracking-[0.2em] group-hover:text-purple-400 transition-all border-b border-white/10 pb-2">
-                                View Case Study <i data-lucide="external-link" class="w-4 h-4"></i>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="group bg-[#121214] rounded-[3rem] border border-white/5 p-12 opacity-50 grayscale transition-all duration-500 flex flex-col min-h-[450px]">
-                        <div class="flex justify-between items-start mb-12">
-                            <div class="p-5 bg-white/5 rounded-2xl text-slate-600 text-left">
-                                <i data-lucide="trending-up" class="w-10 h-10"></i>
-                            </div>
-                        </div>
-                        <div class="mt-auto text-left">
-                            <h3 class="text-4xl font-bold mb-3 text-white tracking-tight italic">VivaFit</h3>
-                            <p class="text-slate-500 font-bold text-[10px] uppercase tracking-[0.25em] mb-6">SOLVING MOTIVATION DROP-OFF</p>
-                            <p class="text-slate-400 leading-relaxed mb-12 text-lg font-light italic">Documentation in progress.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- PROJECT DETAIL VIEW (LENSKART) -->
-    <main id="view-lenskart" data-view="project-lenskart" class="relative z-10">
-        <div class="pt-32 pb-20 px-6">
-            <div class="max-w-6xl mx-auto">
-                <div class="mb-12 flex items-center justify-between">
-                    <button onclick="navigateTo('home')" class="flex items-center gap-3 text-slate-400 hover:text-white transition-all bg-white/[0.03] border border-white/10 px-8 py-4 rounded-2xl group active:scale-95 shadow-lg">
-                        <i data-lucide="arrow-left" class="w-5 h-5 group-hover:-translate-x-1 transition-transform"></i>
-                        <span class="font-bold text-xs uppercase tracking-[0.2em]">Back to Portfolio</span>
-                    </button>
-                    <div class="flex gap-2">
-                        <span class="text-[10px] font-bold uppercase bg-white/5 text-slate-500 border border-white/10 px-4 py-1.5 rounded-full tracking-widest">LENSKART</span>
-                    </div>
-                </div>
-
-                <div class="divider-gradient mb-12"></div>
-
-                <div class="max-w-4xl mx-auto grid gap-10 text-left">
-                    <div class="mb-4">
-                        <h1 class="text-5xl font-black text-white tracking-tighter italic mb-2">Lenskart</h1>
-                        <p class="text-purple-400 font-bold uppercase tracking-[0.3em] text-sm">REIMAGINING USER ENGAGEMENT</p>
-                    </div>
-
-                    <div class="glass-card p-10 rounded-[2.5rem]">
-                        <div class="flex items-center justify-start gap-4 mb-6 text-purple-400">
-                            <i data-lucide="target" class="w-7 h-7"></i>
-                            <h2 class="text-xl font-black uppercase tracking-[0.2em] text-white">THE CHALLENGE</h2>
-                        </div>
-                        <p class="text-slate-400 leading-relaxed text-lg font-light">Users only engaged with Lenskart during purchases, resulting in low repeat engagement and limited app stickiness. The goal was to increase active user engagement by 25–45%.</p>
-                    </div>
-
-                    <div class="glass-card p-10 rounded-[2.5rem]">
-                        <div class="flex items-center justify-start gap-4 mb-8 text-purple-400">
-                            <i data-lucide="alert-triangle" class="w-7 h-7"></i>
-                            <h2 class="text-xl font-black uppercase tracking-[0.2em] text-white">PAIN POINTS</h2>
-                        </div>
-                        <div class="grid gap-5">
-                            <div class="flex items-start gap-4"><div class="mt-2.5 w-1.5 h-1.5 rounded-full bg-purple-500 shrink-0"></div><p class="text-slate-400 text-lg font-light leading-relaxed">Users had no strong reason to return to the app after completing a purchase.</p></div>
-                            <div class="flex items-start gap-4"><div class="mt-2.5 w-1.5 h-1.5 rounded-full bg-purple-500 shrink-0"></div><p class="text-slate-400 text-lg font-light leading-relaxed">Existing user journey felt functional but not sticky or community-driven.</p></div>
-                        </div>
-                    </div>
-
-                    <div class="glass-card p-10 rounded-[2.5rem]">
-                        <div class="flex items-center justify-start gap-4 mb-8 text-purple-400">
-                            <i data-lucide="zap" class="w-7 h-7"></i>
-                            <h2 class="text-xl font-black uppercase tracking-[0.2em] text-white">THE SOLUTIONS I CHOSE</h2>
-                        </div>
-                        <div class="grid gap-8">
-                            <div class="p-8 bg-black/40 border border-white/5 rounded-[2.5rem] hover:border-purple-500/30 transition-all text-left">
-                                <div class="flex items-center gap-5 mb-4">
-                                    <i data-lucide="check-circle-2" class="w-7 h-7 text-purple-400"></i>
-                                    <h3 class="font-bold text-white text-2xl tracking-tight">Omnichannel Experience</h3>
-                                </div>
-                                <p class="text-slate-400 font-light text-lg pl-12 leading-relaxed">Designed a seamless omnichannel journey connecting online browsing with offline store experiences.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- CASE ARTIFACTS SECTION ADDED BACK -->
-                    <div class="glass-card p-10 rounded-[2.5rem]">
-                        <div class="flex items-center gap-4 mb-10 text-purple-400">
-                            <i data-lucide="rocket" class="w-7 h-7 text-purple-400"></i>
-                            <h2 class="text-xl font-black uppercase tracking-[0.2em] text-white">CASE ARTIFACTS</h2>
-                        </div>
-                        <div class="grid sm:grid-cols-2 gap-6">
-                            <div class="artifact-card p-8 rounded-[2rem] group/art flex flex-col h-full">
-                                <i data-lucide="external-link" class="w-10 h-10 text-purple-500 mb-8 transition-transform group-hover/art:scale-110"></i>
-                                <h3 class="text-2xl font-bold text-white mb-3 tracking-tight">Interactive Prototype</h3>
-                                <p class="text-slate-400 mb-10 font-light text-lg flex-grow leading-relaxed">Explore high-fidelity user flows and interaction design in the live prototype.</p>
-                                <a href="https://prototype-aaron-product.lovable.app/" target="_blank" class="inline-flex items-center justify-center gap-2 w-full py-5 bg-purple-600 text-white rounded-[1.25rem] font-bold text-lg hover:bg-purple-500 transition-all active:scale-95 shadow-lg shadow-purple-950/20">View Prototype</a>
-                            </div>
-                            <div class="artifact-card p-8 rounded-[2rem] group/art flex flex-col h-full">
-                                <i data-lucide="folder-search" class="w-10 h-10 text-purple-500 mb-8 transition-transform group-hover/art:scale-110"></i>
-                                <h3 class="text-2xl font-bold text-white mb-3 tracking-tight">Full Case Artifacts</h3>
-                                <p class="text-slate-400 mb-10 font-light text-lg flex-grow leading-relaxed">PRD, comprehensive case study, and supporting documentation.</p>
-                                <a href="https://drive.google.com/drive/folders/1JNV5QJJRDlxFinc4hyeJIjzF9uAmS1fv?usp=drive_link" target="_blank" class="inline-flex items-center justify-center gap-2 w-full py-5 bg-purple-600 text-white rounded-[1.25rem] font-bold text-lg hover:bg-purple-500 transition-all active:scale-95 shadow-lg shadow-purple-950/20">View Assets</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mt-32 text-center">
-                    <button onclick="navigateTo('home')" class="px-14 py-6 bg-white/5 border border-white/10 text-slate-400 rounded-full font-bold hover:text-white hover:border-white/20 transition-all active:scale-95 text-xs uppercase tracking-[0.4em] mb-20 shadow-2xl">Return to Portfolio</button>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <!-- Footer -->
-    <footer id="contact" class="bg-[#080809] text-white py-24 px-6 border-t border-white/5 relative z-10">
-        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-start gap-24">
-            <div class="flex-1 text-left">
-                <h2 class="text-6xl md:text-8xl font-black mb-12 leading-tight tracking-tighter italic text-left">Let's <span class="text-purple-500">connect.</span></h2>
-                <a href="mailto:Aaronbnzn@gmail.com" class="flex items-center gap-5 p-6 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 transition-all group max-w-md shadow-2xl">
-                    <i data-lucide="mail" class="w-8 h-8 text-purple-400 group-hover:scale-110 transition-transform"></i>
-                    <span class="font-bold tracking-tight text-xl text-white">Aaronbnzn@gmail.com</span>
-                </a>
-            </div>
-            <div class="lg:text-right flex flex-col items-start lg:items-end gap-8 border-l lg:border-l-0 lg:border-r border-white/10 pl-10 lg:pl-0 lg:pr-12 py-4">
-                <div class="text-xs font-bold uppercase tracking-[0.5em] text-slate-500 italic text-left lg:text-right">Availability</div>
-                <p class="text-slate-400 text-xl max-w-xs lg:text-right font-light leading-relaxed text-left">Based in Noida Uttar Pradesh. Currently open for Remote / Hybrid PM Roles.</p>
-                <div class="h-14 w-[1px] bg-gradient-to-b from-purple-500 to-transparent my-4"></div>
-                <p class="text-slate-600 font-mono text-[10px] tracking-widest uppercase">Aaron Bnzn &copy; 2024</p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        lucide.createIcons();
-
-        function navigateTo(viewId) {
-            const views = document.querySelectorAll('[data-view]');
-            views.forEach(v => v.classList.remove('active'));
-
-            const navLinks = document.getElementById('main-nav-links');
-            const projectLinks = document.getElementById('project-nav-links');
-
-            if (viewId === 'home') {
-                document.querySelector('[data-view="home"]').classList.add('active');
-                navLinks.classList.remove('hidden');
-                projectLinks.classList.add('hidden');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            } else {
-                document.querySelector(`[data-view="project-${viewId}"]`).classList.add('active');
-                navLinks.classList.add('hidden');
-                projectLinks.classList.remove('hidden');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}[type='text'],input:where(:not([type])),[type='email'],[type='url'],[type='password'],[type='number'],[type='date'],[type='datetime-local'],[type='month'],[type='search'],[type='tel'],[type='time'],[type='week'],[multiple],textarea,select{-webkit-appearance:none;appearance:none;background-color:#fff;border-color:#6b7280;border-width:1px;border-radius:0px;padding-top:0.5rem;padding-right:0.75rem;padding-bottom:0.5rem;padding-left:0.75rem;font-size:1rem;line-height:1.5rem;--tw-shadow:0 0 #0000;}[type='text']:focus, input:where(:not([type])):focus, [type='email']:focus, [type='url']:focus, [type='password']:focus, [type='number']:focus, [type='date']:focus, [type='datetime-local']:focus, [type='month']:focus, [type='search']:focus, [type='tel']:focus, [type='time']:focus, [type='week']:focus, [multiple]:focus, textarea:focus, select:focus{outline:2px solid transparent;outline-offset:2px;--tw-ring-inset:var(--tw-empty,/*!*/ /*!*/);--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:#2563eb;--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);border-color:#2563eb}input::placeholder,textarea::placeholder{color:#6b7280;opacity:1}::-webkit-datetime-edit-fields-wrapper{padding:0}::-webkit-date-and-time-value{min-height:1.5em;text-align:inherit}::-webkit-datetime-edit{display:inline-flex}::-webkit-datetime-edit,::-webkit-datetime-edit-year-field,::-webkit-datetime-edit-month-field,::-webkit-datetime-edit-day-field,::-webkit-datetime-edit-hour-field,::-webkit-datetime-edit-minute-field,::-webkit-datetime-edit-second-field,::-webkit-datetime-edit-millisecond-field,::-webkit-datetime-edit-meridiem-field{padding-top:0;padding-bottom:0}select{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");background-position:right 0.5rem center;background-repeat:no-repeat;background-size:1.5em 1.5em;padding-right:2.5rem;print-color-adjust:exact}[multiple],[size]:where(select:not([size="1"])){background-image:initial;background-position:initial;background-repeat:unset;background-size:initial;padding-right:0.75rem;print-color-adjust:unset}[type='checkbox'],[type='radio']{-webkit-appearance:none;appearance:none;padding:0;print-color-adjust:exact;display:inline-block;vertical-align:middle;background-origin:border-box;-webkit-user-select:none;user-select:none;flex-shrink:0;height:1rem;width:1rem;color:#2563eb;background-color:#fff;border-color:#6b7280;border-width:1px;--tw-shadow:0 0 #0000}[type='checkbox']{border-radius:0px}[type='radio']{border-radius:100%}[type='checkbox']:focus,[type='radio']:focus{outline:2px solid transparent;outline-offset:2px;--tw-ring-inset:var(--tw-empty,/*!*/ /*!*/);--tw-ring-offset-width:2px;--tw-ring-offset-color:#fff;--tw-ring-color:#2563eb;--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow)}[type='checkbox']:checked,[type='radio']:checked{border-color:transparent;background-color:currentColor;background-size:100% 100%;background-position:center;background-repeat:no-repeat}[type='checkbox']:checked{background-image:url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");}@media (forced-colors: active) {[type='checkbox']:checked{-webkit-appearance:auto;appearance:auto}}[type='radio']:checked{background-image:url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='3'/%3e%3c/svg%3e");}@media (forced-colors: active) {[type='radio']:checked{-webkit-appearance:auto;appearance:auto}}[type='checkbox']:checked:hover,[type='checkbox']:checked:focus,[type='radio']:checked:hover,[type='radio']:checked:focus{border-color:transparent;background-color:currentColor}[type='checkbox']:indeterminate{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 16 16'%3e%3cpath stroke='white' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M4 8h8'/%3e%3c/svg%3e");border-color:transparent;background-color:currentColor;background-size:100% 100%;background-position:center;background-repeat:no-repeat;}@media (forced-colors: active) {[type='checkbox']:indeterminate{-webkit-appearance:auto;appearance:auto}}[type='checkbox']:indeterminate:hover,[type='checkbox']:indeterminate:focus{border-color:transparent;background-color:currentColor}[type='file']{background:unset;border-color:inherit;border-width:0;border-radius:0;padding:0;font-size:unset;line-height:inherit}[type='file']:focus{outline:1px solid ButtonText;outline:1px auto -webkit-focus-ring-color}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.inset-0{inset:0px}.-left-4{left:-1rem}.-top-4{top:-1rem}.bottom-12{bottom:3rem}.left-1\/2{left:50%}.right-20{right:5rem}.top-0{top:0px}.top-1\/2{top:50%}.top-20{top:5rem}.z-10{z-index:10}.z-50{z-index:50}.mx-auto{margin-left:auto;margin-right:auto}.mb-12{margin-bottom:3rem}.mb-16{margin-bottom:4rem}.mb-2{margin-bottom:0.5rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.mt-12{margin-top:3rem}.mt-32{margin-top:8rem}.mt-8{margin-top:2rem}.block{display:block}.flex{display:flex}.grid{display:grid}.hidden{display:none}.aspect-\[4\/5\]{aspect-ratio:4/5}.h-1{height:0.25rem}.h-16{height:4rem}.h-20{height:5rem}.h-24{height:6rem}.h-32{height:8rem}.h-\[500px\]{height:500px}.h-auto{height:auto}.h-full{height:100%}.min-h-\[921px\]{min-height:921px}.w-24{width:6rem}.w-32{width:8rem}.w-\[1px\]{width:1px}.w-\[2px\]{width:2px}.w-\[500px\]{width:500px}.w-\[85\%\]{width:85%}.w-full{width:100%}.max-w-2xl{max-width:42rem}.max-w-\[1200px\]{max-width:1200px}.-translate-x-1\/2{--tw-translate-x:-50%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.-translate-y-1\/2{--tw-translate-y:-50%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.transform{transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-12{gap:3rem}.gap-2{gap:0.5rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.gap-8{gap:2rem}.gap-gutter{gap:24px}.space-x-12 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(3rem * var(--tw-space-x-reverse));margin-left:calc(3rem * calc(1 - var(--tw-space-x-reverse)))}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.rounded-full{border-radius:9999px}.border{border-width:1px}.border-2{border-width:2px}.border-b{border-bottom-width:1px}.border-l-2{border-left-width:2px}.border-t{border-top-width:1px}.border-t-2{border-top-width:2px}.border-primary-container\/30{border-color:rgb(178 34 34 / 0.3)}.border-red-600{--tw-border-opacity:1;border-color:rgb(220 38 38 / var(--tw-border-opacity, 1))}.border-red-800{--tw-border-opacity:1;border-color:rgb(153 27 27 / var(--tw-border-opacity, 1))}.border-red-900{--tw-border-opacity:1;border-color:rgb(127 29 29 / var(--tw-border-opacity, 1))}.border-red-900\/50{border-color:rgb(127 29 29 / 0.5)}.border-secondary{--tw-border-opacity:1;border-color:rgb(233 193 118 / var(--tw-border-opacity, 1))}.border-secondary\/20{border-color:rgb(233 193 118 / 0.2)}.border-yellow-700\/20{border-color:rgb(161 98 7 / 0.2)}.border-yellow-900\/10{border-color:rgb(113 63 18 / 0.1)}.bg-background{--tw-bg-opacity:1;background-color:rgb(19 19 19 / var(--tw-bg-opacity, 1))}.bg-primary-container{--tw-bg-opacity:1;background-color:rgb(178 34 34 / var(--tw-bg-opacity, 1))}.bg-primary-container\/10{background-color:rgb(178 34 34 / 0.1)}.bg-primary-container\/20{background-color:rgb(178 34 34 / 0.2)}.bg-red-800{--tw-bg-opacity:1;background-color:rgb(153 27 27 / var(--tw-bg-opacity, 1))}.bg-red-950\/20{background-color:rgb(69 10 10 / 0.2)}.bg-stone-800{--tw-bg-opacity:1;background-color:rgb(41 37 36 / var(--tw-bg-opacity, 1))}.bg-stone-900{--tw-bg-opacity:1;background-color:rgb(28 25 23 / var(--tw-bg-opacity, 1))}.bg-stone-950{--tw-bg-opacity:1;background-color:rgb(12 10 9 / var(--tw-bg-opacity, 1))}.bg-stone-950\/95{background-color:rgb(12 10 9 / 0.95)}.bg-surface-container{--tw-bg-opacity:1;background-color:rgb(32 32 31 / var(--tw-bg-opacity, 1))}.bg-surface-container-high{--tw-bg-opacity:1;background-color:rgb(42 42 42 / var(--tw-bg-opacity, 1))}.bg-surface-container-low{--tw-bg-opacity:1;background-color:rgb(28 27 27 / var(--tw-bg-opacity, 1))}.object-cover{object-fit:cover}.p-10{padding:2.5rem}.p-2{padding:0.5rem}.px-12{padding-left:3rem;padding-right:3rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-8{padding-left:2rem;padding-right:2rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-20{padding-top:5rem;padding-bottom:5rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-5{padding-top:1.25rem;padding-bottom:1.25rem}.py-ma-lg{padding-top:8rem;padding-bottom:8rem}.pb-1{padding-bottom:0.25rem}.text-center{text-align:center}.font-body-md{font-family:Inter}.font-h1{font-family:Noto Serif}.font-h2{font-family:Noto Serif}.font-h3{font-family:Noto Serif}.font-label-caps{font-family:Inter}.font-serif{font-family:ui-serif, Georgia, Cambria, "Times New Roman", Times, serif}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-5xl{font-size:3rem;line-height:1}.text-6xl{font-size:3.75rem;line-height:1}.text-\[10px\]{font-size:10px}.text-body-lg{font-size:18px;line-height:1.6;letter-spacing:0em;font-weight:400}.text-body-md{font-size:16px;line-height:1.6;letter-spacing:0em;font-weight:400}.text-h1{font-size:48px;line-height:1.2;letter-spacing:-0.02em;font-weight:700}.text-h2{font-size:32px;line-height:1.3;letter-spacing:-0.01em;font-weight:600}.text-h3{font-size:24px;line-height:1.4;letter-spacing:0em;font-weight:500}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.font-bold{font-weight:700}.font-normal{font-weight:400}.uppercase{text-transform:uppercase}.italic{font-style:italic}.leading-relaxed{line-height:1.625}.tracking-\[0\.2em\]{letter-spacing:0.2em}.tracking-\[0\.4em\]{letter-spacing:0.4em}.tracking-\[0\.5em\]{letter-spacing:0.5em}.tracking-tighter{letter-spacing:-0.05em}.tracking-widest{letter-spacing:0.1em}.text-on-background{--tw-text-opacity:1;color:rgb(229 226 225 / var(--tw-text-opacity, 1))}.text-on-surface{--tw-text-opacity:1;color:rgb(229 226 225 / var(--tw-text-opacity, 1))}.text-on-surface-variant{--tw-text-opacity:1;color:rgb(226 190 186 / var(--tw-text-opacity, 1))}.text-primary{--tw-text-opacity:1;color:rgb(255 180 172 / var(--tw-text-opacity, 1))}.text-red-600{--tw-text-opacity:1;color:rgb(220 38 38 / var(--tw-text-opacity, 1))}.text-red-700{--tw-text-opacity:1;color:rgb(185 28 28 / var(--tw-text-opacity, 1))}.text-red-800{--tw-text-opacity:1;color:rgb(153 27 27 / var(--tw-text-opacity, 1))}.text-secondary{--tw-text-opacity:1;color:rgb(233 193 118 / var(--tw-text-opacity, 1))}.text-stone-400{--tw-text-opacity:1;color:rgb(168 162 158 / var(--tw-text-opacity, 1))}.text-stone-500{--tw-text-opacity:1;color:rgb(120 113 108 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.opacity-10{opacity:0.1}.shadow-none{--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-sm{--tw-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.blur-\[120px\]{--tw-blur:blur(120px);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.grayscale{--tw-grayscale:grayscale(100%);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.backdrop-blur-sm{--tw-backdrop-blur:blur(4px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-1000{transition-duration:1000ms}.duration-300{transition-duration:300ms}.duration-500{transition-duration:500ms}.ease-in-out{transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1)}.selection\:bg-primary-container *::selection{--tw-bg-opacity:1;background-color:rgb(178 34 34 / var(--tw-bg-opacity, 1))}.selection\:text-white *::selection{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.selection\:bg-primary-container::selection{--tw-bg-opacity:1;background-color:rgb(178 34 34 / var(--tw-bg-opacity, 1))}.selection\:text-white::selection{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.hover\:border-secondary:hover{--tw-border-opacity:1;border-color:rgb(233 193 118 / var(--tw-border-opacity, 1))}.hover\:bg-red-700:hover{--tw-bg-opacity:1;background-color:rgb(185 28 28 / var(--tw-bg-opacity, 1))}.hover\:bg-secondary\/10:hover{background-color:rgb(233 193 118 / 0.1)}.hover\:bg-stone-900\/50:hover{background-color:rgb(28 25 23 / 0.5)}.hover\:text-red-500:hover{--tw-text-opacity:1;color:rgb(239 68 68 / var(--tw-text-opacity, 1))}.hover\:text-stone-100:hover{--tw-text-opacity:1;color:rgb(245 245 244 / var(--tw-text-opacity, 1))}.hover\:text-yellow-600:hover{--tw-text-opacity:1;color:rgb(202 138 4 / var(--tw-text-opacity, 1))}.active\:scale-95:active{--tw-scale-x:.95;--tw-scale-y:.95;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.group:hover .group-hover\:translate-x-2{--tw-translate-x:0.5rem;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.group:hover .group-hover\:scale-110{--tw-scale-x:1.1;--tw-scale-y:1.1;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.group:hover .group-hover\:grayscale-0{--tw-grayscale:grayscale(0);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.dark\:text-red-600:is(.dark *){--tw-text-opacity:1;color:rgb(220 38 38 / var(--tw-text-opacity, 1))}@media (min-width: 768px){.md\:col-span-1{grid-column:span 1 / span 1}.md\:col-span-2{grid-column:span 2 / span 2}.md\:col-span-5{grid-column:span 5 / span 5}.md\:col-span-7{grid-column:span 7 / span 7}.md\:row-span-1{grid-row:span 1 / span 1}.md\:row-span-2{grid-row:span 2 / span 2}.md\:flex{display:flex}.md\:h-\[600px\]{height:600px}.md\:grid-cols-12{grid-template-columns:repeat(12, minmax(0, 1fr))}.md\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}.md\:grid-rows-2{grid-template-rows:repeat(2, minmax(0, 1fr))}.md\:flex-row{flex-direction:row}.md\:items-start{align-items:flex-start}.md\:pl-12{padding-left:3rem}.md\:text-7xl{font-size:4.5rem;line-height:1}}@media (min-width: 1024px){.lg\:block{display:block}.lg\:text-8xl{font-size:6rem;line-height:1}}</style><style>
+        @keyframes sakura-fall {
+            0% {
+                transform: translateY(-10%) rotate(0deg) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+            }
+            80% {
+                opacity: 0.4;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg) translateX(-20px);
+                opacity: 0;
             }
         }
 
-        const skillsContainer = document.getElementById('skills-container');
-        const spotlight = document.getElementById('spotlight');
-        
-        skillsContainer.addEventListener('mousemove', (e) => {
-            const rect = skillsContainer.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            spotlight.style.setProperty('--x', `${x}px`);
-            spotlight.style.setProperty('--y', `${y}px`);
-        });
+        .sakura-petal {
+            position: absolute;
+            width: 8px;
+            height: 12px;
+            background-color: #B22222;
+            border-radius: 50% 0 50% 50%;
+            pointer-events: none;
+            z-index: 5;
+            animation: sakura-fall linear infinite;
+        }
 
-        window.addEventListener('scroll', () => {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('bg-[#0B0B0C]/90', 'backdrop-blur-md', 'border-white/5', 'shadow-2xl');
-                navbar.classList.remove('py-6');
-                navbar.classList.add('py-4');
-            } else {
-                navbar.classList.remove('bg-[#0B0B0C]/90', 'backdrop-blur-md', 'border-white/5', 'shadow-2xl');
-                navbar.classList.add('py-6');
-                navbar.classList.remove('py-4');
-            }
-        });
-    </script>
-</body>
-</html>
+        .sakura-container {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 5;
+        }
+    </style></head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary-container selection:text-white" data-mode="connect">
+<!-- TopNavBar -->
+<header class="sticky top-0 w-full z-50 bg-stone-950/95 backdrop-blur-sm border-b border-yellow-700/20 shadow-none">
+<nav class="max-w-[1200px] mx-auto px-8 h-24 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="bg-red-800 text-white px-3 py-1 font-bold text-lg border-2 border-red-900 shadow-sm uppercase tracking-tighter">AARON</div>
+</div>
+<div class="hidden md:flex items-center space-x-12">
+<a class="font-serif text-sm uppercase tracking-[0.2em] text-red-600 border-b border-red-600 pb-1 active:scale-95 transform transition-transform" href="#">Home</a>
+<a class="font-serif text-sm uppercase tracking-[0.2em] text-stone-400 hover:text-stone-100 transition-colors duration-300 hover:text-red-500 hover:bg-stone-900/50 active:scale-95 transform transition-transform" href="#">Projects</a>
+<a class="font-serif text-sm uppercase tracking-[0.2em] text-stone-400 hover:text-stone-100 transition-colors duration-300 hover:text-red-500 hover:bg-stone-900/50 active:scale-95 transform transition-transform" href="#">About</a>
+</div>
+<button class="material-symbols-outlined text-red-700 dark:text-red-600 hover:text-red-500 transition-all p-2">
+                contrast
+            </button>
+</nav>
+</header>
+<main class="relative"><div class="sakura-container h-[180vh] w-full">
+<div class="sakura-petal" style="left: 5%; animation-duration: 12s; animation-delay: 0s;"></div>
+<div class="sakura-petal" style="left: 15%; animation-duration: 15s; animation-delay: 2s;"></div>
+<div class="sakura-petal" style="left: 25%; animation-duration: 10s; animation-delay: 4s;"></div>
+<div class="sakura-petal" style="left: 35%; animation-duration: 18s; animation-delay: 1s;"></div>
+<div class="sakura-petal" style="left: 45%; animation-duration: 14s; animation-delay: 3s;"></div>
+<div class="sakura-petal" style="left: 55%; animation-duration: 11s; animation-delay: 5s;"></div>
+<div class="sakura-petal" style="left: 65%; animation-duration: 16s; animation-delay: 0.5s;"></div>
+<div class="sakura-petal" style="left: 75%; animation-duration: 13s; animation-delay: 2.5s;"></div>
+<div class="sakura-petal" style="left: 85%; animation-duration: 17s; animation-delay: 4.5s;"></div>
+<div class="sakura-petal" style="left: 95%; animation-duration: 12s; animation-delay: 1.5s;"></div>
+</div>
+<!-- Hero Section -->
+<section class="relative min-h-[921px] flex items-center justify-center overflow-hidden washi-texture hero-section-container">
+<div class="absolute inset-0 seigaiha-pattern opacity-10"></div>
+<!-- Red Sun Visual -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary-container/10 rounded-full blur-[120px]"></div>
+<div class="absolute top-20 right-20 w-32 h-32 bg-primary-container/20 rounded-full border border-primary-container/30 hidden lg:block"></div>
+<div class="relative z-10 max-w-[1200px] px-8 text-center">
+<span class="font-label-caps text-secondary tracking-[0.4em] mb-6 block uppercase">The Path of Strategic Mastery</span>
+<h1 class="font-h1 text-h1 text-on-surface mb-8 md:text-7xl lg:text-8xl">
+                    Hi, I'm Aaron.<br/>
+<span class="italic font-normal text-on-surface-variant">Aspiring Product Manager.</span>
+</h1>
+<div class="w-24 h-1 bg-primary-container mx-auto mb-12"></div>
+<div class="flex flex-wrap justify-center gap-6">
+<a class="bg-primary-container text-white px-8 py-4 font-label-caps tracking-widest hover:bg-red-700 transition-all ink-bleed-hover transform active:scale-95 border border-red-900/50" href="#">VIEW RESUME</a>
+<a class="border border-secondary text-secondary px-8 py-4 font-label-caps tracking-widest hover:bg-secondary/10 transition-all transform active:scale-95" href="#">LINKEDIN</a>
+</div>
+</div>
+<!-- Scroll Indicator -->
+<div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4">
+<span class="font-label-caps text-stone-500 text-[10px] tracking-widest uppercase">Scroll to enter</span>
+<div class="w-[1px] h-16 katana-path"></div>
+</div>
+</section>
+<!-- Bio Section -->
+<section class="max-w-[1200px] mx-auto px-8 py-ma-lg grid grid-cols-1 md:grid-cols-12 gap-gutter items-center bio-section-container">
+<div class="md:col-span-5 relative group">
+<div class="aspect-[4/5] bg-surface-container-high relative overflow-hidden border border-secondary/20">
+<img alt="Aaron" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000" data-alt="A cinematic, low-angle portrait of a professional man in his late 20s, looking thoughtfully into the distance. The lighting is dramatic and moody with deep shadows and warm amber highlights, reflecting a samurai-inspired stoicism. He is positioned against a dark, textured background that resembles traditional Japanese Washi paper with faint golden geometric patterns. The overall aesthetic is minimalist, high-end, and authoritative." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBC5DswvPZ0kxijViHQoH1_0u0zm9yE8AQommU8KC2ouAkOr-pb-ck5bd-GAwd3GjtMWAHGq39_UToNvSMqNdhPZHTDT3RbbSD1q74s8IyvlW6Hkl6901y-m79CUCU3ccIz9R_imOspdDcceGtQSnXm_aJw_jn50xVraxetjnq7DCd5AuGu7u59LbAb1qfQjafjiUYXMEe5mUUYFimuybN-w41pV3u2MQRlOtlT6rj7bJpjawvR6gTp-mlpySx5d18bnmtg_6CrVNk"/>
+</div>
+<!-- Decorative Frame -->
+<div class="absolute -top-4 -left-4 w-24 h-24 border-t-2 border-l-2 border-red-800"></div>
+</div>
+<div class="md:col-span-7 md:pl-12">
+<h2 class="font-h2 text-h2 text-on-surface mb-8">The Philosophy of 'Ma' in Product</h2>
+<div class="space-y-6 text-body-lg text-on-surface-variant font-body-md leading-relaxed">
+<p>
+                        In the spirit of a modern-day strategist, I approach product management as an art of intentionality. Just as the samurai values the space between strikes, I believe the most impactful products are defined by what they exclude as much as what they contain. 
+                    </p>
+<p>
+                        With a background rooted in analytical precision and human-centric design, I specialize in distilling complex chaos into clear, actionable roadmaps. My goal is to build digital ecosystems that don't just solve problems, but do so with a sense of balance and purpose—a "Zen-like" clarity in a world of digital noise.
+                    </p>
+</div>
+<div class="mt-12 flex items-center gap-4 text-secondary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">mail</span>
+<span class="font-serif italic text-lg">aaron.strategy@gmail.com</span>
+</div>
+</div>
+</section>
+<!-- Professional Skills Bento Grid -->
+<section class="max-w-[1200px] mx-auto px-8 py-ma-lg">
+<div class="text-center mb-16">
+<span class="font-label-caps text-red-600 tracking-[0.5em] uppercase mb-4 block">The Arsenal</span>
+<h2 class="font-h2 text-h2 text-on-surface">Professional Skills</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-6 h-auto md:h-[600px]">
+<!-- Strategy -->
+<div class="md:col-span-2 md:row-span-1 bg-surface-container-low border border-yellow-900/10 p-10 flex flex-col justify-between hover:border-secondary transition-all group seigaiha-pattern">
+<span class="material-symbols-outlined text-primary text-4xl group-hover:scale-110 transition-transform" data-weight="fill">tactic</span>
+<div>
+<h3 class="font-h3 text-h3 text-on-surface mb-2">Product Strategy</h3>
+<p class="text-body-md text-on-surface-variant">Defining the 'North Star' and navigating market complexities with foresight.</p>
+</div>
+</div>
+<!-- Data -->
+<div class="md:col-span-1 md:row-span-2 bg-surface-container p-10 flex flex-col justify-between border border-yellow-900/10 hover:border-secondary transition-all group">
+<div class="katana-path w-[2px] h-20 mb-8 mx-auto"></div>
+<div class="text-center">
+<span class="material-symbols-outlined text-secondary text-5xl mb-6 block" data-weight="fill">monitoring</span>
+<h3 class="font-h3 text-h3 text-on-surface mb-4">Analytical Rigor</h3>
+<p class="text-body-md text-on-surface-variant">Deep-diving into data to uncover the hidden truths within user behavior.</p>
+</div>
+<div class="mt-8 space-y-2">
+<div class="h-1 bg-stone-800 w-full overflow-hidden">
+<div class="h-full bg-red-800 w-[85%]"></div>
+</div>
+<span class="text-[10px] font-label-caps text-stone-500">SQL / Tableau / Python</span>
+</div>
+</div>
+<!-- Design -->
+<div class="md:col-span-1 md:row-span-1 bg-surface-container-high border border-yellow-900/10 p-10 hover:border-secondary transition-all group">
+<span class="material-symbols-outlined text-primary text-3xl mb-4 block" data-weight="fill">architecture</span>
+<h3 class="font-h3 text-h3 text-on-surface mb-2">UX Vision</h3>
+<p class="text-body-md text-on-surface-variant">Designing for the 'Ma'—ensuring clarity and ease in every interaction.</p>
+</div>
+<!-- Engineering -->
+<div class="md:col-span-2 md:row-span-1 bg-stone-900 border border-yellow-900/10 p-10 flex items-center gap-8 hover:border-secondary transition-all group">
+<span class="material-symbols-outlined text-secondary text-6xl" data-weight="fill">terminal</span>
+<div>
+<h3 class="font-h3 text-h3 text-on-surface mb-2">Technical Fluency</h3>
+<p class="text-body-md text-on-surface-variant">Bridging the gap between ambitious vision and engineering feasibility.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA Section -->
+<section class="relative py-ma-lg overflow-hidden">
+<div class="absolute inset-0 bg-red-950/20 washi-texture"></div>
+<div class="max-w-[1200px] mx-auto px-8 relative z-10 text-center">
+<div class="mb-12">
+<span class="material-symbols-outlined text-red-600 text-6xl mb-6">shield</span>
+<h2 class="font-h1 text-h1 mb-6">Ready for the Next Chapter</h2>
+<p class="max-w-2xl mx-auto text-body-lg text-on-surface-variant">I am currently seeking opportunities to join forward-thinking product teams where precision meets purpose. Let's discuss how I can bring the way of the PM to your organization.</p>
+</div>
+<div class="flex flex-col md:flex-row items-center justify-center gap-8">
+<a class="group flex items-center gap-4 bg-primary-container text-white px-12 py-5 font-label-caps tracking-widest hover:bg-red-700 transition-all ink-bleed-hover border border-red-900/50" href="mailto:aaron@example.com">
+                        INQUIRY VIA EMAIL
+                        <span class="material-symbols-outlined group-hover:translate-x-2 transition-transform">arrow_right_alt</span>
+</a>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-stone-950 w-full py-20 mt-32 border-t border-yellow-900/10 shadow-none">
+<div class="max-w-[1200px] mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex flex-col items-center md:items-start gap-4">
+<div class="text-red-800 font-bold tracking-widest text-2xl uppercase">AARON</div>
+<p class="font-serif italic text-stone-500 text-sm">© 2024 The Way of the PM. Built with intentionality and Zen.</p>
+</div>
+<div class="flex gap-12">
+<a class="font-serif italic text-stone-500 text-sm hover:text-yellow-600 transition-colors duration-500 ease-in-out" href="#">LinkedIn</a>
+<a class="font-serif italic text-stone-500 text-sm hover:text-yellow-600 transition-colors duration-500 ease-in-out" href="#">Email</a>
+<a class="font-serif italic text-stone-500 text-sm hover:text-yellow-600 transition-colors duration-500 ease-in-out" href="#">Resume</a>
+</div>
+</div>
+</footer>
+</body></html>
