@@ -3,433 +3,352 @@
 <html class="dark" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Aaron | Strategic Ventures &amp; Product Solutions</title>
+<title>Aaron | The Way of the PM</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --washi-texture: radial-gradient(#2a2a2a 0.5px, transparent 0.5px);
+        }
+        body {
+            background-color: #131313;
+            background-image: var(--washi-texture);
+            background-size: 24px 24px;
+            scroll-behavior: smooth;
+        }
+        .sakura-petal {
+            position: absolute;
+            background-color: #b22222;
+            width: 8px;
+            height: 12px;
+            border-radius: 100% 0 100% 0;
+            opacity: 0.6;
+            pointer-events: none;
+        }
+        .ink-bleed-hover:hover {
+            box-shadow: 0 0 20px 5px rgba(178, 34, 34, 0.3);
+            transform: scale(1.02);
+        }
+        .washi-card {
+            background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+            backdrop-filter: blur(4px);
+        }
+        /* Custom Seigaiha Pattern for depth */
+        .pattern-seigaiha {
+            background-color: transparent;
+            background-image: radial-gradient(circle at 100% 150%, transparent 24%, #b22222 24%, #b22222 28%, transparent 28%, transparent 52%, #b22222 52%, #b22222 56%, transparent 56%);
+            background-size: 40px 40px;
+            opacity: 0.03;
+        }
+    </style>
 <script id="tailwind-config">
       tailwind.config = {
         darkMode: "class",
         theme: {
           extend: {
             "colors": {
-                    "tertiary-fixed": "#d6e3ff",
-                    "on-secondary-container": "#dab36a",
-                    "error": "#ffb4ab",
-                    "surface": "#131313",
-                    "error-container": "#93000a",
-                    "on-error-container": "#ffdad6",
-                    "surface-bright": "#393939",
-                    "on-background": "#e5e2e1",
-                    "secondary": "#e9c176",
-                    "secondary-fixed": "#ffdea5",
-                    "primary-fixed": "#ffdad6",
-                    "primary": "#ffb4ac",
-                    "on-surface": "#e5e2e1",
-                    "inverse-on-surface": "#313030",
-                    "primary-container": "#b22222",
-                    "background": "#131313",
-                    "surface-container-low": "#1c1b1b",
-                    "surface-container": "#20201f",
-                    "on-primary-fixed-variant": "#92030f",
-                    "inverse-primary": "#b52424",
-                    "surface-dim": "#131313",
-                    "on-secondary-fixed-variant": "#5d4201",
-                    "on-secondary-fixed": "#261900",
-                    "outline": "#aa8986",
-                    "on-tertiary": "#21314a",
-                    "surface-tint": "#ffb4ac",
-                    "tertiary-container": "#4d5d78",
-                    "tertiary": "#b7c7e7",
-                    "primary-fixed-dim": "#ffb4ac",
-                    "on-surface-variant": "#e2beba",
-                    "tertiary-fixed-dim": "#b7c7e7",
-                    "surface-container-high": "#2a2a2a",
                     "surface-variant": "#353535",
-                    "outline-variant": "#5a403e",
-                    "inverse-surface": "#e5e2e1",
-                    "on-primary": "#690007",
-                    "secondary-fixed-dim": "#e9c176",
-                    "on-primary-fixed": "#410003",
-                    "on-tertiary-container": "#c6d6f6",
-                    "surface-container-highest": "#353535",
-                    "on-tertiary-fixed-variant": "#384762",
-                    "on-secondary": "#412d00",
-                    "surface-container-lowest": "#0e0e0e",
                     "secondary-container": "#604403",
+                    "surface-dim": "#131313",
+                    "surface-bright": "#393939",
+                    "tertiary": "#b7c7e7",
+                    "secondary": "#e9c176",
+                    "on-error-container": "#ffdad6",
+                    "primary-fixed": "#ffdad6",
+                    "secondary-fixed-dim": "#e9c176",
+                    "on-tertiary-container": "#c6d6f6",
+                    "primary": "#ffb4ac",
+                    "outline-variant": "#5a403e",
+                    "error-container": "#93000a",
+                    "on-tertiary-fixed-variant": "#384762",
+                    "on-secondary-container": "#dab36a",
+                    "surface-tint": "#ffb4ac",
+                    "outline": "#aa8986",
+                    "secondary-fixed": "#ffdea5",
                     "on-tertiary-fixed": "#0a1c34",
+                    "on-primary-fixed": "#410003",
+                    "on-surface-variant": "#e2beba",
+                    "surface": "#131313",
+                    "on-tertiary": "#21314a",
+                    "on-primary-fixed-variant": "#92030f",
                     "on-primary-container": "#ffc8c2",
-                    "on-error": "#690005"
-            },
-            "borderRadius": {
-                    "DEFAULT": "0.25rem",
-                    "lg": "0.5rem",
-                    "xl": "0.75rem",
-                    "full": "9999px"
-            },
-            "spacing": {
-                    "unit": "8px",
-                    "ma-lg": "8rem",
-                    "ma-sm": "2rem",
-                    "gutter": "24px",
-                    "ma-md": "4rem",
-                    "max-width": "1200px"
+                    "inverse-on-surface": "#313030",
+                    "surface-container-lowest": "#0e0e0e",
+                    "primary-container": "#b22222",
+                    "surface-container-high": "#2a2a2a",
+                    "background": "#131313",
+                    "tertiary-container": "#4d5d78",
+                    "surface-container": "#20201f",
+                    "tertiary-fixed": "#d6e3ff",
+                    "surface-container-highest": "#353535",
+                    "error": "#ffb4ac",
+                    "tertiary-fixed-dim": "#b7c7e7",
+                    "on-secondary-fixed-variant": "#5d4201",
+                    "on-secondary": "#412d00",
+                    "on-primary": "#690007",
+                    "inverse-primary": "#b52424",
+                    "on-secondary-fixed": "#261900",
+                    "on-surface": "#e5e2e1",
+                    "primary-fixed-dim": "#ffb4ac",
+                    "on-background": "#e5e2e1",
+                    "inverse-surface": "#e5e2e1",
+                    "on-error": "#690005",
+                    "surface-container-low": "#1c1b1b"
             },
             "fontFamily": {
-                    "body-md": ["Inter"],
+                    "h3": ["Noto Serif"],
                     "h2": ["Noto Serif"],
                     "label-caps": ["Inter"],
-                    "h3": ["Noto Serif"],
                     "h1": ["Noto Serif"],
+                    "body-md": ["Inter"],
                     "body-lg": ["Inter"]
-            },
-            "fontSize": {
-                    "body-md": ["16px", {"lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "400"}],
-                    "h2": ["32px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
-                    "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.15em", "fontWeight": "600"}],
-                    "h3": ["24px", {"lineHeight": "1.4", "letterSpacing": "0em", "fontWeight": "500"}],
-                    "h1": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                    "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "400"}]
             }
-          },
-        },
+          }
+        }
       }
     </script>
-<style>
-        html { scroll-behavior: smooth; }
-        .sakura-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            pointer-events: none;
-            overflow: hidden;
-            z-index: 30;
-        }
-        .washi-texture {
-            background-color: #0d0d0d;
-            background-image: linear-gradient(rgba(13, 13, 13, 0.95), rgba(13, 13, 13, 0.95)), url(https://lh3.googleusercontent.com/aida-public/AB6AXuCVtXiCTcHIFsMxv6pONyxbBII--DbHOUgoSsr_TZk5lGR6MF_dHl2x-cJ3mZuxhsXRvdTzpcdamJsJJ_hTOBWuIhXXR5bBbWNYhg1fXqkIlpdurG8v7YsbXFU6TdbMZnn5X4ep-CSZG3lF0WVUpNp7keB8jftWi44A3ltlDxg-ahqHj_isBMqJcrfnBLF1u8Rt8caeQqoraUK-HZhgxEh4LX-fucqmnrGIRUhhQDNkUwjQjmSt1xi8iSQHcwwEVqlUs7D1ngR7BEs), url(https://www.transparenttextures.com/patterns/handmade-paper.png);
-            background-attachment: fixed;
-        }
-        .sumie-glow {
-            background: radial-gradient(circle at 50% 50%, rgba(178, 34, 34, 0.05) 0%, transparent 70%);
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: 0;
-        }
-        .sakura-petal {
-            position: absolute;
-            background: #b22222;
-            border-radius: 100% 0 100% 0;
-            opacity: 0.4;
-            animation: fall 12s linear infinite;
-            filter: blur(1px);
-        }
-        @keyframes fall {
-            0% { transform: translateY(-10vh) rotate(0deg) translateX(0); opacity: 0; }
-            10% { opacity: 0.4; }
-            90% { opacity: 0.4; }
-            100% { transform: translateY(110vh) rotate(720deg) translateX(100px); opacity: 0; }
-        }
-        .project-details-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.8s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease-out;
-            opacity: 0;
-        }
-        .project-card.is-expanded .project-details-content {
-            max-height: 2000px;
-            opacity: 1;
-            padding-top: 2.5rem;
-            border-top: 1px solid rgba(178, 34, 34, 0.2);
-        }
-        .detail-label {
-            font-family: 'Inter', sans-serif;
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: #b22222;
-            margin-bottom: 0.5rem;
-            display: block;
-        }
-        /* Hero Special Elements */
-        .moon-element {
-            position: absolute;
-            top: 15%;
-            right: 15%;
-            width: 120px;
-            height: 120px;
-            background: #e5e2e1;
-            border-radius: 50%;
-            box-shadow: 0 0 60px rgba(229, 226, 225, 0.2);
-            z-index: 1;
-        }
-        .sakura-tree-silhouette {
-            position: absolute;
-            bottom: 0;
-            left: 5%;
-            width: 400px;
-            opacity: 0.15;
-            z-index: 2;
-            pointer-events: none;
-        }
-    </style>
 </head>
-<body class="washi-texture text-on-background selection:bg-primary-container selection:text-white min-h-screen">
-<!-- Sumie Mood Layer -->
-<div class="sumie-glow"></div>
+<body class="text-on-background selection:bg-primary-container selection:text-white overflow-x-hidden">
 <!-- TopNavBar -->
-<nav class="fixed top-0 left-0 w-full z-50 bg-[#0d0d0d]/80 backdrop-blur-md border-b border-white/5">
-<div class="flex justify-between items-center w-full px-8 py-6 max-w-7xl mx-auto">
-<div class="text-2xl font-bold text-primary-container italic font-noto-serif tracking-widest uppercase">
-            Aaron
-        </div>
+<header class="fixed top-0 left-0 w-full z-50 bg-[#1A1A1A]/95 dark:bg-[#0A0A0A]/95 border-b border-yellow-600/20">
+<nav class="flex justify-between items-center w-full px-8 py-6 max-w-7xl mx-auto">
+<div class="text-2xl font-bold text-red-700 dark:text-red-600 italic font-noto-serif tracking-widest uppercase">
+                Aaron
+            </div>
 <div class="hidden md:flex gap-12 items-center">
-<a class="font-noto-serif tracking-widest uppercase text-stone-400 hover:text-primary-container transition-colors duration-300" href="#home">Home</a>
-<a class="font-noto-serif tracking-widest uppercase text-stone-400 hover:text-primary-container transition-colors duration-300" href="#work">Work</a>
-<a class="font-noto-serif tracking-widest uppercase text-stone-400 hover:text-primary-container transition-colors duration-300" href="#about">About</a>
-<button class="bg-primary-container px-6 py-2 text-white font-noto-serif tracking-widest uppercase hover:scale-95 transition-all duration-300 active:opacity-80">
-                Contact
-            </button>
+<a class="text-red-600 dark:text-red-500 border-b-2 border-red-600 pb-1 font-noto-serif tracking-widest uppercase hover:text-red-500 transition-colors duration-300" href="#hero">Home</a>
+<a class="text-stone-400 dark:text-stone-500 font-noto-serif tracking-widest uppercase hover:text-red-500 transition-colors duration-300" href="#work">Work</a>
+<a class="text-stone-400 dark:text-stone-500 font-noto-serif tracking-widest uppercase hover:text-red-500 transition-colors duration-300" href="#philosophy">About</a>
+<a class="bg-primary-container text-white px-6 py-2 rounded-sm font-noto-serif tracking-widest uppercase ink-bleed-hover transition-all duration-300" href="#contact">Contact</a>
 </div>
-</div>
+<!-- Mobile Menu Icon (Placeholder) -->
+<button class="md:hidden text-on-surface">
+<span class="material-symbols-outlined">menu</span>
+</button>
 </nav>
-<!-- Sakura Atmosphere Layer -->
-<div class="sakura-container">
-<div class="sakura-petal" style="width:10px;height:10px;left:10%;animation-delay:0s;animation-duration:15s;"></div>
-<div class="sakura-petal" style="width:8px;height:8px;left:25%;animation-delay:2s;animation-duration:12s;"></div>
-<div class="sakura-petal" style="width:12px;height:12px;left:45%;animation-delay:4s;animation-duration:18s;"></div>
-<div class="sakura-petal" style="width:9px;height:9px;left:65%;animation-delay:1s;animation-duration:14s;"></div>
-<div class="sakura-petal" style="width:11px;height:11px;left:85%;animation-delay:3s;animation-duration:16s;"></div>
-<div class="sakura-petal" style="width:7px;height:7px;left:15%;animation-delay:5s;animation-duration:13s;"></div>
-<div class="sakura-petal" style="width:10px;height:10px;left:35%;animation-delay:7s;animation-duration:15s;"></div>
-<div class="sakura-petal" style="width:12px;height:12px;left:55%;animation-delay:2s;animation-duration:17s;"></div>
-<div class="sakura-petal" style="width:8px;height:8px;left:75%;animation-delay:6s;animation-duration:14s;"></div>
-<div class="sakura-petal" style="width:10px;height:10px;left:95%;animation-delay:4s;animation-duration:16s;"></div>
-</div>
-<main class="relative z-20">
+</header>
+<main class="relative">
 <!-- Hero Section -->
-<section class="min-h-screen flex flex-col items-center justify-center text-center px-8 relative overflow-hidden" id="home">
-<div class="moon-element"></div>
-<img alt="Sakura Tree Silhouette" class="sakura-tree-silhouette" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9R_8K-R3lK3_v-R3E7hE_E8_I_v6K8I-R-R"/>
-<div class="relative z-10">
-<span class="font-label-caps text-label-caps text-on-secondary-container mb-4 block tracking-[0.3em]">PORTFOLIO OF THE RONIN PM</span>
-<h1 class="font-h1 text-h1 text-on-surface mb-8 max-w-3xl leading-tight">
-                Strategic Ventures &amp; <span class="text-primary-container italic">Product Solutions</span>
+<section class="relative min-height-[100vh] flex flex-col justify-center px-8 pt-32 pb-20 max-w-7xl mx-auto" id="hero">
+<!-- Hero Visuals -->
+<div class="absolute top-20 right-0 w-1/3 h-[80vh] pointer-events-none opacity-40">
+<div class="absolute top-10 right-10 w-32 h-32 rounded-full bg-secondary-fixed opacity-20 blur-2xl"></div>
+<div class="absolute top-12 right-12 w-24 h-24 rounded-full border-r-4 border-t-2 border-secondary rotate-45"></div>
+<!-- Sakura Tree Placeholder Logic -->
+<div class="absolute bottom-0 right-0 w-full h-full opacity-60">
+<div class="w-full h-full pattern-seigaiha"></div>
+</div>
+</div>
+<div class="z-10 max-w-3xl">
+<span class="text-secondary font-label-caps tracking-[0.3em] uppercase mb-4 block">The Way of the Product Manager</span>
+<h1 class="font-h1 text-h1 text-on-surface leading-tight mb-8">
+                    The Path of <br/><span class="text-primary-container italic">Strategic Mastery</span>
 </h1>
-<div class="w-24 h-1 bg-primary-container shadow-[0_0_15px_rgba(178,34,34,0.5)] mx-auto mb-12"></div>
-<a class="inline-flex items-center gap-2 text-stone-400 hover:text-white transition-colors" href="#work">
-<span class="font-label-caps tracking-widest">SCROLL TO PROJECTS</span>
-<span class="material-symbols-outlined animate-bounce">expand_more</span>
-</a>
-</div>
-</section>
-<!-- Projects Section -->
-<section class="max-w-7xl mx-auto px-8 py-24 scroll-mt-24" id="work">
-<div class="mb-16">
-<h2 class="font-h2 text-h2 text-on-surface">Selected Works</h2>
-<div class="w-12 h-0.5 bg-primary-container mt-2"></div>
-</div>
-<div class="grid grid-cols-12 gap-8">
-<!-- Lenskart Tile -->
-<div class="col-span-12 md:col-span-8 group relative overflow-hidden bg-surface-container-low border border-white/5 hover:border-primary-container/50 transition-all duration-500 shadow-2xl project-card">
-<div class="h-[500px] w-full overflow-hidden cursor-pointer" onclick="toggleExpansion(this.closest('.project-card'))">
-<img alt="Lenskart Eyewear" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZE5s1ibQgX4P_GVJuJhsWeg0U7-qodkYXipQlN6FFDUtafodJH6vTfz_USi7cCkB0J-J6xZxHpZ9kRJSlr3fUSi5e_gV6TfPr0J5GCw_lx4v2bYEARjFj4vZGcOvQ65tGAZ5c5i80d37qocaS34_foCbX8xI7rI5B5yV0bzScVneb7bbsJ1EZaGpxQZbX-zxxk8C8S_Tzj8Vh_-__mHKb5Y3t46SOUWreIuTpkckRLKDDB84uuDr26q0QsFhjAQ42kE_TkNz9AeQ"/>
-<div class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-[#0d0d0d] via-[#0d0d0d]/80 to-transparent">
-<h3 class="font-h3 text-h3 text-on-surface mb-2">Lenskart: Vision Tech Expansion</h3>
-<p class="font-body-md text-body-md text-on-surface-variant mb-6 max-w-xl">Architecting the global expansion strategy for omni-channel retail excellence.</p>
-<button class="flex items-center justify-center w-fit gap-2 px-8 py-3 bg-primary-container text-white font-label-caps text-label-caps tracking-widest hover:brightness-110 transition-all group/btn">
-<span class="btn-text uppercase">View Case Study</span>
-<span class="material-symbols-outlined text-sm group-hover/btn:translate-x-1 transition-transform">expand_more</span>
-</button>
-</div>
-</div>
-<div class="project-details-content bg-black/40 px-8">
-<!-- Expanded Case Study Content (SCREEN_39 Reference) -->
-<div class="max-w-4xl py-12 space-y-12">
-<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-<div><span class="detail-label">Challenge</span><p class="text-sm text-on-surface-variant">Scaling premium eyewear logistics across 12 new international markets with zero local infrastructure.</p></div>
-<div><span class="detail-label">Insight</span><p class="text-sm text-on-surface-variant">Virtual try-on accuracy was the primary friction point for cross-border conversions.</p></div>
-<div><span class="detail-label">Outcome</span><p class="text-sm text-on-surface-variant">40% increase in international basket size through localized AI fitting rooms.</p></div>
-</div>
-<div class="space-y-4">
-<h4 class="font-h3 text-xl text-primary-container">Strategic Execution</h4>
-<p class="text-on-surface-variant leading-relaxed">The project involved a complete overhaul of the cross-border digital journey. We integrated real-time inventory management with localized 3D facial mapping to ensure that "What You See Is What You Get." The Ronin approach meant slashing through legacy silos between tech and regional retail teams.</p>
-</div>
-</div>
-</div>
-</div>
-<!-- Amul Organic Tile -->
-<div class="col-span-12 md:col-span-4 group relative overflow-hidden bg-surface-container-low border border-white/5 hover:border-primary-container/50 transition-all duration-500 shadow-2xl project-card">
-<div class="h-full min-h-[500px] w-full overflow-hidden cursor-pointer" onclick="toggleExpansion(this.closest('.project-card'))">
-<img alt="Amul Organic Crops" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAb6EYIitylAgKCDdLlDrumtg-A9VENbENYCEWjxzALXIqnjV0TajG2BBMmv_40uLiU6jY_P1WwHbHBkHqBVvfhSK7mHnDdmDa7M6d0islH_KjFKEV0fh5XNVyKuK28sg9CfPnVwHhjbw6QENHsovj4-mJZpe-tUOIhwPMVAQtC_uI3Gna4_F-ymDPGY0PmVejHBw4kXr1CXyQTMBOcMWMeAuczuLUwBrYTVFXOFy8o3fdS6-AR8t2d5WlvMhp2O6X_t4SawL4HefU"/>
-<div class="absolute inset-0 bg-[#0d0d0d]/40 group-hover:bg-[#0d0d0d]/20 transition-all duration-500"></div>
-<div class="absolute bottom-0 p-8">
-<h3 class="font-h3 text-h3 text-on-surface mb-2">Amul Organic</h3>
-<p class="font-body-md text-body-md text-on-surface-variant mb-4">Direct-to-consumer supply chain revolution.</p>
-<button class="w-fit px-6 py-2 border border-primary-container text-primary-container font-label-caps text-label-caps hover:bg-primary-container hover:text-white transition-all flex items-center gap-2">
-<span class="btn-text">READ MORE</span>
-<span class="material-symbols-outlined text-sm">expand_more</span>
-</button>
-</div>
-</div>
-<div class="project-details-content bg-black/40 px-8">
-<div class="py-12 space-y-8">
-<div><span class="detail-label">The Mission</span><p class="text-sm text-on-surface-variant">Removing middlemen from the farm-to-table journey using blockchain transparency for trust.</p></div>
-<div><span class="detail-label">Impact</span><p class="text-sm text-on-surface-variant">Direct revenue increase of 22% for local organic farmers while reducing consumer pricing by 8%.</p></div>
-</div>
-</div>
-</div>
-<!-- VivaFit Tile -->
-<div class="col-span-12 md:col-span-6 group relative overflow-hidden bg-surface-container-low border border-white/5 hover:border-primary-container/50 transition-all duration-500 shadow-2xl project-card">
-<div class="h-[400px] w-full overflow-hidden cursor-pointer" onclick="toggleExpansion(this.closest('.project-card'))">
-<img alt="VivaFit Fitness" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAl5mcOUBdxSpsVtopa7ErsU5KZYEU-syHQaGrOOq1-auE01lIzeuWuD_4JAGFNInGCxi4wLRALd4bXe0-B1J6sO0dscvjRyEjpQnnYNHSVTDMsSF3Rg32q5tIF0X5Fylsr0G33VdodyCLK8yoSWbWtzO2SEPLPY1MRttRczvaqYEWJ9rb3PyQ1NbV7LXssjGlVWkDgxqChlyD1SpflZ-ARk5ckP0tOq4H_zgo3Dt7Y-_miPemhQ5WknIbUvVSopGeWkjTxjyMC7NU"/>
-<div class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-[#0d0d0d] via-[#0d0d0d]/80 to-transparent">
-<div class="flex justify-between items-start mb-4">
-<h3 class="font-h3 text-h3 text-on-surface">VivaFit</h3>
-<span class="material-symbols-outlined text-primary-container">fitness_center</span>
-</div>
-<p class="font-body-md text-body-md text-on-surface-variant mb-6">AI-driven personalized workout scaling.</p>
-<button class="text-primary-container font-label-caps text-label-caps flex items-center gap-2 group/btn">
-<span class="btn-text">LEARN MORE</span>
-<span class="material-symbols-outlined text-sm transition-transform">expand_more</span>
-</button>
-</div>
-</div>
-<div class="project-details-content bg-black/40 px-8">
-<div class="grid grid-cols-2 gap-8 py-12">
-<div><span class="detail-label">Insight</span><p class="text-sm text-on-surface-variant">Adaptive heart-rate pacing reduced user churn by 15%.</p></div>
-<div><span class="detail-label">Tech</span><p class="text-sm text-on-surface-variant">TensorFlow Lite integration for edge-device pose estimation.</p></div>
-</div>
-</div>
-</div>
-<!-- MealBud Tile -->
-<div class="col-span-12 md:col-span-6 group relative overflow-hidden bg-surface-container-low border border-white/5 hover:border-primary-container/50 transition-all duration-500 shadow-2xl project-card">
-<div class="h-[400px] w-full overflow-hidden cursor-pointer" onclick="toggleExpansion(this.closest('.project-card'))">
-<img alt="MealBud Culinary" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDp8vdMNeuvRzX14PWUFVmyaJ7WTLJE2TRWCm-sO7zz8qtnqPI6iEoC3IDM3vYuf5dfcSngpWN--MH0EwtKGsOe7uomeNdDuq-KI6Bi3xVmHa5FK8lFdlt7xOBmc6l0RLel26X_DxbsDpJbDWkDgEhSd2e7Lwlx7yt5bnPi2lAtcFnRRi52d-ME_cvSdEG_yjz4nOKOSospb8TojVs0irKOaEcsrfI_MQ7SDQk9ntI354Qu2W0uMDotKmev7M2fEpFiGR3dLygf-Ks"/>
-<div class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-[#0d0d0d] via-[#0d0d0d]/80 to-transparent">
-<div class="flex justify-between items-start mb-4">
-<h3 class="font-h3 text-h3 text-on-surface">MealBud</h3>
-<span class="material-symbols-outlined text-primary-container">restaurant_menu</span>
-</div>
-<p class="font-body-md text-body-md text-on-surface-variant mb-6">Optimizing logistics through predictive demand.</p>
-<button class="text-primary-container font-label-caps text-label-caps flex items-center gap-2 group/btn">
-<span class="btn-text">EXPLORE PROJECT</span>
-<span class="material-symbols-outlined text-sm">expand_more</span>
-</button>
-</div>
-</div>
-<div class="project-details-content bg-black/40 px-8">
-<div class="py-12">
-<span class="detail-label">Strategy</span>
-<p class="text-sm text-on-surface-variant leading-relaxed">Implementing JIT (Just-In-Time) inventory for perishable luxury ingredients based on localized food trends and seasonal availability metrics.</p>
-</div>
-</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-12 leading-relaxed">
+                    A blend of analytical precision and strategic intuition. I build products that bridge the gap between complex technology and human-centric solutions, guided by the disciplined tenets of clarity, purpose, and the 'North Star' metric.
+                </p>
+<div class="flex gap-6">
+<a class="bg-primary-container text-white px-10 py-4 rounded-sm font-label-caps tracking-widest uppercase ink-bleed-hover transition-all" href="#work">Explore Works</a>
+<a class="border border-outline text-on-surface px-10 py-4 rounded-sm font-label-caps tracking-widest uppercase hover:bg-surface-variant transition-all" href="#contact">Seek Counsel</a>
 </div>
 </div>
 </section>
-<!-- About Section (SCREEN_32 Integration) -->
-<section class="bg-surface-container-low py-24 scroll-mt-24" id="about">
-<div class="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+<!-- Philosophy of Ma -->
+<section class="py-32 px-8 max-w-7xl mx-auto relative border-t border-yellow-600/10" id="philosophy">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+<div class="order-2 md:order-1">
+<div class="relative w-full aspect-[4/5] rounded-sm overflow-hidden border border-secondary-container">
+<img class="w-full h-full object-cover grayscale contrast-125 brightness-75" data-alt="A cinematic, high-contrast portrait of a professional male Product Manager in a minimalist, dimly lit studio environment. The lighting is dramatic, coming from the side like traditional Japanese theater, casting soft shadows. He wears a tailored charcoal jacket. The background is a dark, textured Washi paper wall with a faint gold Seigaiha wave pattern overlay. The mood is stoic, authoritative, and deeply focused." src="https://lh3.googleusercontent.com/aida/ADBb0ugenhPPeCvg_IrapSeS1dIN3He0_J774DTsaGpb-9MoMZ04U_Z-MXzzLQTThyW08MzyrtQTppwoh42T1Bnc7MxzHk8ZbU1t_ey_Hh_6qBqqk3hfP0lnoqXRX60HQdpVbdFYIZw86snA82gI5S8NnAABtTKMtFCn6HewkUH2wE9yTNt0Zn4CCZXD4GWTonCBzROjeDnIki0YlVaGoMAGJNiRKyNRAjNNldxx_T-hsXKCiItuv3mJHOlNWg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-60"></div>
+</div>
+</div>
+<div class="order-1 md:order-2">
+<span class="text-primary-container font-label-caps tracking-widest uppercase mb-4 block">Principle I: Ma</span>
+<h2 class="font-h2 text-h2 mb-8">The Pure Space <br/>Between Concepts</h2>
 <div class="space-y-8">
-<span class="font-label-caps text-primary-container tracking-[0.3em]">THE RONIN PHILOSOPHY</span>
-<h2 class="font-h2 text-h2 text-on-surface">Discipline in Product Leadership</h2>
-<div class="space-y-6 text-on-surface-variant leading-relaxed">
-<p>I view product management as a craft—a martial art of the mind. Just as a Ronin wanders with purpose but no master but his own code, I navigate complex market landscapes with strategic autonomy and unwavering focus.</p>
-<p>My methodology centers on "The Way of Zero," stripping away the unnecessary features, technical debt, and process bloat until only the pure, high-impact value proposition remains.</p>
+<div class="border-l-2 border-primary-container pl-6 py-2">
+<h3 class="font-h3 text-h3 text-secondary mb-2">Intentionality</h3>
+<p class="font-body-md text-on-surface-variant">Every feature must serve a core truth. If it does not contribute to the 'North Star', it is clutter that must be removed.</p>
 </div>
-<div class="flex gap-12 pt-8 border-t border-white/5">
-<div>
-<div class="text-3xl font-h2 text-on-surface">8+</div>
-<div class="text-xs font-label-caps text-stone-500 mt-2">Years Exp.</div>
+<div class="border-l-2 border-primary-container pl-6 py-2">
+<h3 class="font-h3 text-h3 text-secondary mb-2">Resilience</h3>
+<p class="font-body-md text-on-surface-variant">Strategic foresight is about anticipating the storm. We build systems that adapt, not just survive.</p>
 </div>
-<div>
-<div class="text-3xl font-h2 text-on-surface">15M+</div>
-<div class="text-xs font-label-caps text-stone-500 mt-2">Users Impacted</div>
+<div class="border-l-2 border-primary-container pl-6 py-2">
+<h3 class="font-h3 text-h3 text-secondary mb-2">Harmony</h3>
+<p class="font-body-md text-on-surface-variant">Engineering, Design, and Business must strike a perfect chord to deliver a transcendent user experience.</p>
 </div>
-<div>
-<div class="text-3xl font-h2 text-on-surface">$50M+</div>
-<div class="text-xs font-label-caps text-stone-500 mt-2">Revenue Grown</div>
-</div>
-</div>
-</div>
-<div class="relative group">
-<div class="absolute -inset-4 border border-primary-container/20 translate-x-4 translate-y-4 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-500"></div>
-<div class="relative aspect-square overflow-hidden grayscale hover:grayscale-0 transition-all duration-700 border border-white/10">
-<img alt="Aaron Profile Portrait" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnI1Z9fXm7S_O6yv_G_H"/>
 </div>
 </div>
 </div>
 </section>
-<!-- Call to Action -->
-<section class="p-16 bg-surface-container/30 backdrop-blur-sm border-y border-white/5 text-center relative overflow-hidden group">
-<div class="relative z-10">
-<h2 class="font-h2 text-h2 text-on-surface mb-6">Ready to sharpen your product edge?</h2>
-<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-2xl mx-auto">
-                I bring the discipline of the Ronin to product leadership. Let’s discuss your next strategic venture.
-            </p>
-<div class="flex flex-col md:flex-row gap-6 justify-center">
-<a class="bg-primary-container text-white px-10 py-4 font-label-caps text-label-caps tracking-[0.2em] hover:brightness-110 hover:scale-105 transition-all shadow-[0_0_20px_rgba(178,34,34,0.3)]" href="mailto:hello@aaron.pm">BOOK A CONSULTATION</a>
-<a class="border border-white/10 px-10 py-4 font-label-caps text-label-caps tracking-[0.2em] hover:border-primary-container hover:text-primary-container transition-all" href="#">DOWNLOAD RESUME</a>
+<!-- Work Section (Interactive Bento) -->
+<section class="py-32 px-8 max-w-7xl mx-auto" id="work">
+<div class="flex flex-col mb-16 items-center text-center">
+<span class="text-secondary font-label-caps tracking-widest mb-4">Case Studies</span>
+<h2 class="font-h2 text-h2">Architecting Modern Legacies</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Project 1: Lenskart -->
+<div class="group relative washi-card border border-outline-variant p-8 rounded-sm hover:border-secondary transition-all cursor-pointer overflow-hidden">
+<div class="flex justify-between items-start mb-6">
+<span class="text-primary-container font-label-caps">Vision Tech</span>
+<span class="material-symbols-outlined text-secondary opacity-0 group-hover:opacity-100 transition-opacity">north_east</span>
+</div>
+<h3 class="font-h3 text-h3 mb-4">Lenskart: Vision Expansion</h3>
+<p class="font-body-md text-on-surface-variant mb-6">Scaling optical logistics across diverse markets through automated vision-tech pipelines.</p>
+<div class="flex gap-2">
+<span class="text-[10px] border border-outline px-2 py-1 rounded-full text-stone-400">Scaling</span>
+<span class="text-[10px] border border-outline px-2 py-1 rounded-full text-stone-400">Operations</span>
+</div>
+<!-- Detailed Content (Hidden by default, shown on expansion/hover intent) -->
+<div class="mt-8 pt-8 border-t border-yellow-600/10 opacity-0 group-hover:opacity-100 transition-all duration-700">
+<div class="grid grid-cols-1 gap-4">
+<div>
+<h4 class="text-xs uppercase tracking-widest text-secondary font-bold mb-1">Challenge</h4>
+<p class="text-sm text-stone-400">High friction in prescription verification across tiered cities.</p>
+</div>
+<div>
+<h4 class="text-xs uppercase tracking-widest text-secondary font-bold mb-1">Outcome</h4>
+<p class="text-sm text-stone-400">35% reduction in TAT through automated QA protocols.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Project 2: Amul Organic -->
+<div class="group relative washi-card border border-outline-variant p-8 rounded-sm hover:border-secondary transition-all cursor-pointer overflow-hidden">
+<div class="flex justify-between items-start mb-6">
+<span class="text-primary-container font-label-caps">Supply Chain</span>
+<span class="material-symbols-outlined text-secondary opacity-0 group-hover:opacity-100 transition-opacity">north_east</span>
+</div>
+<h3 class="font-h3 text-h3 mb-4">Amul: Organic Revolution</h3>
+<p class="font-body-md text-on-surface-variant mb-6">Redefining farm-to-table logistics for the organic dairy segment through blockchain transparency.</p>
+<div class="flex gap-2">
+<span class="text-[10px] border border-outline px-2 py-1 rounded-full text-stone-400">Transparency</span>
+<span class="text-[10px] border border-outline px-2 py-1 rounded-full text-stone-400">AgriTech</span>
+</div>
+<div class="mt-8 pt-8 border-t border-yellow-600/10 opacity-0 group-hover:opacity-100 transition-all duration-700">
+<div class="grid grid-cols-1 gap-4">
+<div>
+<h4 class="text-xs uppercase tracking-widest text-secondary font-bold mb-1">Insight</h4>
+<p class="text-sm text-stone-400">Trust was the missing metric. Verification led to premium adoption.</p>
+</div>
+<div>
+<h4 class="text-xs uppercase tracking-widest text-secondary font-bold mb-1">Outcome</h4>
+<p class="text-sm text-stone-400">Established first organic-certified logistics loop in the region.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Project 3: VivaFit -->
+<div class="group relative washi-card border border-outline-variant p-8 rounded-sm hover:border-secondary transition-all cursor-pointer overflow-hidden">
+<div class="flex justify-between items-start mb-6">
+<span class="text-primary-container font-label-caps">AI Engagement</span>
+<span class="material-symbols-outlined text-secondary opacity-0 group-hover:opacity-100 transition-opacity">north_east</span>
+</div>
+<h3 class="font-h3 text-h3 mb-4">VivaFit: Kinetic AI</h3>
+<p class="font-body-md text-on-surface-variant mb-6">AI-driven pose correction that increased user retention by mapping physical discipline to digital rewards.</p>
+<div class="flex gap-2">
+<span class="text-[10px] border border-outline px-2 py-1 rounded-full text-stone-400">Personalization</span>
+<span class="text-[10px] border border-outline px-2 py-1 rounded-full text-stone-400">Computer Vision</span>
+</div>
+</div>
+<!-- Project 4: MealBud -->
+<div class="group relative washi-card border border-outline-variant p-8 rounded-sm hover:border-secondary transition-all cursor-pointer overflow-hidden">
+<div class="flex justify-between items-start mb-6">
+<span class="text-primary-container font-label-caps">Logistics</span>
+<span class="material-symbols-outlined text-secondary opacity-0 group-hover:opacity-100 transition-opacity">north_east</span>
+</div>
+<h3 class="font-h3 text-h3 mb-4">MealBud: Dynamic Logistics</h3>
+<p class="font-body-md text-on-surface-variant mb-6">Optimizing multi-stop meal delivery routines using real-time demand forecasting and route-batching.</p>
+<div class="flex gap-2">
+<span class="text-[10px] border border-outline px-2 py-1 rounded-full text-stone-400">Last-Mile</span>
+<span class="text-[10px] border border-outline px-2 py-1 rounded-full text-stone-400">Heuristics</span>
+</div>
+</div>
+</div>
+</section>
+<!-- The Arsenal: Skills -->
+<section class="py-32 px-8 max-w-7xl mx-auto bg-surface-container-low relative" id="arsenal">
+<div class="absolute top-0 left-0 w-full h-full pattern-seigaiha pointer-events-none opacity-5"></div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-12 relative z-10">
+<div class="lg:col-span-1">
+<span class="text-primary-container font-label-caps tracking-widest block mb-4">The Arsenal</span>
+<h2 class="font-h2 text-h2 mb-6">Technical &amp; Tactical Precision</h2>
+<p class="font-body-md text-on-surface-variant">A warrior is only as effective as his tools. My stack is curated for rapid discovery, validated design, and robust execution.</p>
+</div>
+<div class="lg:col-span-2 grid grid-cols-2 sm:grid-cols-3 gap-6">
+<div class="p-6 border border-outline-variant bg-background/40">
+<span class="material-symbols-outlined text-secondary mb-4">analytics</span>
+<h4 class="font-label-caps mb-2 text-on-surface">Data Insight</h4>
+<p class="text-xs text-stone-500">SQL, Mixpanel, Amplitude</p>
+</div>
+<div class="p-6 border border-outline-variant bg-background/40">
+<span class="material-symbols-outlined text-secondary mb-4">design_services</span>
+<h4 class="font-label-caps mb-2 text-on-surface">Prototyping</h4>
+<p class="text-xs text-stone-500">Figma, Miro, Framer</p>
+</div>
+<div class="p-6 border border-outline-variant bg-background/40">
+<span class="material-symbols-outlined text-secondary mb-4">terminal</span>
+<h4 class="font-label-caps mb-2 text-on-surface">Execution</h4>
+<p class="text-xs text-stone-500">Jira, Linear, GitHub</p>
+</div>
+<div class="p-6 border border-outline-variant bg-background/40">
+<span class="material-symbols-outlined text-secondary mb-4">psychology</span>
+<h4 class="font-label-caps mb-2 text-on-surface">Soft Skills</h4>
+<p class="text-xs text-stone-500">Stakeholder Mgmt, Empathy</p>
+</div>
+<div class="p-6 border border-outline-variant bg-background/40">
+<span class="material-symbols-outlined text-secondary mb-4">strategy</span>
+<h4 class="font-label-caps mb-2 text-on-surface">Frameworks</h4>
+<p class="text-xs text-stone-500">Agile, GTM, Jobs-to-be-Done</p>
+</div>
+<div class="p-6 border border-outline-variant bg-background/40">
+<span class="material-symbols-outlined text-secondary mb-4">language</span>
+<h4 class="font-label-caps mb-2 text-on-surface">Context</h4>
+<p class="text-xs text-stone-500">Market Research, Competitive</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact / CTA -->
+<section class="py-32 px-8 text-center max-w-4xl mx-auto" id="contact">
+<h2 class="font-h2 text-h2 mb-8">Ready to sharpen your <span class="text-primary-container italic">product edge?</span></h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-12">I am currently seeking opportunities to lead high-impact products within ecosystems that value strategic foresight and disciplined execution.</p>
+<div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+<a class="bg-primary-container text-white px-12 py-5 rounded-sm font-label-caps tracking-widest text-lg ink-bleed-hover" href="mailto:contact@aaron.pm">Send an Inquiry</a>
+<div class="flex gap-4">
+<a class="w-12 h-12 flex items-center justify-center border border-outline rounded-full hover:bg-surface-variant transition-colors" href="#">
+<span class="material-symbols-outlined">link</span>
+</a>
+<a class="w-12 h-12 flex items-center justify-center border border-outline rounded-full hover:bg-surface-variant transition-colors" href="#">
+<span class="material-symbols-outlined">description</span>
+</a>
 </div>
 </div>
 </section>
 </main>
 <!-- Footer -->
-<footer class="bg-[#0d0d0d] border-t border-white/5 py-12 flex flex-col items-center gap-6 w-full relative z-20">
+<footer class="bg-[#1A1A1A] dark:bg-[#0A0A0A] border-t border-yellow-600/10 py-12">
+<div class="flex flex-col items-center gap-6 w-full px-8 max-w-7xl mx-auto">
 <div class="flex gap-12">
-<a class="font-noto-serif text-sm tracking-tight text-stone-500 hover:text-primary-container transition-all duration-300" href="#">LinkedIn</a>
-<a class="font-noto-serif text-sm tracking-tight text-stone-500 hover:text-primary-container transition-all duration-300" href="#">Email</a>
-<a class="font-noto-serif text-sm tracking-tight text-stone-500 hover:text-primary-container transition-all duration-300" href="#">Resume</a>
+<a class="text-stone-500 font-noto-serif text-sm tracking-tight hover:text-yellow-600 underline decoration-red-600/30 transition-all duration-500" href="#">LinkedIn</a>
+<a class="text-stone-500 font-noto-serif text-sm tracking-tight hover:text-yellow-600 underline decoration-red-600/30 transition-all duration-500" href="#">Email</a>
+<a class="text-stone-500 font-noto-serif text-sm tracking-tight hover:text-yellow-600 underline decoration-red-600/30 transition-all duration-500" href="#">Resume</a>
 </div>
-<p class="font-noto-serif text-sm tracking-tight text-stone-600">
-        © 2024 Aaron. The Way of the PM.
-    </p>
-<div class="w-12 h-[1px] bg-primary-container/30"></div>
+<div class="text-stone-500 font-noto-serif text-sm tracking-tight">
+                © 2024 Aaron. The Way of the PM.
+            </div>
+</div>
 </footer>
-<script>
-  function toggleExpansion(card) {
-    const isExpanded = card.classList.contains('is-expanded');
-    
-    // Smoothly scroll to the card top if expanding
-    if(!isExpanded) {
-        setTimeout(() => {
-            card.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }, 100);
-    }
-
-    card.classList.toggle('is-expanded');
-    const icon = card.querySelector('.material-symbols-outlined:not(.text-primary-container)');
-    
-    if (icon) {
-        icon.innerText = isExpanded ? 'expand_more' : 'expand_less';
-    }
-  }
-
-  // Active Link Tracking on Scroll
-  window.addEventListener('scroll', () => {
-    let current = '';
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('nav a');
-
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        if (pageYOffset >= sectionTop - 120) {
-            current = section.getAttribute('id');
-        }
-    });
-
-    navLinks.forEach(link => {
-        link.classList.remove('text-primary-container', 'border-b-2', 'border-primary-container');
-        link.classList.add('text-stone-400');
-        if (link.getAttribute('href').includes(current)) {
-            link.classList.remove('text-stone-400');
-            link.classList.add('text-primary-container', 'border-b-2', 'border-primary-container');
-        }
-    });
-  });
-</script>
+<!-- Decorative Sakura Petals (Static placeholders for animation simulation) -->
+<div class="fixed inset-0 pointer-events-none z-0">
+<div class="sakura-petal" style="top: 10%; left: 80%; transform: rotate(45deg);"></div>
+<div class="sakura-petal" style="top: 25%; left: 85%; transform: rotate(-20deg);"></div>
+<div class="sakura-petal" style="top: 40%; left: 78%; transform: rotate(15deg);"></div>
+<div class="sakura-petal" style="top: 15%; left: 92%; transform: rotate(60deg);"></div>
+<div class="sakura-petal" style="top: 35%; left: 88%; transform: rotate(-10deg);"></div>
+</div>
 </body></html>
