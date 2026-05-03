@@ -1,361 +1,3 @@
-<!-- Aaron Portfolio - Home (Expansive Sakura Tree) -->
-<!DOCTYPE html>
-
-<html class="dark" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            "colors": {
-                    "tertiary-fixed": "#d6e3ff",
-                    "on-secondary-container": "#dab36a",
-                    "error": "#ffb4ab",
-                    "surface": "#131313",
-                    "error-container": "#93000a",
-                    "on-error-container": "#ffdad6",
-                    "surface-bright": "#393939",
-                    "on-background": "#e5e2e1",
-                    "secondary": "#e9c176",
-                    "secondary-fixed": "#ffdea5",
-                    "primary-fixed": "#ffdad6",
-                    "primary": "#ffb4ac",
-                    "on-surface": "#e5e2e1",
-                    "inverse-on-surface": "#313030",
-                    "primary-container": "#b22222",
-                    "background": "#131313",
-                    "surface-container-low": "#1c1b1b",
-                    "surface-container": "#20201f",
-                    "on-primary-fixed-variant": "#92030f",
-                    "inverse-primary": "#b52424",
-                    "surface-dim": "#131313",
-                    "on-secondary-fixed-variant": "#5d4201",
-                    "on-secondary-fixed": "#261900",
-                    "outline": "#aa8986",
-                    "on-tertiary": "#21314a",
-                    "surface-tint": "#ffb4ac",
-                    "tertiary-container": "#4d5d78",
-                    "tertiary": "#b7c7e7",
-                    "primary-fixed-dim": "#ffb4ac",
-                    "on-surface-variant": "#e2beba",
-                    "tertiary-fixed-dim": "#b7c7e7",
-                    "surface-container-high": "#2a2a2a",
-                    "surface-variant": "#353535",
-                    "outline-variant": "#5a403e",
-                    "inverse-surface": "#e5e2e1",
-                    "on-primary": "#690007",
-                    "secondary-fixed-dim": "#e9c176",
-                    "on-primary-fixed": "#410003",
-                    "on-tertiary-container": "#c6d6f6",
-                    "surface-container-highest": "#353535",
-                    "on-tertiary-fixed-variant": "#384762",
-                    "on-secondary": "#412d00",
-                    "surface-container-lowest": "#0e0e0e",
-                    "secondary-container": "#604403",
-                    "on-tertiary-fixed": "#0a1c34",
-                    "on-primary-container": "#ffc8c2",
-                    "on-error": "#690005"
-            },
-            "borderRadius": {
-                    "DEFAULT": "0.25rem",
-                    "lg": "0.5rem",
-                    "xl": "0.75rem",
-                    "full": "9999px"
-            },
-            "spacing": {
-                    "unit": "8px",
-                    "ma-lg": "8rem",
-                    "ma-sm": "2rem",
-                    "gutter": "24px",
-                    "ma-md": "4rem",
-                    "max-width": "1200px"
-            },
-            "fontFamily": {
-                    "body-md": ["Inter"],
-                    "h2": ["Noto Serif"],
-                    "label-caps": ["Inter"],
-                    "h3": ["Noto Serif"],
-                    "h1": ["Noto Serif"],
-                    "body-lg": ["Inter"]
-            },
-            "fontSize": {
-                    "body-md": ["16px", {"lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "400"}],
-                    "h2": ["32px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
-                    "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.15em", "fontWeight": "600"}],
-                    "h3": ["24px", {"lineHeight": "1.4", "letterSpacing": "0em", "fontWeight": "500"}],
-                    "h1": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                    "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "400"}]
-            }
-          },
-        },
-      }
-    </script>
-<style>
-        body {
-            background-color: #131313;
-            background-image: 
-                radial-gradient(circle at 2px 2px, rgba(255, 255, 255, 0.05) 1px, transparent 0);
-            background-size: 40px 40px;
-        }
-        .washi-overlay {
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
-            pointer-events: none;
-        }
-        .asanoha-pattern {
-            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l30 17.32v34.64L30 69.28 0 51.96V17.32L30 0zm0 11.55L10 23.1v23.1l20 11.55 20-11.55v-23.1L30 11.55zM30 0v11.55M60 17.32l-10 5.77M60 51.96l-10-5.77M30 69.28V57.73M0 51.96l10-5.77M0 17.32l10 5.77' fill='%23b22222' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
-        }
-        .ink-bleed-hover:hover {
-            box-shadow: 0 0 20px 5px rgba(178, 34, 34, 0.3);
-        }
-        .katana-path::after {
-            content: '';
-            position: absolute;
-            left: 50%;
-            top: 0;
-            bottom: 0;
-            width: 1px;
-            background: linear-gradient(to bottom, transparent, #dab36a, transparent);
-            z-index: -1;
-        }
-        .sakura-petal {
-            position: absolute;
-            width: 10px;
-            height: 12px;
-            background: #B22222;
-            border-radius: 50% 0 50% 50%;
-            opacity: 0.6;
-            animation: fall linear forwards;
-        }
-        @keyframes fall {
-            0% { transform: translate(0, -10px) rotate(0deg); opacity: 0.6; }
-            50% { opacity: 0.4; }
-            100% { transform: translate(100px, 50vh) rotate(360deg); opacity: 0; }
-        }
-    </style>
-<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}[type='text'],input:where(:not([type])),[type='email'],[type='url'],[type='password'],[type='number'],[type='date'],[type='datetime-local'],[type='month'],[type='search'],[type='tel'],[type='time'],[type='week'],[multiple],textarea,select{-webkit-appearance:none;appearance:none;background-color:#fff;border-color:#6b7280;border-width:1px;border-radius:0px;padding-top:0.5rem;padding-right:0.75rem;padding-bottom:0.5rem;padding-left:0.75rem;font-size:1rem;line-height:1.5rem;--tw-shadow:0 0 #0000;}[type='text']:focus, input:where(:not([type])):focus, [type='email']:focus, [type='url']:focus, [type='password']:focus, [type='number']:focus, [type='date']:focus, [type='datetime-local']:focus, [type='month']:focus, [type='search']:focus, [type='tel']:focus, [type='time']:focus, [type='week']:focus, [multiple]:focus, textarea:focus, select:focus{outline:2px solid transparent;outline-offset:2px;--tw-ring-inset:var(--tw-empty,/*!*/ /*!*/);--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:#2563eb;--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);border-color:#2563eb}input::placeholder,textarea::placeholder{color:#6b7280;opacity:1}::-webkit-datetime-edit-fields-wrapper{padding:0}::-webkit-date-and-time-value{min-height:1.5em;text-align:inherit}::-webkit-datetime-edit{display:inline-flex}::-webkit-datetime-edit,::-webkit-datetime-edit-year-field,::-webkit-datetime-edit-month-field,::-webkit-datetime-edit-day-field,::-webkit-datetime-edit-hour-field,::-webkit-datetime-edit-minute-field,::-webkit-datetime-edit-second-field,::-webkit-datetime-edit-millisecond-field,::-webkit-datetime-edit-meridiem-field{padding-top:0;padding-bottom:0}select{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");background-position:right 0.5rem center;background-repeat:no-repeat;background-size:1.5em 1.5em;padding-right:2.5rem;print-color-adjust:exact}[multiple],[size]:where(select:not([size="1"])){background-image:initial;background-position:initial;background-repeat:unset;background-size:initial;padding-right:0.75rem;print-color-adjust:unset}[type='checkbox'],[type='radio']{-webkit-appearance:none;appearance:none;padding:0;print-color-adjust:exact;display:inline-block;vertical-align:middle;background-origin:border-box;-webkit-user-select:none;user-select:none;flex-shrink:0;height:1rem;width:1rem;color:#2563eb;background-color:#fff;border-color:#6b7280;border-width:1px;--tw-shadow:0 0 #0000}[type='checkbox']{border-radius:0px}[type='radio']{border-radius:100%}[type='checkbox']:focus,[type='radio']:focus{outline:2px solid transparent;outline-offset:2px;--tw-ring-inset:var(--tw-empty,/*!*/ /*!*/);--tw-ring-offset-width:2px;--tw-ring-offset-color:#fff;--tw-ring-color:#2563eb;--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow)}[type='checkbox']:checked,[type='radio']:checked{border-color:transparent;background-color:currentColor;background-size:100% 100%;background-position:center;background-repeat:no-repeat}[type='checkbox']:checked{background-image:url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");}@media (forced-colors: active) {[type='checkbox']:checked{-webkit-appearance:auto;appearance:auto}}[type='radio']:checked{background-image:url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='3'/%3e%3c/svg%3e");}@media (forced-colors: active) {[type='radio']:checked{-webkit-appearance:auto;appearance:auto}}[type='checkbox']:checked:hover,[type='checkbox']:checked:focus,[type='radio']:checked:hover,[type='radio']:checked:focus{border-color:transparent;background-color:currentColor}[type='checkbox']:indeterminate{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 16 16'%3e%3cpath stroke='white' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M4 8h8'/%3e%3c/svg%3e");border-color:transparent;background-color:currentColor;background-size:100% 100%;background-position:center;background-repeat:no-repeat;}@media (forced-colors: active) {[type='checkbox']:indeterminate{-webkit-appearance:auto;appearance:auto}}[type='checkbox']:indeterminate:hover,[type='checkbox']:indeterminate:focus{border-color:transparent;background-color:currentColor}[type='file']{background:unset;border-color:inherit;border-width:0;border-radius:0;padding:0;font-size:unset;line-height:inherit}[type='file']:focus{outline:1px solid ButtonText;outline:1px auto -webkit-focus-ring-color}.pointer-events-none{pointer-events:none}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.inset-0{inset:0px}.-bottom-4{bottom:-1rem}.-left-4{left:-1rem}.-right-4{right:-1rem}.-top-4{top:-1rem}.left-0{left:0px}.right-0{right:0px}.top-0{top:0px}.z-10{z-index:10}.z-40{z-index:40}.z-50{z-index:50}.mx-auto{margin-left:auto;margin-right:auto}.mb-12{margin-bottom:3rem}.mb-2{margin-bottom:0.5rem}.mb-24{margin-bottom:6rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.mb-ma-lg{margin-bottom:8rem}.mt-32{margin-top:8rem}.mt-8{margin-top:2rem}.block{display:block}.inline-block{display:inline-block}.flex{display:flex}.grid{display:grid}.hidden{display:none}.h-1{height:0.25rem}.h-24{height:6rem}.h-80{height:20rem}.h-\[1024px\]{height:1024px}.h-full{height:100%}.h-px{height:1px}.w-0{width:0px}.w-1\/3{width:33.333333%}.w-12{width:3rem}.w-24{width:6rem}.w-80{width:20rem}.w-full{width:100%}.max-w-7xl{max-width:80rem}.max-w-xl{max-width:36rem}.translate-y-full{--tw-translate-y:100%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-12{gap:3rem}.gap-2{gap:0.5rem}.gap-24{gap:6rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.gap-8{gap:2rem}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.overflow-x-hidden{overflow-x:hidden}.rounded-full{border-radius:9999px}.rounded-none{border-radius:0px}.border{border-width:1px}.border-b{border-bottom-width:1px}.border-b-2{border-bottom-width:2px}.border-l-2{border-left-width:2px}.border-t{border-top-width:1px}.border-t-2{border-top-width:2px}.border-on-secondary-container{--tw-border-opacity:1;border-color:rgb(218 179 106 / var(--tw-border-opacity, 1))}.border-on-secondary-container\/20{border-color:rgb(218 179 106 / 0.2)}.border-outline{--tw-border-opacity:1;border-color:rgb(170 137 134 / var(--tw-border-opacity, 1))}.border-outline-variant{--tw-border-opacity:1;border-color:rgb(90 64 62 / var(--tw-border-opacity, 1))}.border-primary-container{--tw-border-opacity:1;border-color:rgb(178 34 34 / var(--tw-border-opacity, 1))}.border-red-600{--tw-border-opacity:1;border-color:rgb(220 38 38 / var(--tw-border-opacity, 1))}.border-red-700{--tw-border-opacity:1;border-color:rgb(185 28 28 / var(--tw-border-opacity, 1))}.border-yellow-600\/10{border-color:rgb(202 138 4 / 0.1)}.border-yellow-600\/20{border-color:rgb(202 138 4 / 0.2)}.bg-\[\#1A1A1A\]{--tw-bg-opacity:1;background-color:rgb(26 26 26 / var(--tw-bg-opacity, 1))}.bg-\[\#1A1A1A\]\/95{background-color:rgb(26 26 26 / 0.95)}.bg-primary-container{--tw-bg-opacity:1;background-color:rgb(178 34 34 / var(--tw-bg-opacity, 1))}.bg-primary-container\/5{background-color:rgb(178 34 34 / 0.05)}.bg-surface-container{--tw-bg-opacity:1;background-color:rgb(32 32 31 / var(--tw-bg-opacity, 1))}.bg-surface-container-low{--tw-bg-opacity:1;background-color:rgb(28 27 27 / var(--tw-bg-opacity, 1))}.bg-surface-container-lowest\/50{background-color:rgb(14 14 14 / 0.5)}.object-contain{object-fit:contain}.p-8{padding:2rem}.px-12{padding-left:3rem;padding-right:3rem}.px-24{padding-left:6rem;padding-right:6rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.px-8{padding-left:2rem;padding-right:2rem}.py-12{padding-top:3rem;padding-bottom:3rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-32{padding-top:8rem;padding-bottom:8rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-5{padding-top:1.25rem;padding-bottom:1.25rem}.py-6{padding-top:1.5rem;padding-bottom:1.5rem}.pb-1{padding-bottom:0.25rem}.pb-ma-lg{padding-bottom:8rem}.pt-32{padding-top:8rem}.pt-8{padding-top:2rem}.text-center{text-align:center}.font-body-md{font-family:Inter}.font-h1{font-family:Noto Serif}.font-h2{font-family:Noto Serif}.font-h3{font-family:Noto Serif}.font-label-caps{font-family:Inter}.text-2xl{font-size:1.5rem;line-height:2rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-body-lg{font-size:18px;line-height:1.6;letter-spacing:0em;font-weight:400}.text-body-md{font-size:16px;line-height:1.6;letter-spacing:0em;font-weight:400}.text-h1{font-size:48px;line-height:1.2;letter-spacing:-0.02em;font-weight:700}.text-h2{font-size:32px;line-height:1.3;letter-spacing:-0.01em;font-weight:600}.text-h3{font-size:24px;line-height:1.4;letter-spacing:0em;font-weight:500}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.font-bold{font-weight:700}.uppercase{text-transform:uppercase}.italic{font-style:italic}.leading-tight{line-height:1.25}.tracking-\[0\.3em\]{letter-spacing:0.3em}.tracking-tight{letter-spacing:-0.025em}.tracking-widest{letter-spacing:0.1em}.text-on-surface{--tw-text-opacity:1;color:rgb(229 226 225 / var(--tw-text-opacity, 1))}.text-on-secondary-container{--tw-text-opacity:1;color:rgb(218 179 106 / var(--tw-text-opacity, 1))}.text-on-surface-variant{--tw-text-opacity:1;color:rgb(226 190 186 / var(--tw-text-opacity, 1))}.text-primary-container{--tw-text-opacity:1;color:rgb(178 34 34 / var(--tw-text-opacity, 1))}.text-red-600{--tw-text-opacity:1;color:rgb(220 38 38 / var(--tw-text-opacity, 1))}.text-red-700{--tw-text-opacity:1;color:rgb(185 28 28 / var(--tw-text-opacity, 1))}.text-secondary{--tw-text-opacity:1;color:rgb(233 193 118 / var(--tw-text-opacity, 1))}.text-stone-400{--tw-text-opacity:1;color:rgb(168 162 158 / var(--tw-text-opacity, 1))}.text-stone-500{--tw-text-opacity:1;color:rgb(120 113 108 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.underline{-webkit-text-decoration-line:underline;text-decoration-line:underline}.decoration-red-600\/30{-webkit-text-decoration-color:rgb(220 38 38 / 0.3);text-decoration-color:rgb(220 38 38 / 0.3)}.opacity-20{opacity:0.2}.opacity-5{opacity:0.05}.opacity-50{opacity:0.5}.opacity-70{opacity:0.7}.opacity-80{opacity:0.8}.mix-blend-lighten{mix-blend-mode:lighten}.brightness-75{--tw-brightness:brightness(.75);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.contrast-125{--tw-contrast:contrast(1.25);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.grayscale{--tw-grayscale:grayscale(100%);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.backdrop-blur-sm{--tw-backdrop-blur:blur(4px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-300{transition-duration:300ms}.duration-500{transition-duration:500ms}.duration-700{transition-duration:700ms}.selection\:bg-primary-container *::selection{--tw-bg-opacity:1;background-color:rgb(178 34 34 / var(--tw-bg-opacity, 1))}.selection\:text-on-primary-container *::selection{--tw-text-opacity:1;color:rgb(255 200 194 / var(--tw-text-opacity, 1))}.selection\:bg-primary-container::selection{--tw-bg-opacity:1;background-color:rgb(178 34 34 / var(--tw-bg-opacity, 1))}.selection\:text-on-primary-container::selection{--tw-text-opacity:1;color:rgb(255 200 194 / var(--tw-text-opacity, 1))}.hover\:border-on-secondary-container:hover{--tw-border-opacity:1;border-color:rgb(218 179 106 / var(--tw-border-opacity, 1))}.hover\:bg-primary-container:hover{--tw-bg-opacity:1;background-color:rgb(178 34 34 / var(--tw-bg-opacity, 1))}.hover\:text-red-500:hover{--tw-text-opacity:1;color:rgb(239 68 68 / var(--tw-text-opacity, 1))}.hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.hover\:text-yellow-600:hover{--tw-text-opacity:1;color:rgb(202 138 4 / var(--tw-text-opacity, 1))}.active\:scale-95:active{--tw-scale-x:.95;--tw-scale-y:.95;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.group:hover .group-hover\:w-full{width:100%}.group:hover .group-hover\:translate-y-0{--tw-translate-y:0px;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.dark\:bg-\[\#0A0A0A\]:is(.dark *){--tw-bg-opacity:1;background-color:rgb(10 10 10 / var(--tw-bg-opacity, 1))}.dark\:bg-\[\#0A0A0A\]\/95:is(.dark *){background-color:rgb(10 10 10 / 0.95)}.dark\:text-red-500:is(.dark *){--tw-text-opacity:1;color:rgb(239 68 68 / var(--tw-text-opacity, 1))}.dark\:text-red-600:is(.dark *){--tw-text-opacity:1;color:rgb(220 38 38 / var(--tw-text-opacity, 1))}.dark\:text-stone-500:is(.dark *){--tw-text-opacity:1;color:rgb(120 113 108 / var(--tw-text-opacity, 1))}@media (min-width: 768px){.md\:flex{display:flex}.md\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}}@media (min-width: 1024px){.lg\:col-span-5{grid-column:span 5 / span 5}.lg\:col-span-7{grid-column:span 7 / span 7}.lg\:h-\[450px\]{height:450px}.lg\:w-\[450px\]{width:450px}.lg\:grid-cols-12{grid-template-columns:repeat(12, minmax(0, 1fr))}.lg\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.lg\:grid-cols-5{grid-template-columns:repeat(5, minmax(0, 1fr))}.lg\:justify-end{justify-content:flex-end}}</style></head>
-<body class="font-body-md text-on-surface selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden" data-mode="connect">
-<div class="fixed inset-0 washi-overlay z-50"></div>
-<!-- Background Decorative Elements -->
-<div class="fixed top-0 right-0 w-1/3 h-[1024px] pointer-events-none opacity-20 asanoha-pattern" data-stitch-vh="h-[1024px]===h-screen"></div>
-<!-- Sakura Petals Generation (Visual Only) -->
-<div class="absolute inset-0 pointer-events-none overflow-hidden" style="height: 50vh;">
-<div class="sakura-petal" style="left: 10%; top: -20px; animation-duration: 8s; animation-delay: 1s;"></div>
-<div class="sakura-petal" style="left: 25%; top: -20px; animation-duration: 10s; animation-delay: 3s;"></div>
-<div class="sakura-petal" style="left: 45%; top: -20px; animation-duration: 7s; animation-delay: 0s;"></div>
-<div class="sakura-petal" style="left: 70%; top: -20px; animation-duration: 12s; animation-delay: 5s;"></div>
-<div class="sakura-petal" style="left: 85%; top: -20px; animation-duration: 9s; animation-delay: 2s;"></div>
-</div>
-<!-- Navigation -->
-<nav class="fixed top-0 left-0 right-0 z-40 bg-[#1A1A1A]/95 dark:bg-[#0A0A0A]/95 border-b border-yellow-600/20">
-<div class="flex justify-between items-center w-full px-8 py-6 max-w-7xl mx-auto">
-<div class="text-2xl font-bold text-red-700 dark:text-red-600 italic font-h1 tracking-widest uppercase">
-                Aaron
-            </div>
-<div class="hidden md:flex gap-12 font-noto-serif tracking-widest uppercase">
-<a class="text-red-600 dark:text-red-500 border-b-2 border-red-600 pb-1" href="#">Home</a>
-<a class="text-stone-400 dark:text-stone-500 hover:text-red-500 transition-colors duration-300" href="#">Work</a>
-<a class="text-stone-400 dark:text-stone-500 hover:text-red-500 transition-colors duration-300" href="#">About</a>
-</div>
-<button class="px-6 py-2 border border-red-700 text-red-700 dark:text-red-600 font-label-caps hover:bg-primary-container hover:text-white transition-all active:scale-95">
-                Contact
-            </button>
-</div>
-</nav>
-<main class="relative z-10 pt-32">
-<!-- Hero Section -->
-<section class="max-w-7xl mx-auto px-8 mb-ma-lg grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-<div class="lg:col-span-7">
-<span class="text-primary-container font-label-caps mb-4 block">THE WAY OF THE PM</span>
-<h1 class="font-h1 text-h1 text-on-surface mb-8 leading-tight">
-                    The Path of <br/><span class="italic text-primary-container">Strategic Mastery</span>
-</h1>
-<p class="text-body-lg text-on-surface-variant max-w-xl mb-12">
-                    A product leader forging clarity from chaos. Merging the disciplined precision of Bushido with modern data-driven product strategy to build high-impact digital experiences.
-                </p>
-<div class="flex flex-wrap gap-6">
-<button class="px-8 py-4 bg-primary-container text-white font-label-caps rounded-none transition-all ink-bleed-hover flex items-center gap-2">
-                        View Resume <span class="material-symbols-outlined">description</span>
-</button>
-<button class="px-8 py-4 border border-outline text-on-surface font-label-caps hover:border-on-secondary-container transition-all">
-                        LinkedIn
-                    </button>
-</div>
-</div>
-<div class="lg:col-span-5 relative">
-<div class="absolute -top-80 -right-48 w-[140%] h-[160%] pointer-events-none z-0 overflow-visible">
-<!-- Sumi-e Sakura Tree SVG -->
-<svg class="w-full h-full opacity-70 mix-blend-lighten scale-125 origin-bottom-right" viewbox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
-<!-- Main Trunk (Detailed Sumi-e Style) -->
-<path d="M500 500 Q 450 480 430 420 T 400 300 T 450 150" fill="none" opacity="0.9" stroke="#1a1a1a" stroke-linecap="round" stroke-width="12"></path>
-<path d="M500 500 Q 460 470 445 430 T 415 310" fill="none" opacity="0.5" stroke="#2a2a2a" stroke-linecap="round" stroke-width="6"></path>
-<!-- Major Branches -->
-<path d="M430 420 Q 350 400 280 420" fill="none" stroke="#1a1a1a" stroke-linecap="round" stroke-width="6"></path>
-<path d="M415 350 Q 320 330 220 350" fill="none" stroke="#1a1a1a" stroke-linecap="round" stroke-width="5"></path>
-<path d="M400 300 Q 300 240 200 250" fill="none" stroke="#1a1a1a" stroke-linecap="round" stroke-width="4"></path>
-<path d="M410 240 Q 330 180 250 190" fill="none" stroke="#1a1a1a" stroke-linecap="round" stroke-width="3"></path>
-<path d="M430 180 Q 360 100 280 110" fill="none" stroke="#1a1a1a" stroke-linecap="round" stroke-width="2"></path>
-<!-- Smaller Twigs -->
-<path d="M280 420 Q 240 410 200 430" fill="none" stroke="#1a1a1a" stroke-linecap="round" stroke-width="2"></path>
-<path d="M220 350 Q 180 340 140 360" fill="none" stroke="#1a1a1a" stroke-linecap="round" stroke-width="2"></path>
-<path d="M200 250 Q 150 220 100 240" fill="none" stroke="#1a1a1a" stroke-linecap="round" stroke-width="1.5"></path>
-<path d="M250 190 Q 200 160 160 180" fill="none" stroke="#1a1a1a" stroke-linecap="round" stroke-width="1.5"></path>
-<!-- Dense Petal Clusters (Vermilion Red) -->
-<g fill="#b22222" opacity="0.85">
-<!-- Lower cluster -->
-<circle cx="280" cy="420" r="8"></circle>
-<circle cx="260" cy="425" r="6"></circle>
-<circle cx="295" cy="415" r="5"></circle>
-<circle cx="200" cy="430" r="7"></circle>
-<!-- Mid-lower cluster -->
-<circle cx="220" cy="350" r="10"></circle>
-<circle cx="240" cy="345" r="7"></circle>
-<circle cx="205" cy="360" r="6"></circle>
-<circle cx="140" cy="360" r="8"></circle>
-<circle cx="160" cy="350" r="5"></circle>
-<!-- Middle cluster -->
-<circle cx="200" cy="250" r="12"></circle>
-<circle cx="220" cy="240" r="8"></circle>
-<circle cx="185" cy="265" r="7"></circle>
-<circle cx="100" cy="240" r="9"></circle>
-<circle cx="120" cy="230" r="6"></circle>
-<!-- Upper clusters -->
-<circle cx="250" cy="190" r="10"></circle>
-<circle cx="270" cy="180" r="7"></circle>
-<circle cx="160" cy="180" r="9"></circle>
-<circle cx="280" cy="110" r="8"></circle>
-<circle cx="300" cy="100" r="6"></circle>
-<circle cx="260" cy="120" r="5"></circle>
-<!-- Scattered petals -->
-<circle cx="320" cy="280" r="4"></circle>
-<circle cx="150" cy="280" r="3"></circle>
-<circle cx="350" cy="150" r="4"></circle>
-<circle cx="180" cy="100" r="3"></circle>
-</g>
-</svg>
-</div>
-<!-- Placeholder to maintain grid layout spacing if needed, though the tree is absolute positioned -->
-<div class="h-80 lg:h-[450px] w-full"></div>
-</div>
-</section>
-<!-- The Philosophy of Ma Section -->
-<section class="bg-surface-container-low py-32 mb-ma-lg relative overflow-hidden">
-<div class="absolute inset-0 asanoha-pattern opacity-5"></div>
-<div class="max-w-7xl mx-auto px-8 relative z-10">
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
-<div class="relative">
-<div class="absolute -top-4 -left-4 w-24 h-24 border-t-2 border-l-2 border-primary-container"></div>
-<div class="absolute -bottom-4 -right-4 w-24 h-24 border-b-2 border-right-2 border-on-secondary-container"></div>
-<img class="w-full grayscale contrast-125 brightness-75 border border-outline-variant" data-alt="A high-contrast black and white portrait of a professional male product manager with a stoic and focused expression. The lighting is dramatic, casting soft shadows that emphasize a sense of authority and intentionality. The portrait is set against a textured dark background that mimics the aesthetic of weathered stone or traditional Japanese paper." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBz0o5YKbXM8YcR9vti-cEUajBbWQs_WP-jYIwgkXdKmVTaAwWHhMsOMeOVq2Jc-sr4s5UEQTgOEdfoKPLis3d3hcjA6073eMtfvFLk7DMo1FSKeItCbbuWqPuvPr2j1SkdSLBlckCPDoZiCJLfr9RkNx-mLyWNrfaGpd4QSCfaPL6dVWJVqBJwzN3QCS16RDJSf4fPtViWZfr5IM8pcaKBUOWH3YdHFG50xTRuClTaDUuaZ8f_tuCytidEBD-pyj9ifSmLxUrM2c4"/>
-</div>
-<div>
-<h2 class="font-h2 text-h2 mb-8 text-secondary">The Philosophy of Ma in Product</h2>
-<div class="space-y-6 text-body-md text-on-surface-variant">
-<p>
-                                In Japanese aesthetics, "Ma" is the pure space between things. In product management, I believe the most critical decisions happen in the silence—the space between data points where intuition and strategy meet.
-                            </p>
-<p>
-                                I approach every roadmap as a series of intentional strokes. By removing the noise of vanity metrics and feature bloat, I reveal the essential value that resonates with users and drives business growth.
-                            </p>
-<div class="pt-8">
-<div class="flex items-center gap-4 mb-2">
-<div class="h-px w-12 bg-primary-container"></div>
-<span class="font-label-caps text-on-secondary-container tracking-widest">AARON'S CORE TENETS</span>
-</div>
-<ul class="space-y-3 font-noto-serif italic text-lg text-on-surface">
-<li>Precision over Volume</li>
-<li>Outcome over Output</li>
-<li>Clarity through Constraints</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- The Arsenal (Skills) Section -->
-<section class="max-w-7xl mx-auto px-8 mb-ma-lg">
-<div class="text-center mb-24">
-<span class="font-label-caps text-primary-container tracking-[0.3em] block mb-4 uppercase">The Arsenal</span>
-<h2 class="font-h2 text-h1 text-on-surface">Technical and Soft Skills</h2>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
-<!-- Skill Card 1: AI -->
-<div class="p-8 border border-yellow-600/10 bg-surface-container relative group hover:border-on-secondary-container transition-all duration-500">
-<div class="mb-6">
-<span class="material-symbols-outlined text-4xl text-primary-container" style="font-variation-settings: 'FILL' 1;">psychology</span>
-</div>
-<h3 class="font-h3 text-h3 mb-4 text-on-surface">AI Tools</h3>
-<p class="text-body-md text-on-surface-variant opacity-70">Lovable<div class="">Claude Cowork</div><div class="">FigmaMake</div><div class="">N8n</div><div class="">Google AI studio</div></p>
-<div class="mt-8 h-1 w-0 bg-primary-container group-hover:w-full transition-all duration-700"></div>
-</div>
-<!-- Skill Card 2: Research -->
-<div class="p-8 border border-yellow-600/10 bg-surface-container relative group hover:border-on-secondary-container transition-all duration-500">
-<div class="mb-6">
-<span class="material-symbols-outlined text-4xl text-primary-container" style="font-variation-settings: 'FILL' 1;">travel_explore</span>
-</div>
-<h3 class="font-h3 text-h3 mb-4 text-on-surface">Research Strategy</h3>
-<p class="text-body-md text-on-surface-variant opacity-70">Perplexity<div class="">Deep Research</div><div class="">Customer Empathy</div><div class=""><br/></div></p>
-<div class="mt-8 h-1 w-0 bg-primary-container group-hover:w-full transition-all duration-700"></div>
-</div>
-<!-- Skill Card 3: Stakeholders -->
-<div class="p-8 border border-yellow-600/10 bg-surface-container relative group hover:border-on-secondary-container transition-all duration-500">
-<div class="mb-6">
-<span class="material-symbols-outlined text-4xl text-primary-container" style="font-variation-settings: 'FILL' 1;">groups</span>
-</div>
-<h3 class="font-h3 text-h3 mb-4 text-on-surface">Cross-Functional<div class="">Allignment</div></h3>
-<p class="text-body-md text-on-surface-variant opacity-70">Communication<div class="">Prototyping</div><div class="">Data Visualization</div></p>
-<div class="mt-8 h-1 w-0 bg-primary-container group-hover:w-full transition-all duration-700"></div>
-</div>
-<!-- Skill Card 4: Business -->
-<div class="p-8 border border-yellow-600/10 bg-surface-container relative group hover:border-on-secondary-container transition-all duration-500">
-<div class="mb-6">
-<span class="material-symbols-outlined text-4xl text-primary-container" style="font-variation-settings: 'FILL' 1;">payments</span>
-</div>
-<h3 class="font-h3 text-h3 mb-4 text-on-surface">Business Accumen</h3>
-<p class="text-body-md text-on-surface-variant opacity-70">ROI-focused <div class="">Sales force</div><div class="">Leadership</div><div class="">Strategic Thinking</div></p>
-<div class="mt-8 h-1 w-0 bg-primary-container group-hover:w-full transition-all duration-700"></div>
-</div>
-<!-- Skill Card 5: Data -->
-<div class="p-8 border border-yellow-600/10 bg-surface-container relative group hover:border-on-secondary-container transition-all duration-500">
-<div class="mb-6">
-<span class="material-symbols-outlined text-4xl text-primary-container" style="font-variation-settings: 'FILL' 1;">query_stats</span>
-</div>
-<h3 class="font-h3 text-h3 mb-4 text-on-surface">Data Analysis</h3>
-<p class="text-body-md text-on-surface-variant opacity-70">SQL<div>Google Analytics</div><div>Excwl</div><div>Data Driven Decison making</div></p>
-<div class="mt-8 h-1 w-0 bg-primary-container group-hover:w-full transition-all duration-700"></div>
-</div>
-</div>
-</section>
-<!-- Final CTA / Scroll Transition -->
-<section class="max-w-7xl mx-auto px-8 text-center pb-ma-lg">
-<div class="inline-block py-12 px-24 border border-on-secondary-container/20 relative overflow-hidden group">
-<div class="absolute inset-0 bg-primary-container/5 translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
-<h3 class="font-h2 text-h2 mb-6 relative z-10">Interested?</h3>
-<p class="font-label-caps tracking-widest text-on-surface-variant mb-8 relative z-10">Reach out to me at</p>
-<a class="px-12 py-5 bg-primary-container text-white font-label-caps relative z-10 ink-bleed-hover inline-block" href="mailto:aaronbnzn@gmail.com">Initiate Discussion</a>
-</div>
-</section>
-</main>
-<!-- Footer -->
-<footer class="bg-[#1A1A1A] dark:bg-[#0A0A0A] border-t border-yellow-600/10 flex flex-col items-center gap-6 w-full mt-32 py-12">
-<div class="flex gap-12 font-noto-serif text-sm tracking-tight">
-<a class="text-stone-500 hover:text-yellow-600 underline decoration-red-600/30 transition-all duration-500" href="#">LinkedIn</a>
-<a class="text-stone-500 hover:text-yellow-600 underline decoration-red-600/30 transition-all duration-500" href="#">Email</a>
-<a class="text-stone-500 hover:text-yellow-600 underline decoration-red-600/30 transition-all duration-500" href="#">Resume</a>
-</div>
-<p class="text-stone-500 font-noto-serif text-sm tracking-tight opacity-50">
-            © 2024 Aaron. The Way of the PM.
-        </p>
-</footer>
-</body></html>
-
-<!-- Work - Bushido Portfolio (Expanding Projects) -->
 <!DOCTYPE html>
 
 <html class="dark" lang="en"><head>
@@ -453,79 +95,89 @@
         },
       }
     </script>
-<style>.sakura-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    pointer-events: none;
-    overflow: hidden;
-    z-index: 10
-    }
-.ink-border {
-    border-image: linear-gradient(to bottom right, #aa8986, #b22222) 1
-    }
-.washi-texture {
-    background-color: #0d0d0d;
-    background-image: linear-gradient(rgba(13, 13, 13, 0.95), rgba(13, 13, 13, 0.95)), url(https://lh3.googleusercontent.com/aida-public/AB6AXuCVtXiCTcHIFsMxv6pONyxbBII--DbHOUgoSsr_TZk5lGR6MF_dHl2x-cJ3mZuxhsXRvdTzpcdamJsJJ_hTOBWuIhXXR5bBbWNYhg1fXqkIlpdurG8v7YsbXFU6TdbMZnn5X4ep-CSZG3lF0WVUpNp7keB8jftWi44A3ltlDxg-ahqHj_isBMqJcrfnBLF1u8Rt8caeQqoraUK-HZhgxEh4LX-fucqmnrGIRUhhQDNkUwjQjmSt1xi8iSQHcwwEVqlUs7D1ngR7BEs), url(https://www.transparenttextures.com/patterns/handmade-paper.png);
-    background-attachment: fixed
-    }
-.sumie-glow {
-    background: radial-gradient(circle at 50% 50%, rgba(178, 34, 34, 0.05) 0%, transparent 70%);
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 0
-    }
-.seigaiha-pattern {
-    background-size: 40px 20px
-    }
-.sakura-petal {
-    position: absolute;
-    background: #b22222;
-    border-radius: 100% 0 100% 0;
-    opacity: 0.4;
-    animation: fall 12s linear infinite;
-    filter: blur(1px)
-    }
-@keyframes fall {
-    0% {
-        transform: translateY(-10vh) rotate(0deg) translateX(0);
-        opacity: 0;
-        } 10% {
-        opacity: 0.4;
-        } 90% {
-        opacity: 0.4;
-        } 100% {
-        transform: translateY(110vh) rotate(720deg) translateX(100px);
-        opacity: 0;
-        }
-    }</style>
 <style>
-  .project-details-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease-out;
-    opacity: 0;
-  }
-  .project-card.is-expanded .project-details-content {
-    max-height: 1000px;
-    opacity: 1;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(178, 34, 34, 0.2);
-  }
-  .detail-label {
-    font-family: 'Inter', sans-serif;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: #b22222;
-    margin-bottom: 0.5rem;
-    display: block;
-  }
-</style></head>
+        html { scroll-behavior: smooth; }
+        .sakura-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 30;
+        }
+        .washi-texture {
+            background-color: #0d0d0d;
+            background-image: linear-gradient(rgba(13, 13, 13, 0.95), rgba(13, 13, 13, 0.95)), url(https://lh3.googleusercontent.com/aida-public/AB6AXuCVtXiCTcHIFsMxv6pONyxbBII--DbHOUgoSsr_TZk5lGR6MF_dHl2x-cJ3mZuxhsXRvdTzpcdamJsJJ_hTOBWuIhXXR5bBbWNYhg1fXqkIlpdurG8v7YsbXFU6TdbMZnn5X4ep-CSZG3lF0WVUpNp7keB8jftWi44A3ltlDxg-ahqHj_isBMqJcrfnBLF1u8Rt8caeQqoraUK-HZhgxEh4LX-fucqmnrGIRUhhQDNkUwjQjmSt1xi8iSQHcwwEVqlUs7D1ngR7BEs), url(https://www.transparenttextures.com/patterns/handmade-paper.png);
+            background-attachment: fixed;
+        }
+        .sumie-glow {
+            background: radial-gradient(circle at 50% 50%, rgba(178, 34, 34, 0.05) 0%, transparent 70%);
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .sakura-petal {
+            position: absolute;
+            background: #b22222;
+            border-radius: 100% 0 100% 0;
+            opacity: 0.4;
+            animation: fall 12s linear infinite;
+            filter: blur(1px);
+        }
+        @keyframes fall {
+            0% { transform: translateY(-10vh) rotate(0deg) translateX(0); opacity: 0; }
+            10% { opacity: 0.4; }
+            90% { opacity: 0.4; }
+            100% { transform: translateY(110vh) rotate(720deg) translateX(100px); opacity: 0; }
+        }
+        .project-details-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.8s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease-out;
+            opacity: 0;
+        }
+        .project-card.is-expanded .project-details-content {
+            max-height: 2000px;
+            opacity: 1;
+            padding-top: 2.5rem;
+            border-top: 1px solid rgba(178, 34, 34, 0.2);
+        }
+        .detail-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #b22222;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        /* Hero Special Elements */
+        .moon-element {
+            position: absolute;
+            top: 15%;
+            right: 15%;
+            width: 120px;
+            height: 120px;
+            background: #e5e2e1;
+            border-radius: 50%;
+            box-shadow: 0 0 60px rgba(229, 226, 225, 0.2);
+            z-index: 1;
+        }
+        .sakura-tree-silhouette {
+            position: absolute;
+            bottom: 0;
+            left: 5%;
+            width: 400px;
+            opacity: 0.15;
+            z-index: 2;
+            pointer-events: none;
+        }
+    </style>
+</head>
 <body class="washi-texture text-on-background selection:bg-primary-container selection:text-white min-h-screen">
 <!-- Sumie Mood Layer -->
 <div class="sumie-glow"></div>
@@ -533,15 +185,15 @@
 <nav class="fixed top-0 left-0 w-full z-50 bg-[#0d0d0d]/80 backdrop-blur-md border-b border-white/5">
 <div class="flex justify-between items-center w-full px-8 py-6 max-w-7xl mx-auto">
 <div class="text-2xl font-bold text-primary-container italic font-noto-serif tracking-widest uppercase">
-                Aaron
-            </div>
+            Aaron
+        </div>
 <div class="hidden md:flex gap-12 items-center">
-<a class="font-noto-serif tracking-widest uppercase text-stone-400 hover:text-primary-container transition-colors duration-300" href="#">Home</a>
-<a class="font-noto-serif tracking-widest uppercase text-primary-container border-b-2 border-primary-container pb-1" href="#">Work</a>
-<a class="font-noto-serif tracking-widest uppercase text-stone-400 hover:text-primary-container transition-colors duration-300" href="#">About</a>
+<a class="font-noto-serif tracking-widest uppercase text-stone-400 hover:text-primary-container transition-colors duration-300" href="#home">Home</a>
+<a class="font-noto-serif tracking-widest uppercase text-stone-400 hover:text-primary-container transition-colors duration-300" href="#work">Work</a>
+<a class="font-noto-serif tracking-widest uppercase text-stone-400 hover:text-primary-container transition-colors duration-300" href="#about">About</a>
 <button class="bg-primary-container px-6 py-2 text-white font-noto-serif tracking-widest uppercase hover:scale-95 transition-all duration-300 active:opacity-80">
-                    Contact
-                </button>
+                Contact
+            </button>
 </div>
 </div>
 </nav>
@@ -558,172 +210,226 @@
 <div class="sakura-petal" style="width:8px;height:8px;left:75%;animation-delay:6s;animation-duration:14s;"></div>
 <div class="sakura-petal" style="width:10px;height:10px;left:95%;animation-delay:4s;animation-duration:16s;"></div>
 </div>
-<main class="relative pt-32 pb-24 max-w-7xl mx-auto px-8 z-20">
+<main class="relative z-20">
 <!-- Hero Section -->
-<section class="mb-ma-lg flex flex-col items-center text-center">
+<section class="min-h-screen flex flex-col items-center justify-center text-center px-8 relative overflow-hidden" id="home">
+<div class="moon-element"></div>
+<img alt="Sakura Tree Silhouette" class="sakura-tree-silhouette" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9R_8K-R3lK3_v-R3E7hE_E8_I_v6K8I-R-R"/>
+<div class="relative z-10">
 <span class="font-label-caps text-label-caps text-on-secondary-container mb-4 block tracking-[0.3em]">PORTFOLIO OF THE RONIN PM</span>
 <h1 class="font-h1 text-h1 text-on-surface mb-8 max-w-3xl leading-tight">
                 Strategic Ventures &amp; <span class="text-primary-container italic">Product Solutions</span>
 </h1>
-<div class="w-24 h-1 bg-primary-container shadow-[0_0_15px_rgba(178,34,34,0.5)]"></div>
-</section>
-<!-- Projects Bento/Asymmetric Grid -->
-<div class="grid grid-cols-12 gap-8 py-12">
-<!-- Lenskart Tile (Large) -->
-<div class="col-span-12 md:col-span-8 group relative overflow-hidden bg-surface-container-low border border-white/5 hover:border-primary-container/50 transition-all duration-500 shadow-2xl project-card">
-<div class="h-[500px] w-full overflow-hidden">
-<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100" data-alt="A cinematic, low-angle shot of high-end optical eyewear resting on a reflective black surface. The lighting is dramatic and moody, with deep red backlighting creating a sharp silhouette against a dark, textured background. The overall aesthetic is professional, minimalist, and authoritative, perfectly aligning with the Bushido-inspired dark mode theme of the portfolio." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZE5s1ibQgX4P_GVJuJhsWeg0U7-qodkYXipQlN6FFDUtafodJH6vTfz_USi7cCkB0J-J6xZxHpZ9kRJSlr3fUSi5e_gV6TfPr0J5GCw_lx4v2bYEARjFj4vZGcOvQ65tGAZ5c5i80d37qocaS34_foCbX8xI7rI5B5yV0bzScVneb7bbsJ1EZaGpxQZbX-zxxk8C8S_Tzj8Vh_-__mHKb5Y3t46SOUWreIuTpkckRLKDDB84uuDr26q0QsFhjAQ42kE_TkNz9AeQ"/>
+<div class="w-24 h-1 bg-primary-container shadow-[0_0_15px_rgba(178,34,34,0.5)] mx-auto mb-12"></div>
+<a class="inline-flex items-center gap-2 text-stone-400 hover:text-white transition-colors" href="#work">
+<span class="font-label-caps tracking-widest">SCROLL TO PROJECTS</span>
+<span class="material-symbols-outlined animate-bounce">expand_more</span>
+</a>
 </div>
-<div class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-[#0d0d0d] via-[#0d0d0d]/80 to-transparent"><h3 class="font-h3 text-h3 text-on-surface mb-2">Lenskart: Vision Tech Expansion</h3>
+</section>
+<!-- Projects Section -->
+<section class="max-w-7xl mx-auto px-8 py-24 scroll-mt-24" id="work">
+<div class="mb-16">
+<h2 class="font-h2 text-h2 text-on-surface">Selected Works</h2>
+<div class="w-12 h-0.5 bg-primary-container mt-2"></div>
+</div>
+<div class="grid grid-cols-12 gap-8">
+<!-- Lenskart Tile -->
+<div class="col-span-12 md:col-span-8 group relative overflow-hidden bg-surface-container-low border border-white/5 hover:border-primary-container/50 transition-all duration-500 shadow-2xl project-card">
+<div class="h-[500px] w-full overflow-hidden cursor-pointer" onclick="toggleExpansion(this.closest('.project-card'))">
+<img alt="Lenskart Eyewear" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZE5s1ibQgX4P_GVJuJhsWeg0U7-qodkYXipQlN6FFDUtafodJH6vTfz_USi7cCkB0J-J6xZxHpZ9kRJSlr3fUSi5e_gV6TfPr0J5GCw_lx4v2bYEARjFj4vZGcOvQ65tGAZ5c5i80d37qocaS34_foCbX8xI7rI5B5yV0bzScVneb7bbsJ1EZaGpxQZbX-zxxk8C8S_Tzj8Vh_-__mHKb5Y3t46SOUWreIuTpkckRLKDDB84uuDr26q0QsFhjAQ42kE_TkNz9AeQ"/>
+<div class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-[#0d0d0d] via-[#0d0d0d]/80 to-transparent">
+<h3 class="font-h3 text-h3 text-on-surface mb-2">Lenskart: Vision Tech Expansion</h3>
 <p class="font-body-md text-body-md text-on-surface-variant mb-6 max-w-xl">Architecting the global expansion strategy for omni-channel retail excellence.</p>
-<div class="flex flex-col gap-6"><button class="flex items-center justify-center w-fit gap-2 px-8 py-3 bg-primary-container text-white font-label-caps text-label-caps tracking-widest hover:brightness-110 transition-all group/btn" onclick="toggleExpansion(this.closest('.project-card'))">
-<span class="btn-text">VIEW CASE STUDY</span>
+<button class="flex items-center justify-center w-fit gap-2 px-8 py-3 bg-primary-container text-white font-label-caps text-label-caps tracking-widest hover:brightness-110 transition-all group/btn">
+<span class="btn-text uppercase">View Case Study</span>
 <span class="material-symbols-outlined text-sm group-hover/btn:translate-x-1 transition-transform">expand_more</span>
 </button>
-<div class="project-details-content">
-<div class="grid grid-cols-1 md:grid-cols-3 gap-8 pb-8">
-<div>
-<span class="detail-label">Challenge</span>
-<p class="text-sm text-on-surface-variant">Scaling premium eyewear logistics across 12 new international markets with zero local infrastructure.</p>
-</div>
-<div>
-<span class="detail-label">Insight</span>
-<p class="text-sm text-on-surface-variant">Virtual try-on accuracy was the primary friction point for cross-border conversions.</p>
-</div>
-<div>
-<span class="detail-label">Outcome</span>
-<p class="text-sm text-on-surface-variant">40% increase in international basket size through localized AI fitting rooms.</p>
 </div>
 </div>
-</div></div></div>
-<div class="absolute top-6 right-6 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-<span class="px-3 py-1 bg-black/60 backdrop-blur-md border border-primary-container/30 text-[10px] uppercase font-bold tracking-widest text-primary-container">Strategic Growth</span>
+<div class="project-details-content bg-black/40 px-8">
+<!-- Expanded Case Study Content (SCREEN_39 Reference) -->
+<div class="max-w-4xl py-12 space-y-12">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div><span class="detail-label">Challenge</span><p class="text-sm text-on-surface-variant">Scaling premium eyewear logistics across 12 new international markets with zero local infrastructure.</p></div>
+<div><span class="detail-label">Insight</span><p class="text-sm text-on-surface-variant">Virtual try-on accuracy was the primary friction point for cross-border conversions.</p></div>
+<div><span class="detail-label">Outcome</span><p class="text-sm text-on-surface-variant">40% increase in international basket size through localized AI fitting rooms.</p></div>
+</div>
+<div class="space-y-4">
+<h4 class="font-h3 text-xl text-primary-container">Strategic Execution</h4>
+<p class="text-on-surface-variant leading-relaxed">The project involved a complete overhaul of the cross-border digital journey. We integrated real-time inventory management with localized 3D facial mapping to ensure that "What You See Is What You Get." The Ronin approach meant slashing through legacy silos between tech and regional retail teams.</p>
 </div>
 </div>
-<!-- Amul Organic Tile (Portrait) -->
+</div>
+</div>
+<!-- Amul Organic Tile -->
 <div class="col-span-12 md:col-span-4 group relative overflow-hidden bg-surface-container-low border border-white/5 hover:border-primary-container/50 transition-all duration-500 shadow-2xl project-card">
-<div class="h-full min-h-[500px] w-full overflow-hidden">
-<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100" data-alt="A lush, close-up photograph of organic green crops under a soft, golden sunrise light. The dew drops on the leaves are crystalline and sharp. The atmosphere is serene and grounded, representing purity and organic growth. The image uses a deep color palette with natural greens and rich earth tones that contrast beautifully with the dark UI elements." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAb6EYIitylAgKCDdLlDrumtg-A9VENbENYCEWjxzALXIqnjV0TajG2BBMmv_40uLiU6jY_P1WwHbHBkHqBVvfhSK7mHnDdmDa7M6d0islH_KjFKEV0fh5XNVyKuK28sg9CfPnVwHhjbw6QENHsovj4-mJZpe-tUOIhwPMVAQtC_uI3Gna4_F-ymDPGY0PmVejHBw4kXr1CXyQTMBOcMWMeAuczuLUwBrYTVFXOFy8o3fdS6-AR8t2d5WlvMhp2O6X_t4SawL4HefU"/>
-</div>
+<div class="h-full min-h-[500px] w-full overflow-hidden cursor-pointer" onclick="toggleExpansion(this.closest('.project-card'))">
+<img alt="Amul Organic Crops" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAb6EYIitylAgKCDdLlDrumtg-A9VENbENYCEWjxzALXIqnjV0TajG2BBMmv_40uLiU6jY_P1WwHbHBkHqBVvfhSK7mHnDdmDa7M6d0islH_KjFKEV0fh5XNVyKuK28sg9CfPnVwHhjbw6QENHsovj4-mJZpe-tUOIhwPMVAQtC_uI3Gna4_F-ymDPGY0PmVejHBw4kXr1CXyQTMBOcMWMeAuczuLUwBrYTVFXOFy8o3fdS6-AR8t2d5WlvMhp2O6X_t4SawL4HefU"/>
 <div class="absolute inset-0 bg-[#0d0d0d]/40 group-hover:bg-[#0d0d0d]/20 transition-all duration-500"></div>
-<div class="absolute bottom-0 p-8"><h3 class="font-h3 text-h3 text-on-surface mb-2">Amul Organic</h3>
-<p class="font-body-md text-body-md text-on-surface-variant mb-4">Direct-to-consumer supply chain revolution for India's largest dairy cooperative.</p>
-<div class="flex flex-col gap-4"><button class="w-fit px-6 py-2 border border-primary-container text-primary-container font-label-caps text-label-caps hover:bg-primary-container hover:text-white transition-all flex items-center gap-2" onclick="toggleExpansion(this.closest('.project-card'))">
+<div class="absolute bottom-0 p-8">
+<h3 class="font-h3 text-h3 text-on-surface mb-2">Amul Organic</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Direct-to-consumer supply chain revolution.</p>
+<button class="w-fit px-6 py-2 border border-primary-container text-primary-container font-label-caps text-label-caps hover:bg-primary-container hover:text-white transition-all flex items-center gap-2">
 <span class="btn-text">READ MORE</span>
 <span class="material-symbols-outlined text-sm">expand_more</span>
 </button>
-<div class="project-details-content">
-<div class="space-y-4 pb-8">
-<div>
-<span class="detail-label">The Mission</span>
-<p class="text-xs text-on-surface-variant">Removing middlemen from the farm-to-table journey using blockchain transparency.</p>
-</div>
-<div>
-<span class="detail-label">Impact</span>
-<p class="text-xs text-on-surface-variant">Direct revenue increase of 22% for local organic farmers.</p>
 </div>
 </div>
-</div></div></div>
+<div class="project-details-content bg-black/40 px-8">
+<div class="py-12 space-y-8">
+<div><span class="detail-label">The Mission</span><p class="text-sm text-on-surface-variant">Removing middlemen from the farm-to-table journey using blockchain transparency for trust.</p></div>
+<div><span class="detail-label">Impact</span><p class="text-sm text-on-surface-variant">Direct revenue increase of 22% for local organic farmers while reducing consumer pricing by 8%.</p></div>
 </div>
-<!-- VivaFit Tile (Small Square) -->
+</div>
+</div>
+<!-- VivaFit Tile -->
 <div class="col-span-12 md:col-span-6 group relative overflow-hidden bg-surface-container-low border border-white/5 hover:border-primary-container/50 transition-all duration-500 shadow-2xl project-card">
-<div class="h-[400px] w-full overflow-hidden">
-<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100" data-alt="A dynamic, high-contrast black and white shot of a modern fitness studio with sleek equipment. One sharp accent of vermilion red light cuts through the scene, highlighting the precision and energy of the environment. The composition is clean and focused, reflecting a disciplined and results-oriented product management approach." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAl5mcOUBdxSpsVtopa7ErsU5KZYEU-syHQaGrOOq1-auE01lIzeuWuD_4JAGFNInGCxi4wLRALd4bXe0-B1J6sO0dscvjRyEjpQnnYNHSVTDMsSF3Rg32q5tIF0X5Fylsr0G33VdodyCLK8yoSWbWtzO2SEPLPY1MRttRczvaqYEWJ9rb3PyQ1NbV7LXssjGlVWkDgxqChlyD1SpflZ-ARk5ckP0tOq4H_zgo3Dt7Y-_miPemhQ5WknIbUvVSopGeWkjTxjyMC7NU"/>
-</div>
-<div class="p-8">
+<div class="h-[400px] w-full overflow-hidden cursor-pointer" onclick="toggleExpansion(this.closest('.project-card'))">
+<img alt="VivaFit Fitness" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAl5mcOUBdxSpsVtopa7ErsU5KZYEU-syHQaGrOOq1-auE01lIzeuWuD_4JAGFNInGCxi4wLRALd4bXe0-B1J6sO0dscvjRyEjpQnnYNHSVTDMsSF3Rg32q5tIF0X5Fylsr0G33VdodyCLK8yoSWbWtzO2SEPLPY1MRttRczvaqYEWJ9rb3PyQ1NbV7LXssjGlVWkDgxqChlyD1SpflZ-ARk5ckP0tOq4H_zgo3Dt7Y-_miPemhQ5WknIbUvVSopGeWkjTxjyMC7NU"/>
+<div class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-[#0d0d0d] via-[#0d0d0d]/80 to-transparent">
 <div class="flex justify-between items-start mb-4">
 <h3 class="font-h3 text-h3 text-on-surface">VivaFit</h3>
 <span class="material-symbols-outlined text-primary-container">fitness_center</span>
 </div>
-<p class="font-body-md text-body-md text-on-surface-variant mb-6">Redefining health-tech with AI-driven personalized workout scaling.</p>
-<div class="flex gap-4">
-<span class="text-[10px] text-primary-container/70 font-bold uppercase tracking-widest">UX Research</span>
-<span class="text-[10px] text-primary-container/70 font-bold uppercase tracking-widest">Product Strategy</span>
-</div>
-<div class="mt-6 flex flex-col gap-4"><button class="text-primary-container font-label-caps text-label-caps flex items-center gap-2 group/btn" onclick="toggleExpansion(this.closest('.project-card'))">
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">AI-driven personalized workout scaling.</p>
+<button class="text-primary-container font-label-caps text-label-caps flex items-center gap-2 group/btn">
 <span class="btn-text">LEARN MORE</span>
 <span class="material-symbols-outlined text-sm transition-transform">expand_more</span>
 </button>
-<div class="project-details-content">
-<div class="grid grid-cols-2 gap-4 pb-8">
-<div>
-<span class="detail-label text-[8px]">Insight</span>
-<p class="text-[11px] text-on-surface-variant">Adaptive heart-rate pacing reduced user churn by 15%.</p>
-</div>
-<div>
-<span class="detail-label text-[8px]">Tech</span>
-<p class="text-[11px] text-on-surface-variant">TensorFlow Lite integration for edge-device pose estimation.</p>
 </div>
 </div>
-</div></div></div>
+<div class="project-details-content bg-black/40 px-8">
+<div class="grid grid-cols-2 gap-8 py-12">
+<div><span class="detail-label">Insight</span><p class="text-sm text-on-surface-variant">Adaptive heart-rate pacing reduced user churn by 15%.</p></div>
+<div><span class="detail-label">Tech</span><p class="text-sm text-on-surface-variant">TensorFlow Lite integration for edge-device pose estimation.</p></div>
 </div>
-<!-- MealBud Tile (Landscape) -->
+</div>
+</div>
+<!-- MealBud Tile -->
 <div class="col-span-12 md:col-span-6 group relative overflow-hidden bg-surface-container-low border border-white/5 hover:border-primary-container/50 transition-all duration-500 shadow-2xl project-card">
-<div class="h-[400px] w-full overflow-hidden">
-<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100" data-alt="An overhead, artfully arranged display of minimalist culinary dishes on dark stoneware plates. The scene is illuminated by soft, natural side lighting that creates long, elegant shadows. The color palette is dominated by dark charcoal and slate, with pops of vibrant ingredients that match the portfolio's accent colors. It conveys a sense of high-end, curated product experiences." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDp8vdMNeuvRzX14PWUFVmyaJ7WTLJE2TRWCm-sO7zz8qtnqPI6iEoC3IDM3vYuf5dfcSngpWN--MH0EwtKGsOe7uomeNdDuq-KI6Bi3xVmHa5FK8lFdlt7xOBmc6l0RLel26X_DxbsDpJbDWkDgEhSd2e7Lwlx7yt5bnPi2lAtcFnRRi52d-ME_cvSdEG_yjz4nOKOSospb8TojVs0irKOaEcsrfI_MQ7SDQk9ntI354Qu2W0uMDotKmev7M2fEpFiGR3dLygf-Ks"/>
-</div>
-<div class="p-8"><div class="flex justify-between items-start mb-4">
+<div class="h-[400px] w-full overflow-hidden cursor-pointer" onclick="toggleExpansion(this.closest('.project-card'))">
+<img alt="MealBud Culinary" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDp8vdMNeuvRzX14PWUFVmyaJ7WTLJE2TRWCm-sO7zz8qtnqPI6iEoC3IDM3vYuf5dfcSngpWN--MH0EwtKGsOe7uomeNdDuq-KI6Bi3xVmHa5FK8lFdlt7xOBmc6l0RLel26X_DxbsDpJbDWkDgEhSd2e7Lwlx7yt5bnPi2lAtcFnRRi52d-ME_cvSdEG_yjz4nOKOSospb8TojVs0irKOaEcsrfI_MQ7SDQk9ntI354Qu2W0uMDotKmev7M2fEpFiGR3dLygf-Ks"/>
+<div class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-[#0d0d0d] via-[#0d0d0d]/80 to-transparent">
+<div class="flex justify-between items-start mb-4">
 <h3 class="font-h3 text-h3 text-on-surface">MealBud</h3>
 <span class="material-symbols-outlined text-primary-container">restaurant_menu</span>
 </div>
-<p class="font-body-md text-body-md text-on-surface-variant mb-6">Optimizing the logistics of flavor through predictive demand modeling.</p>
-<div class="flex flex-col gap-4"><button class="text-primary-container font-label-caps text-label-caps flex items-center gap-2 group/btn" onclick="toggleExpansion(this.closest('.project-card'))">
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Optimizing logistics through predictive demand.</p>
+<button class="text-primary-container font-label-caps text-label-caps flex items-center gap-2 group/btn">
 <span class="btn-text">EXPLORE PROJECT</span>
 <span class="material-symbols-outlined text-sm">expand_more</span>
 </button>
-<div class="project-details-content">
-<div class="p-4 mb-8 bg-black/20 border border-primary-container/10">
+</div>
+</div>
+<div class="project-details-content bg-black/40 px-8">
+<div class="py-12">
 <span class="detail-label">Strategy</span>
-<p class="text-sm text-on-surface-variant">Implementing JIT (Just-In-Time) inventory for perishable luxury ingredients based on localized food trends.</p>
-</div>
-</div></div></div>
+<p class="text-sm text-on-surface-variant leading-relaxed">Implementing JIT (Just-In-Time) inventory for perishable luxury ingredients based on localized food trends and seasonal availability metrics.</p>
 </div>
 </div>
-<!-- Call to Action / The "North Star" -->
-<section class="mt-ma-lg p-16 bg-surface-container-low/50 backdrop-blur-sm border border-white/5 text-center relative overflow-hidden group">
-<div class="seigaiha-pattern absolute inset-0 opacity-5 pointer-events-none"></div>
+</div>
+</div>
+</section>
+<!-- About Section (SCREEN_32 Integration) -->
+<section class="bg-surface-container-low py-24 scroll-mt-24" id="about">
+<div class="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+<div class="space-y-8">
+<span class="font-label-caps text-primary-container tracking-[0.3em]">THE RONIN PHILOSOPHY</span>
+<h2 class="font-h2 text-h2 text-on-surface">Discipline in Product Leadership</h2>
+<div class="space-y-6 text-on-surface-variant leading-relaxed">
+<p>I view product management as a craft—a martial art of the mind. Just as a Ronin wanders with purpose but no master but his own code, I navigate complex market landscapes with strategic autonomy and unwavering focus.</p>
+<p>My methodology centers on "The Way of Zero," stripping away the unnecessary features, technical debt, and process bloat until only the pure, high-impact value proposition remains.</p>
+</div>
+<div class="flex gap-12 pt-8 border-t border-white/5">
+<div>
+<div class="text-3xl font-h2 text-on-surface">8+</div>
+<div class="text-xs font-label-caps text-stone-500 mt-2">Years Exp.</div>
+</div>
+<div>
+<div class="text-3xl font-h2 text-on-surface">15M+</div>
+<div class="text-xs font-label-caps text-stone-500 mt-2">Users Impacted</div>
+</div>
+<div>
+<div class="text-3xl font-h2 text-on-surface">$50M+</div>
+<div class="text-xs font-label-caps text-stone-500 mt-2">Revenue Grown</div>
+</div>
+</div>
+</div>
+<div class="relative group">
+<div class="absolute -inset-4 border border-primary-container/20 translate-x-4 translate-y-4 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-500"></div>
+<div class="relative aspect-square overflow-hidden grayscale hover:grayscale-0 transition-all duration-700 border border-white/10">
+<img alt="Aaron Profile Portrait" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnI1Z9fXm7S_O6yv_G_H"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Call to Action -->
+<section class="p-16 bg-surface-container/30 backdrop-blur-sm border-y border-white/5 text-center relative overflow-hidden group">
 <div class="relative z-10">
 <h2 class="font-h2 text-h2 text-on-surface mb-6">Ready to sharpen your product edge?</h2>
 <p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-2xl mx-auto">
-                    I bring the discipline of the Ronin to product leadership. Let’s discuss your next strategic venture.
-                </p>
+                I bring the discipline of the Ronin to product leadership. Let’s discuss your next strategic venture.
+            </p>
 <div class="flex flex-col md:flex-row gap-6 justify-center">
-<a class="bg-primary-container text-white px-10 py-4 font-label-caps text-label-caps tracking-[0.2em] hover:brightness-110 hover:scale-105 transition-all shadow-[0_0_20px_rgba(178,34,34,0.3)]" href="#">BOOK A CONSULTATION</a>
+<a class="bg-primary-container text-white px-10 py-4 font-label-caps text-label-caps tracking-[0.2em] hover:brightness-110 hover:scale-105 transition-all shadow-[0_0_20px_rgba(178,34,34,0.3)]" href="mailto:hello@aaron.pm">BOOK A CONSULTATION</a>
 <a class="border border-white/10 px-10 py-4 font-label-caps text-label-caps tracking-[0.2em] hover:border-primary-container hover:text-primary-container transition-all" href="#">DOWNLOAD RESUME</a>
 </div>
 </div>
 </section>
 </main>
 <!-- Footer -->
-<footer class="bg-[#0d0d0d] border-t border-white/5 py-12 flex flex-col items-center gap-6 w-full mt-32 relative z-20">
+<footer class="bg-[#0d0d0d] border-t border-white/5 py-12 flex flex-col items-center gap-6 w-full relative z-20">
 <div class="flex gap-12">
 <a class="font-noto-serif text-sm tracking-tight text-stone-500 hover:text-primary-container transition-all duration-300" href="#">LinkedIn</a>
 <a class="font-noto-serif text-sm tracking-tight text-stone-500 hover:text-primary-container transition-all duration-300" href="#">Email</a>
 <a class="font-noto-serif text-sm tracking-tight text-stone-500 hover:text-primary-container transition-all duration-300" href="#">Resume</a>
 </div>
 <p class="font-noto-serif text-sm tracking-tight text-stone-600">
-            © 2024 Aaron. The Way of the PM.
-        </p>
+        © 2024 Aaron. The Way of the PM.
+    </p>
 <div class="w-12 h-[1px] bg-primary-container/30"></div>
 </footer>
 <script>
   function toggleExpansion(card) {
     const isExpanded = card.classList.contains('is-expanded');
     
-    // Optional: Close other cards
-    // document.querySelectorAll('.project-card').forEach(c => {
-    //   if(c !== card) c.classList.remove('is-expanded');
-    // });
+    // Smoothly scroll to the card top if expanding
+    if(!isExpanded) {
+        setTimeout(() => {
+            card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+    }
 
     card.classList.toggle('is-expanded');
-    const btnText = card.querySelector('.btn-text');
     const icon = card.querySelector('.material-symbols-outlined:not(.text-primary-container)');
     
-    if (!isExpanded) {
-      if(icon) icon.innerText = 'expand_less';
-      // Button text change for main CTA if needed
-    } else {
-      if(icon) icon.innerText = 'expand_more';
+    if (icon) {
+        icon.innerText = isExpanded ? 'expand_more' : 'expand_less';
     }
   }
-</script></body></html>
+
+  // Active Link Tracking on Scroll
+  window.addEventListener('scroll', () => {
+    let current = '';
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('nav a');
+
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        if (pageYOffset >= sectionTop - 120) {
+            current = section.getAttribute('id');
+        }
+    });
+
+    navLinks.forEach(link => {
+        link.classList.remove('text-primary-container', 'border-b-2', 'border-primary-container');
+        link.classList.add('text-stone-400');
+        if (link.getAttribute('href').includes(current)) {
+            link.classList.remove('text-stone-400');
+            link.classList.add('text-primary-container', 'border-b-2', 'border-primary-container');
+        }
+    });
+  });
+</script>
+</body></html>
