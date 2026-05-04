@@ -1,514 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aaron | The Way of the PM</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --sumi-black: #131313;
-            --shu-iro-red: #B22222;
-            --washi-gray: #393939;
-            --gold-accent: #D4AF37;
-            --text-main: #E0E0E0;
-            --text-dim: #A0A0A0;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aaron | The Way of the PM</title>
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
-        body {
-            background-color: var(--sumi-black);
-            color: var(--text-main);
-            font-family: 'Inter', sans-serif;
-            overflow-x: hidden;
-            background-image: 
-                radial-gradient(circle at 50% 50%, rgba(178, 34, 34, 0.05) 0%, transparent 70%),
-                url('https://www.transparenttextures.com/patterns/handmade-paper.png');
-        }
+<style>
+:root {
+--sumi-black: #131313;
+--shu-iro-red: #B22222;
+--washi-gray: #1c1b1b;
+--gold-accent: #D4AF37;
+--text-main: #E0E0E0;
+--text-dim: #A0A0A0;
+}
 
-        h1, h2, h3, .bushido-font {
-            font-family: 'Noto Serif', serif;
-            letter-spacing: -0.02em;
-        }
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+scroll-behavior: smooth;
+}
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
+body {
+background-color: var(--sumi-black);
+color: var(--text-main);
+font-family: 'Inter', sans-serif;
+overflow-x: hidden;
+background-image:
+radial-gradient(circle at 50% 50%, rgba(178, 34, 34, 0.05) 0%, transparent 70%),
+url('https://www.transparenttextures.com/patterns/handmade-paper.png');
+}
 
-        /* Sakura Animation */
-        .sakura-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 50vh;
-            pointer-events: none;
-            z-index: 100;
-            overflow: hidden;
-        }
+h1, h2, h3 {
+font-family: 'Noto Serif', serif;
+letter-spacing: -0.02em;
+}
 
-        .petal {
-            position: absolute;
-            background-color: var(--shu-iro-red);
-            border-radius: 100% 0 100% 0;
-            opacity: 0.8;
-            animation: fall linear infinite;
-        }
+.container {
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 2rem;
+}
 
-        @keyframes fall {
-            0% { transform: translateY(-10px) rotate(0deg); opacity: 0.8; }
-            100% { transform: translateY(50vh) rotate(360deg); opacity: 0; }
-        }
+/* Sakura */
+.sakura-container {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 50vh;
+pointer-events: none;
+overflow: hidden;
+}
 
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            padding: 1.5rem 0;
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
-        }
+.petal {
+position: absolute;
+background-color: var(--shu-iro-red);
+border-radius: 100% 0 100% 0;
+animation: fall linear infinite;
+}
 
-        nav .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+@keyframes fall {
+0% { transform: translateY(-10px); }
+100% { transform: translateY(50vh); }
+}
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--shu-iro-red);
-            text-decoration: none;
-            font-style: italic;
-        }
+/* Nav */
+nav {
+position: fixed;
+top: 0;
+width: 100%;
+padding: 1.5rem 0;
+backdrop-filter: blur(10px);
+border-bottom: 1px solid rgba(212,175,55,0.1);
+}
 
-        .nav-links {
-            display: flex;
-            gap: 2.5rem;
-        }
+nav .container {
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
 
-        .nav-links a {
-            color: var(--text-dim);
-            text-decoration: none;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            transition: color 0.3s;
-        }
+.logo {
+color: var(--shu-iro-red);
+text-decoration: none;
+font-weight: bold;
+}
 
-        .nav-links a:hover, .nav-links a.active {
-            color: var(--shu-iro-red);
-        }
+.nav-links {
+display: flex;
+gap: 2rem;
+}
 
-        .contact-btn {
-            border: 1px solid var(--shu-iro-red);
-            padding: 0.6rem 1.5rem;
-            color: var(--text-main);
-            text-decoration: none;
-            transition: all 0.3s;
-        }
+.nav-links a {
+color: var(--text-dim);
+text-decoration: none;
+}
 
-        .contact-btn:hover {
-            background: var(--shu-iro-red);
-        }
+.contact-btn {
+border: 1px solid var(--shu-iro-red);
+padding: 0.5rem 1rem;
+}
 
-        /* Sections */
-        section {
-            padding: 10rem 0;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
+/* Sections */
+section {
+padding: 8rem 0;
+min-height: 100vh;
+}
 
-        /* Hero */
-        .hero {
-            position: relative;
-            text-align: left;
-        }
+/* Hero */
+.hero h1 {
+font-size: 3.5rem;
+}
 
-        .hero-content {
-            max-width: 600px;
-        }
+.hero span {
+color: var(--shu-iro-red);
+}
 
-        .kicker {
-            color: var(--shu-iro-red);
-            text-transform: uppercase;
-            letter-spacing: 0.3em;
-            font-size: 0.8rem;
-            margin-bottom: 1rem;
-            display: block;
-        }
+/* Grid */
+.projects-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 2rem;
+margin-top: 3rem;
+}
 
-        .hero h1 {
-            font-size: 4.5rem;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-        }
+.project-tile {
+background: var(--washi-gray);
+padding: 2rem;
+cursor: pointer;
+}
 
-        .hero h1 span {
-            color: var(--shu-iro-red);
-            font-style: italic;
-        }
-
-        .hero p {
-            font-size: 1.1rem;
-            color: var(--text-dim);
-            line-height: 1.6;
-            margin-bottom: 2.5rem;
-        }
-
-        .visual-anchor {
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 400px;
-            height: 400px;
-            background-image: url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&q=80&w=800'); /* Sakura representation */
-            background-size: cover;
-            mask-image: radial-gradient(circle at 70% 30%, black 20%, transparent 70%);
-            -webkit-mask-image: radial-gradient(circle at 70% 30%, black 20%, transparent 70%);
-            opacity: 0.6;
-        }
-
-        .moon {
-            position: absolute;
-            top: 20%;
-            right: 15%;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            box-shadow: 15px 15px 0 0 #f0f0f0;
-            transform: rotate(-20deg);
-            opacity: 0.8;
-            filter: blur(1px);
-        }
-
-        /* Work Section */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            margin-top: 4rem;
-        }
-
-        .project-tile {
-            position: relative;
-            background: var(--washi-gray);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 2rem;
-            cursor: pointer;
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            overflow: hidden;
-        }
-
-        .project-tile:hover {
-            border-color: var(--shu-iro-red);
-            transform: translateY(-5px);
-        }
-
-        .project-tile h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-        }
-
-        .project-tile p {
-            color: var(--text-dim);
-            font-size: 0.95rem;
-        }
-
-        .project-details {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.8s ease-in-out;
-            margin-top: 0;
-            border-top: 0 solid transparent;
-        }
-
-        .project-tile.expanded {
-            grid-column: span 2;
-            background: #1a1a1a;
-        }
-
-        .project-tile.expanded .project-details {
-            max-height: 2000px;
-            margin-top: 2rem;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(178, 34, 34, 0.3);
-        }
-
-        /* Skill Cards */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .skill-card {
-            background: rgba(255, 255, 255, 0.02);
-            border-left: 3px solid var(--shu-iro-red);
-            padding: 1.5rem;
-        }
-
-        .skill-card h4 {
-            color: var(--shu-iro-red);
-            margin-bottom: 0.5rem;
-            text-transform: uppercase;
-            font-size: 0.8rem;
-        }
-
-        /* Footer */
-        footer {
-            padding: 5rem 0;
-            text-align: center;
-            border-top: 1px solid rgba(212, 175, 55, 0.1);
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-links a {
-            color: var(--text-dim);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .footer-links a:hover {
-            color: var(--shu-iro-red);
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 3rem; }
-            .projects-grid { grid-template-columns: 1fr; }
-            .project-tile.expanded { grid-column: span 1; }
-            .nav-links { display: none; }
-        }
-    </style>
+/* Footer */
+footer {
+text-align: center;
+padding: 3rem;
+color: var(--text-dim);
+}
+</style>
 </head>
+
 <body>
 
-    <div class="sakura-container" id="sakura"></div>
+<div id="sakura" class="sakura-container"></div>
 
-    <nav>
-        <div class="container">
-            <a href="#home" class="logo">AARON</a>
-            <div class="nav-links">
-                <a href="#home">Home</a>
-                <a href="#work">Work</a>
-                <a href="#about">About</a>
-            </div>
-            <a href="mailto:Aaronbnzn@gmail.com" class="contact-btn">CONTACT</a>
-        </div>
-    </nav>
+<nav>
+<div class="container">
+<a href="#" class="logo">AARON</a>
+<div class="nav-links">
+<a href="#home">Home</a>
+<a href="#work">Work</a>
+<a href="#about">About</a>
+</div>
+<a href="mailto:Aaronbnzn@gmail.com" class="contact-btn">CONTACT</a>
+</div>
+</nav>
 
-    <div class="container">
-        
-        <!-- Home Section -->
-        <section id="home" class="hero">
-            <div class="moon"></div>
-            <div class="visual-anchor"></div>
-            <div class="hero-content">
-                <span class="kicker">The Way of the PM</span>
-                <h1>The Path of <span>Strategic Mastery</span></h1>
-                <p>A product leader forging clarity from chaos. Merging the disciplined precision of Bushido with modern data-driven product strategy to build high-impact digital experiences.</p>
-                <div style="display: flex; gap: 1rem;">
-                    <a href="#" class="contact-btn" style="background: var(--shu-iro-red);">View Resume</a>
-                    <a href="#" class="contact-btn">LinkedIn</a>
-                </div>
-            </div>
-        </section>
+<div class="container">
 
-        <!-- Work Section -->
-        <section id="work">
-            <span class="kicker">Case Studies</span>
-            <h2 class="bushido-font" style="font-size: 3rem;">Strategic Ventures & <span style="color: var(--shu-iro-red);">Product Solutions</span></h2>
-            
-            <div class="projects-grid">
-                <!-- Lenskart -->
-                <div class="project-tile" onclick="toggleProject(this)">
-                    <h3>Lenskart: Vision Tech Expansion</h3>
-                    <p>Designed a data-backed engagement framework using AI tools to increase post-purchase interaction.</p>
-                    <div class="project-details">
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
-                            <div>
-                                <h4 style="color: var(--shu-iro-red); margin-bottom: 1rem;">The Challenge</h4>
-                                <p>Lenskart faced a classic product paradox: high traffic with stagnant retention. Users were captivated by the "3D Try-On" novelty but failed to transition into frequent returning customers.</p>
-                            </div>
-                            <div style="background: rgba(178, 34, 34, 0.1); padding: 1.5rem; border-left: 2px solid var(--shu-iro-red);">
-                                <h4 style="color: var(--shu-iro-red); margin-bottom: 0.5rem;">Outcome</h4>
-                                <p style="font-size: 2rem; font-weight: bold; margin: 1rem 0;">15% <span style="font-size: 1rem;">Engagement Lift</span></p>
-                                <p>Improved repeat engagement cycles through AI-driven replenishment reminders.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<section id="home" class="hero">
+<h1>The Path of <span>Strategic Mastery</span></h1>
+<p>A product leader merging discipline with strategy.</p>
+</section>
 
-                <!-- Amul -->
-                <div class="project-tile" onclick="toggleProject(this)">
-                    <h3>Amul Organic: Supply Chain</h3>
-                    <p>Market research on consumer demand, retailer adoption, and positioning for India's largest dairy cooperative.</p>
-                    <div class="project-details">
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
-                            <div>
-                                <h4 style="color: var(--shu-iro-red); margin-bottom: 1rem;">The Strategy</h4>
-                                <p>On-ground consumer research at Amul to identify boutique retail placement and premium resonance for the sub-brand.</p>
-                            </div>
-                            <div style="background: rgba(178, 34, 34, 0.1); padding: 1.5rem; border-left: 2px solid var(--shu-iro-red);">
-                                <h4 style="color: var(--shu-iro-red); margin-bottom: 0.5rem;">Result</h4>
-                                <p style="font-size: 2rem; font-weight: bold; margin: 1rem 0;">92% <span style="font-size: 1rem;">Retailer Alignment</span></p>
-                                <p>Strategic realignment led to 22% increase in retailer commitments.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<section id="work">
+<h2>Projects</h2>
 
-                <!-- VivaFit -->
-                <div class="project-tile" onclick="toggleProject(this)">
-                    <h3>VivaFit: Motivation Drop-Off</h3>
-                    <p>Solving retention issues through community-led loops and skill-based engagement.</p>
-                    <div class="project-details">
-                        <p>Identified key retention drop-offs in a fitness app and designed community-led and skill-based engagement loops to drive repeat usage.</p>
-                    </div>
-                </div>
+<div class="projects-grid">
+<div class="project-tile">
+<h3>Lenskart</h3>
+<p>Retention strategy project.</p>
+</div>
 
-                <!-- MealBud -->
-                <div class="project-tile" onclick="toggleProject(this)">
-                    <h3>MealBud: Smart Planning</h3>
-                    <p>Reducing decision fatigue for busy lives via predictive ingredient recommendations.</p>
-                    <div class="project-details">
-                        <p>Designed a smart meal-planning experience to reduce decision fatigue for busy users by recommending recipes based on available ingredients, time, and preferences.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+<div class="project-tile">
+<h3>Amul Organic</h3>
+<p>Supply chain research.</p>
+</div>
+</div>
 
-        <!-- About Section -->
-        <section id="about">
-            <div style="display: grid; grid-template-columns: 1fr 1.5fr; gap: 4rem; align-items: center;">
-                <div style="border: 1px solid var(--shu-iro-red); padding: 1rem;">
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800" alt="Aaron" style="width: 100%; filter: grayscale(100%) contrast(1.2);">
-                </div>
-                <div>
-                    <span class="kicker">The Architect of Intent</span>
-                    <h2 class="bushido-font" style="font-size: 3rem; margin-bottom: 2rem;">Philosophy of <span style="color: var(--shu-iro-red);">Ma</span></h2>
-                    <p style="color: var(--text-dim); margin-bottom: 1.5rem;">Hi, I'm Aaron. Aspiring Product Manager with an MBA in Marketing and experience across market research, digital growth, and business banking.</p>
-                    <p style="color: var(--text-dim); margin-bottom: 3rem;">I believe the most critical decisions happen in the silence—the space between data points where intuition and strategy meet. By removing the noise, I reveal the essential value that resonates with users.</p>
-                    
-                    <div class="skills-grid">
-                        <div class="skill-card">
-                            <h4>Research</h4>
-                            <p style="font-size: 0.85rem;">Strategy & Execution</p>
-                        </div>
-                        <div class="skill-card">
-                            <h4>AI Tools</h4>
-                            <p style="font-size: 0.85rem;">Productivity & Logic</p>
-                        </div>
-                        <div class="skill-card">
-                            <h4>Analysis</h4>
-                            <p style="font-size: 0.85rem;">Decision Making</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+</section>
 
-    </div>
+<section id="about">
+<h2>About Me</h2>
+<p>Product thinker focused on clarity and execution.</p>
+</section>
 
-    <footer>
-        <div class="container">
-            <div class="footer-links">
-                <a href="#">LinkedIn</a>
-                <a href="mailto:Aaronbnzn@gmail.com">Email</a>
-                <a href="#">Resume</a>
-            </div>
-            <p style="color: var(--text-dim); font-size: 0.8rem; letter-spacing: 0.1em;">© 2024 Aaron. The Way of the PM.</p>
-        </div>
-    </footer>
+</div>
 
-    <script>
-        // Sakura Animation Logic
-        const sakuraContainer = document.getElementById('sakura');
-        const petalCount = 15;
+<footer>
+© 2024 Aaron
+</footer>
 
-        function createPetal() {
-            const petal = document.createElement('div');
-            petal.classList.add('petal');
-            
-            const size = Math.random() * 5 + 5;
-            petal.style.width = size + 'px';
-            petal.style.height = (size * 0.8) + 'px';
-            
-            petal.style.left = Math.random() * 100 + 'vw';
-            petal.style.animationDuration = Math.random() * 3 + 4 + 's';
-            petal.style.animationDelay = Math.random() * 5 + 's';
-            
-            sakuraContainer.appendChild(petal);
-            
-            petal.addEventListener('animationend', () => {
-                petal.remove();
-                createPetal();
-            });
-        }
+<script>
+const container = document.getElementById('sakura');
 
-        for (let i = 0; i < petalCount; i++) {
-            createPetal();
-        }
+function createPetal() {
+const p = document.createElement('div');
+p.classList.add('petal');
 
-        // Project Expansion Logic
-        function toggleProject(element) {
-            const isExpanded = element.classList.contains('expanded');
-            
-            // Close all other expanded projects
-            document.querySelectorAll('.project-tile').forEach(tile => {
-                tile.classList.remove('expanded');
-            });
-            
-            if (!isExpanded) {
-                element.classList.add('expanded');
-                // Scroll into view if needed
-                setTimeout(() => {
-                    element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }, 400);
-            }
-        }
+p.style.width = "6px";
+p.style.height = "4px";
+p.style.left = Math.random() * 100 + "vw";
+p.style.animationDuration = "5s";
 
-        // Smooth Scroll Active Link
-        window.addEventListener('scroll', () => {
-            let current = '';
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('.nav-links a');
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (pageYOffset >= sectionTop - 100) {
-                    current = section.getAttribute('id');
-                }
-            });
+container.appendChild(p);
 
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').includes(current)) {
-                    link.classList.add('active');
-                }
-            });
-        });
-    </script>
+setTimeout(() => p.remove(), 5000);
+}
+
+setInterval(createPetal, 300);
+</script>
+
 </body>
 </html>
