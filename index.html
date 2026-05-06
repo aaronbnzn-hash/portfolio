@@ -1,220 +1,858 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aaron | The Way of the PM</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aaron John Benzon — Aspiring Product Manager</title>
+  <meta name="description" content="Portfolio of Aaron John Benzon, Aspiring Product Manager based in Noida, UP. Open to work." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    :root {
+      --accent: #c8f04a;
+      --accent-dim: #a0c030;
+      --dark: #0a0a0a;
+      --dark2: #111111;
+      --dark3: #1a1a1a;
+      --dark4: #222222;
+      --border: rgba(200, 240, 74, 0.2);
+      --border2: rgba(200, 240, 74, 0.08);
+      --text: #e0e0d0;
+      --text-dim: #888880;
+      --text-muted: #555550;
+      --mono: 'Share Tech Mono', monospace;
+      --head: 'Rajdhani', sans-serif;
+    }
 
-<style>
-:root {
---sumi-black: #131313;
---shu-iro-red: #B22222;
---washi-gray: #1c1b1b;
---gold-accent: #D4AF37;
---text-main: #E0E0E0;
---text-dim: #A0A0A0;
-}
+    html { scroll-behavior: smooth; }
 
-* {
-margin: 0;
-padding: 0;
-box-sizing: border-box;
-scroll-behavior: smooth;
-}
+    body {
+      background: var(--dark);
+      color: var(--text);
+      font-family: var(--mono);
+      overflow-x: hidden;
+    }
 
-body {
-background-color: var(--sumi-black);
-color: var(--text-main);
-font-family: 'Inter', sans-serif;
-overflow-x: hidden;
-background-image:
-radial-gradient(circle at 50% 50%, rgba(178, 34, 34, 0.05) 0%, transparent 70%),
-url('https://www.transparenttextures.com/patterns/handmade-paper.png');
-}
+    .scanline {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px);
+      pointer-events: none; z-index: 9999;
+    }
 
-h1, h2, h3 {
-font-family: 'Noto Serif', serif;
-letter-spacing: -0.02em;
-}
+    .hud-tag {
+      font-family: var(--mono); font-size: 10px; color: var(--text-muted);
+      letter-spacing: 2px; text-transform: uppercase;
+    }
 
-.container {
-max-width: 1200px;
-margin: 0 auto;
-padding: 0 2rem;
-}
+    .accent { color: var(--accent); }
 
-/* Sakura */
-.sakura-container {
-position: fixed;
-top: 0;
-left: 0;
-width: 100%;
-height: 50vh;
-pointer-events: none;
-overflow: hidden;
-}
+    section { position: relative; z-index: 1; }
 
-.petal {
-position: absolute;
-background-color: var(--shu-iro-red);
-border-radius: 100% 0 100% 0;
-animation: fall linear infinite;
-}
+    /* ─── HERO ─── */
+    #hero {
+      min-height: 100vh; display: flex; flex-direction: column; justify-content: center;
+      padding: 4rem 3rem; border-bottom: 1px solid var(--border2);
+      position: relative; overflow: hidden;
+    }
 
-@keyframes fall {
-0% { transform: translateY(-10px); }
-100% { transform: translateY(50vh); }
-}
+    #hero::before {
+      content: '';
+      position: absolute; top: 0; right: 0;
+      width: 40%; height: 100%;
+      background: radial-gradient(ellipse at right center, rgba(200,240,74,0.04) 0%, transparent 70%);
+      pointer-events: none;
+    }
 
-/* Nav */
-nav {
-position: fixed;
-top: 0;
-width: 100%;
-padding: 1.5rem 0;
-backdrop-filter: blur(10px);
-border-bottom: 1px solid rgba(212,175,55,0.1);
-}
+    #hero::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0;
+      width: 100%; height: 1px;
+      background: linear-gradient(to right, transparent, var(--accent), transparent);
+      opacity: 0.2;
+    }
 
-nav .container {
-display: flex;
-justify-content: space-between;
-align-items: center;
-}
+    .hud-row {
+      display: flex; gap: 1.5rem; align-items: center; margin-bottom: 1rem; flex-wrap: wrap;
+    }
 
-.logo {
-color: var(--shu-iro-red);
-text-decoration: none;
-font-weight: bold;
-}
+    .hud-badge {
+      font-size: 10px; letter-spacing: 2px; padding: 3px 8px;
+      border: 1px solid var(--border); color: var(--accent); background: rgba(200,240,74,0.05);
+    }
 
-.nav-links {
-display: flex;
-gap: 2rem;
-}
+    .live-dot {
+      width: 7px; height: 7px; border-radius: 50%; background: var(--accent);
+      display: inline-block; margin-right: 6px;
+      animation: pulse 1.5s ease-in-out infinite;
+    }
 
-.nav-links a {
-color: var(--text-dim);
-text-decoration: none;
-}
+    @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.3; } }
 
-.contact-btn {
-border: 1px solid var(--shu-iro-red);
-padding: 0.5rem 1rem;
-}
+    .hero-name {
+      font-family: var(--head); font-size: clamp(3.5rem, 9vw, 7rem);
+      font-weight: 700; line-height: 0.95; letter-spacing: 4px;
+      color: #fff; text-transform: uppercase; margin-bottom: 1rem;
+    }
 
-/* Sections */
-section {
-padding: 8rem 0;
-min-height: 100vh;
-}
+    .hero-role {
+      font-family: var(--mono); font-size: clamp(0.75rem, 1.5vw, 0.9rem);
+      color: var(--accent); letter-spacing: 4px; text-transform: uppercase; margin-bottom: 1.5rem;
+    }
 
-/* Hero */
-.hero h1 {
-font-size: 3.5rem;
-}
+    .hero-desc {
+      font-size: 13px; color: var(--text-dim); max-width: 500px; line-height: 1.9;
+      margin-bottom: 2.5rem;
+    }
 
-.hero span {
-color: var(--shu-iro-red);
-}
+    .hero-links { display: flex; gap: 1rem; flex-wrap: wrap; }
 
-/* Grid */
-.projects-grid {
-display: grid;
-grid-template-columns: 1fr 1fr;
-gap: 2rem;
-margin-top: 3rem;
-}
+    .btn-primary {
+      font-family: var(--mono); font-size: 11px; letter-spacing: 2px;
+      padding: 12px 28px; border: 1px solid var(--accent);
+      background: transparent; color: var(--accent); cursor: pointer;
+      text-decoration: none; display: inline-block; text-transform: uppercase;
+      transition: all 0.2s;
+    }
+    .btn-primary:hover { background: var(--accent); color: var(--dark); }
 
-.project-tile {
-background: var(--washi-gray);
-padding: 2rem;
-cursor: pointer;
-}
+    .btn-secondary {
+      font-family: var(--mono); font-size: 11px; letter-spacing: 2px;
+      padding: 12px 28px; border: 1px solid var(--border);
+      background: transparent; color: var(--text-dim); cursor: pointer;
+      text-decoration: none; display: inline-block; text-transform: uppercase;
+      transition: all 0.2s;
+    }
+    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
 
-/* Footer */
-footer {
-text-align: center;
-padding: 3rem;
-color: var(--text-dim);
-}
-</style>
+    .hero-hud-bottom {
+      position: absolute; bottom: 2rem; right: 3rem;
+      display: flex; flex-direction: column; align-items: flex-end; gap: 4px;
+    }
+
+    .hero-coords { font-size: 10px; color: var(--text-muted); letter-spacing: 1px; }
+
+    /* ─── SECTION HEADER ─── */
+    .section-header {
+      padding: 4rem 3rem 2rem; display: flex; align-items: center; gap: 1rem;
+    }
+    .section-line { flex: 1; height: 1px; background: var(--border2); }
+    .section-title {
+      font-family: var(--mono); font-size: 10px; letter-spacing: 4px;
+      color: var(--accent); text-transform: uppercase; white-space: nowrap;
+    }
+
+    /* ─── PROJECTS ─── */
+    #projects { padding: 0 3rem 4rem; }
+
+    .view-toggle {
+      display: flex; gap: 0.5rem; margin-bottom: 2rem; justify-content: flex-end;
+    }
+
+    .toggle-btn {
+      font-family: var(--mono); font-size: 10px; letter-spacing: 2px;
+      padding: 6px 14px; border: 1px solid var(--border);
+      background: transparent; color: var(--text-muted); cursor: pointer;
+      text-transform: uppercase; transition: all 0.2s;
+    }
+    .toggle-btn.active { border-color: var(--accent); color: var(--accent); background: rgba(200,240,74,0.05); }
+
+    .evidence-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1px;
+      border: 1px solid var(--border2); background: var(--border2);
+    }
+
+    .evidence-card {
+      background: var(--dark2); padding: 0;
+      cursor: pointer; position: relative; overflow: hidden;
+      transition: background 0.2s;
+    }
+    .evidence-card:hover { background: var(--dark3); }
+    .evidence-card:hover .card-decrypt { color: var(--accent); }
+    .evidence-card:hover .card-img-placeholder { filter: brightness(1.1); }
+
+    .card-img-placeholder {
+      width: 100%; aspect-ratio: 16/9;
+      background: var(--dark3); display: flex; align-items: center; justify-content: center;
+      font-size: 12px; color: var(--text-muted); letter-spacing: 3px;
+      border-bottom: 1px solid var(--border2); position: relative; overflow: hidden;
+      transition: filter 0.2s;
+    }
+
+    .card-img-placeholder::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: repeating-linear-gradient(
+        45deg, transparent, transparent 15px,
+        rgba(200,240,74,0.015) 15px, rgba(200,240,74,0.015) 16px
+      );
+    }
+
+    .card-num {
+      font-size: 9px; color: var(--accent); letter-spacing: 3px;
+      position: absolute; top: 10px; left: 10px; z-index: 1;
+    }
+    .card-type {
+      font-size: 9px; color: var(--text-muted); letter-spacing: 2px;
+      position: absolute; top: 10px; right: 10px; z-index: 1;
+    }
+    .card-label { z-index: 1; position: relative; }
+
+    .card-body { padding: 1.25rem; }
+    .card-title {
+      font-family: var(--head); font-size: 17px; font-weight: 600;
+      color: #fff; margin-bottom: 6px;
+    }
+    .card-tagline {
+      font-size: 11px; color: var(--text-dim); line-height: 1.7; margin-bottom: 1rem;
+    }
+    .card-decrypt {
+      font-size: 9px; color: var(--text-muted); letter-spacing: 2px;
+      text-transform: uppercase; transition: color 0.2s;
+    }
+
+    /* List view */
+    .evidence-list { display: none; flex-direction: column; border: 1px solid var(--border2); }
+    .list-card {
+      background: var(--dark2); padding: 1.25rem 1.5rem;
+      display: flex; align-items: center; gap: 1.5rem;
+      cursor: pointer; transition: background 0.2s;
+      border-bottom: 1px solid var(--border2);
+    }
+    .list-card:last-child { border-bottom: none; }
+    .list-card:hover { background: var(--dark3); }
+    .list-num { font-size: 10px; color: var(--accent); letter-spacing: 2px; min-width: 60px; }
+    .list-title { font-family: var(--head); font-size: 15px; font-weight: 600; color: #fff; flex: 1; }
+    .list-type { font-size: 9px; color: var(--text-muted); letter-spacing: 2px; min-width: 130px; text-align: right; }
+    .list-arrow { color: var(--text-muted); font-size: 14px; transition: color 0.2s; }
+    .list-card:hover .list-arrow { color: var(--accent); }
+
+    /* ─── MODAL ─── */
+    .modal-overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.88); z-index: 10000;
+      overflow-y: auto; padding: 2rem;
+    }
+    .modal-overlay.open { display: block; }
+
+    .modal {
+      background: var(--dark2); max-width: 820px; margin: 0 auto;
+      border: 1px solid var(--border); position: relative;
+    }
+
+    .modal-header {
+      padding: 1.75rem 2rem; border-bottom: 1px solid var(--border2);
+      display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem;
+    }
+
+    .modal-meta { display: flex; flex-direction: column; gap: 6px; }
+    .modal-num { font-size: 9px; color: var(--accent); letter-spacing: 3px; }
+    .modal-title { font-family: var(--head); font-size: clamp(1.3rem, 3vw, 1.8rem); font-weight: 700; color: #fff; line-height: 1.2; }
+    .modal-type-badge {
+      font-size: 9px; letter-spacing: 2px; padding: 3px 10px;
+      border: 1px solid var(--border); color: var(--text-dim); display: inline-block;
+    }
+
+    .modal-close {
+      background: transparent; border: 1px solid var(--border);
+      color: var(--text-dim); padding: 8px 14px; cursor: pointer;
+      font-family: var(--mono); font-size: 10px; letter-spacing: 2px;
+      text-transform: uppercase; transition: all 0.2s; white-space: nowrap; flex-shrink: 0;
+    }
+    .modal-close:hover { border-color: var(--accent); color: var(--accent); }
+
+    .modal-img-area {
+      width: 100%; aspect-ratio: 21/6;
+      background: var(--dark3); display: flex; align-items: center; justify-content: center;
+      border-bottom: 1px solid var(--border2); overflow: hidden; position: relative;
+    }
+
+    .modal-img-bg {
+      position: absolute; inset: 0;
+      background: repeating-linear-gradient(
+        45deg, transparent, transparent 25px,
+        rgba(200,240,74,0.015) 25px, rgba(200,240,74,0.015) 26px
+      );
+    }
+
+    .modal-img-label { font-size: 11px; color: var(--text-muted); letter-spacing: 3px; z-index: 1; }
+
+    .modal-body { padding: 2rem; }
+
+    .modal-section { margin-bottom: 2rem; }
+    .modal-section-title {
+      font-size: 9px; color: var(--accent); letter-spacing: 3px;
+      text-transform: uppercase; margin-bottom: 1rem;
+      padding-bottom: 0.5rem; border-bottom: 1px solid var(--border2);
+    }
+
+    .modal-desc { font-size: 13px; color: var(--text-dim); line-height: 1.9; }
+    .modal-desc p { margin-bottom: 1rem; }
+    .modal-desc p:last-child { margin-bottom: 0; }
+
+    .modal-bullets { list-style: none; }
+    .modal-bullets li {
+      font-size: 12px; color: var(--text-dim); line-height: 1.7; padding: 5px 0;
+      padding-left: 20px; position: relative;
+    }
+    .modal-bullets li::before {
+      content: '//'; color: var(--accent); position: absolute; left: 0;
+      font-size: 9px; top: 7px;
+    }
+
+    .modal-links { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+    .modal-link {
+      font-family: var(--mono); font-size: 10px; letter-spacing: 2px;
+      padding: 9px 18px; border: 1px solid var(--border);
+      color: var(--text-dim); text-decoration: none; text-transform: uppercase;
+      transition: all 0.2s; display: inline-block;
+    }
+    .modal-link:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ─── PROFILE ─── */
+    #profile { padding: 0 3rem 4rem; }
+    .profile-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+      border: 1px solid var(--border2); background: var(--border2);
+    }
+
+    @media (max-width: 640px) { .profile-grid { grid-template-columns: 1fr; } }
+
+    .profile-block { background: var(--dark2); padding: 2rem; }
+    .profile-block-title {
+      font-size: 9px; color: var(--accent); letter-spacing: 3px; text-transform: uppercase;
+      margin-bottom: 1.25rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border2);
+    }
+
+    .profile-name-big {
+      font-family: var(--head); font-size: 2.2rem; font-weight: 700; color: #fff; margin-bottom: 8px;
+    }
+
+    .profile-status {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 10px; color: var(--accent); letter-spacing: 2px;
+      border: 1px solid var(--border); padding: 4px 12px; margin-bottom: 1.25rem;
+    }
+
+    .profile-bio { font-size: 12px; color: var(--text-dim); line-height: 1.9; }
+
+    .edu-item, .exp-item { margin-bottom: 1.5rem; }
+    .edu-item:last-child, .exp-item:last-child { margin-bottom: 0; }
+    .edu-org { font-size: 10px; color: var(--accent); letter-spacing: 1px; margin-bottom: 4px; }
+    .edu-degree { font-size: 14px; color: #fff; font-weight: 500; }
+    .edu-meta { font-size: 10px; color: var(--text-muted); margin-top: 3px; letter-spacing: 1px; }
+
+    .soft-tag {
+      font-size: 10px; color: var(--text-dim);
+      border: 1px solid var(--border2); padding: 5px 12px;
+      display: inline-block; margin: 4px 4px 0 0;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .soft-tag:hover { border-color: var(--border); color: var(--accent); }
+
+    /* ─── SKILLS ─── */
+    #skills { padding: 0 3rem 4rem; }
+    .skills-label {
+      font-size: 9px; color: var(--accent); letter-spacing: 3px; text-transform: uppercase;
+      margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border2);
+    }
+    .skills-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 1px;
+      border: 1px solid var(--border2); background: var(--border2);
+    }
+    .skill-tag {
+      background: var(--dark2); padding: 0.85rem 1rem;
+      font-size: 11px; color: var(--text-dim); letter-spacing: 1px;
+      transition: all 0.2s; cursor: default;
+    }
+    .skill-tag:hover { background: var(--dark3); color: var(--accent); }
+    .skill-dot { color: var(--accent); margin-right: 8px; font-size: 8px; }
+
+    /* ─── CONTACT ─── */
+    #contact { padding: 0 3rem 6rem; }
+    .contact-block {
+      background: var(--dark2); border: 1px solid var(--border2);
+      padding: 4rem 2rem; text-align: center; position: relative; overflow: hidden;
+    }
+    .contact-block::before {
+      content: '';
+      position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+      width: 200px; height: 1px;
+      background: linear-gradient(to right, transparent, var(--accent), transparent);
+      opacity: 0.3;
+    }
+    .contact-hud { font-size: 9px; color: var(--text-muted); letter-spacing: 3px; margin-bottom: 1.5rem; }
+    .contact-title {
+      font-family: var(--head); font-size: clamp(1.8rem, 4vw, 2.5rem);
+      font-weight: 700; color: #fff; margin-bottom: 0.5rem;
+    }
+    .contact-sub { font-size: 11px; color: var(--text-muted); letter-spacing: 3px; margin-bottom: 1.5rem; }
+    .contact-email {
+      font-size: 15px; color: var(--accent); letter-spacing: 2px; margin-bottom: 2.5rem;
+      display: block;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      border-top: 1px solid var(--border2); padding: 1.5rem 3rem;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;
+    }
+    .footer-text { font-size: 10px; color: var(--text-muted); letter-spacing: 2px; }
+
+    .blink { animation: blink 1s step-end infinite; }
+    @keyframes blink { 50% { opacity: 0; } }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 768px) {
+      #hero { padding: 3rem 1.5rem; }
+      .section-header { padding: 3rem 1.5rem 1.5rem; }
+      #projects, #profile, #skills, #contact { padding-left: 1.5rem; padding-right: 1.5rem; }
+      footer { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .hero-hud-bottom { right: 1.5rem; }
+      .modal-overlay { padding: 1rem; }
+      .modal-header { flex-direction: column; }
+      .modal-body { padding: 1.25rem; }
+      .list-type { display: none; }
+    }
+  </style>
 </head>
-
 <body>
 
-<div id="sakura" class="sakura-container"></div>
+<div class="scanline" aria-hidden="true"></div>
 
-<nav>
-<div class="container">
-<a href="#" class="logo">AARON</a>
-<div class="nav-links">
-<a href="#home">Home</a>
-<a href="#work">Work</a>
-<a href="#about">About</a>
-</div>
-<a href="mailto:Aaronbnzn@gmail.com" class="contact-btn">CONTACT</a>
-</div>
-</nav>
+<!-- ═══ HERO ═══ -->
+<section id="hero">
+  <div class="hud-row">
+    <span class="hud-badge"><span class="live-dot"></span>LIVE FEED</span>
+    <span class="hud-tag">CAM_01 [REC]</span>
+    <span class="hud-tag">ISO 800</span>
+    <span class="hud-badge" style="color:var(--text-dim); border-color:var(--border2);">SIGNAL_STRONG</span>
+  </div>
 
-<div class="container">
+  <div class="hud-tag" style="margin-bottom:1.5rem; color:var(--text-muted);">
+    INITIALIZING... &nbsp;//&nbsp; CASE FILE: AJB-2026 &nbsp;//&nbsp; STATUS: ACTIVE
+  </div>
 
-<section id="home" class="hero">
-<h1>The Path of <span>Strategic Mastery</span></h1>
-<p>A product leader merging discipline with strategy.</p>
+  <h1 class="hero-name">AARON<br>JOHN<br>BENZON</h1>
+  <div class="hero-role">// Aspiring Product Manager</div>
+
+  <p class="hero-desc">
+    Crafting products at the intersection of user empathy and business strategy.
+    Based in Noida, Uttar Pradesh — open to new opportunities.
+  </p>
+
+  <div class="hero-links">
+    <a href="mailto:aaronbnzn@gmail.com" class="btn-primary">[ Initiate Contact ]</a>
+    <a href="https://www.linkedin.com/in/aaron-benzon-644aa1249/" target="_blank" class="btn-secondary">[ LinkedIn ]</a>
+  </div>
+
+  <div class="hero-hud-bottom" aria-hidden="true">
+    <div class="hero-coords">LAT: 28.5355 N</div>
+    <div class="hero-coords">LON: 77.3910 E</div>
+    <div class="hero-coords" style="color:var(--accent);">SECURE_GRID_99</div>
+  </div>
 </section>
 
-<section id="work">
-<h2>Projects</h2>
-
-<div class="projects-grid">
-<div class="project-tile">
-<h3>Lenskart</h3>
-<p>Retention strategy project.</p>
+<!-- ═══ PROJECTS ═══ -->
+<div class="section-header" aria-hidden="true">
+  <div class="section-line"></div>
+  <div class="section-title">// Evidence Board — Projects</div>
+  <div class="section-line"></div>
 </div>
 
-<div class="project-tile">
-<h3>Amul Organic</h3>
-<p>Supply chain research.</p>
-</div>
-</div>
+<section id="projects" aria-label="Projects">
+  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem; flex-wrap:wrap; gap:0.5rem;">
+    <div class="hud-tag">EVIDENCE ARCHIVE // 04 FILES</div>
+    <div class="view-toggle">
+      <button class="toggle-btn active" id="btn-grid" onclick="setView('grid')">GRID</button>
+      <button class="toggle-btn" id="btn-list" onclick="setView('list')">LIST</button>
+    </div>
+  </div>
 
+  <div class="evidence-grid" id="view-grid">
+
+    <div class="evidence-card" onclick="openModal(0)" role="button" tabindex="0" aria-label="Open Lenskart project">
+      <div class="card-img-placeholder">
+        <span class="card-num">PREUVE #01</span>
+        <span class="card-type">CASE STUDY</span>
+        <span class="card-label">LENSKART</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Lenskart</div>
+        <div class="card-tagline">Reimagining user engagement beyond transactional touchpoints via an AI-backed framework.</div>
+        <div class="card-decrypt">[ Click to Decrypt ]</div>
+      </div>
+    </div>
+
+    <div class="evidence-card" onclick="openModal(1)" role="button" tabindex="0" aria-label="Open MealBud project">
+      <div class="card-img-placeholder">
+        <span class="card-num">PREUVE #02</span>
+        <span class="card-type">PRODUCT DESIGN</span>
+        <span class="card-label">MEALBUD</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">MealBud</div>
+        <div class="card-tagline">Smart meal-planning for busy professionals — reducing decision fatigue in everyday cooking.</div>
+        <div class="card-decrypt">[ Click to Decrypt ]</div>
+      </div>
+    </div>
+
+    <div class="evidence-card" onclick="openModal(2)" role="button" tabindex="0" aria-label="Open VivaFit project">
+      <div class="card-img-placeholder">
+        <span class="card-num">PREUVE #03</span>
+        <span class="card-type">PRODUCT STRATEGY</span>
+        <span class="card-label">VIVAFIT</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">VivaFit</div>
+        <div class="card-tagline">Solving the motivation drop-off problem with community-led engagement loops.</div>
+        <div class="card-decrypt">[ Click to Decrypt ]</div>
+      </div>
+    </div>
+
+    <div class="evidence-card" onclick="openModal(3)" role="button" tabindex="0" aria-label="Open Amul Organic project">
+      <div class="card-img-placeholder">
+        <span class="card-num">PREUVE #04</span>
+        <span class="card-type">MARKET RESEARCH</span>
+        <span class="card-label">AMUL ORGANIC</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Amul Organic</div>
+        <div class="card-tagline">On-ground market research on consumer demand, retailer adoption, and product positioning.</div>
+        <div class="card-decrypt">[ Click to Decrypt ]</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="evidence-list" id="view-list">
+    <div class="list-card" onclick="openModal(0)" role="button" tabindex="0">
+      <span class="list-num">#01</span>
+      <span class="list-title">Lenskart — Reimagining User Engagement</span>
+      <span class="list-type">CASE STUDY</span>
+      <span class="list-arrow">→</span>
+    </div>
+    <div class="list-card" onclick="openModal(1)" role="button" tabindex="0">
+      <span class="list-num">#02</span>
+      <span class="list-title">MealBud — Smart Meal Planning for Busy Lives</span>
+      <span class="list-type">PRODUCT DESIGN</span>
+      <span class="list-arrow">→</span>
+    </div>
+    <div class="list-card" onclick="openModal(2)" role="button" tabindex="0">
+      <span class="list-num">#03</span>
+      <span class="list-title">VivaFit — Solving the Motivation Drop-Off Problem</span>
+      <span class="list-type">PRODUCT STRATEGY</span>
+      <span class="list-arrow">→</span>
+    </div>
+    <div class="list-card" onclick="openModal(3)" role="button" tabindex="0">
+      <span class="list-num">#04</span>
+      <span class="list-title">Amul Organic — Market Research & Product Strategy</span>
+      <span class="list-type">MARKET RESEARCH</span>
+      <span class="list-arrow">→</span>
+    </div>
+  </div>
 </section>
 
-<section id="about">
-<h2>About Me</h2>
-<p>Product thinker focused on clarity and execution.</p>
-</section>
-
+<!-- ═══ PROFILE ═══ -->
+<div class="section-header" aria-hidden="true">
+  <div class="section-line"></div>
+  <div class="section-title">// Subject Profile</div>
+  <div class="section-line"></div>
 </div>
 
+<section id="profile" aria-label="About">
+  <div class="profile-grid">
+
+    <div class="profile-block">
+      <div class="profile-block-title">// Identity</div>
+      <div class="profile-name-big">Aaron Benzon</div>
+      <div class="profile-status"><span class="live-dot"></span>OPEN TO WORK</div>
+      <p class="profile-bio">
+        Product thinker with a background in banking and finance. I bridge the gap between user empathy and business outcomes — driven by data, shaped by field research, and obsessed with building things people actually use.
+      </p>
+    </div>
+
+    <div class="profile-block">
+      <div class="profile-block-title">// Academic Log</div>
+      <div class="edu-item">
+        <div class="edu-org">[ IBS HYDERABAD ]</div>
+        <div class="edu-degree">MBA — Marketing / Finance</div>
+        <div class="edu-meta">POST GRADUATE</div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-org">[ MADRAS CHRISTIAN COLLEGE ]</div>
+        <div class="edu-degree">Bachelor of Economics</div>
+        <div class="edu-meta">UNDERGRADUATE</div>
+      </div>
+    </div>
+
+    <div class="profile-block">
+      <div class="profile-block-title">// Field Operations</div>
+      <div class="exp-item">
+        <div class="edu-org">[ AXIS BANK ] &nbsp; 2 YEARS</div>
+        <div class="edu-degree">Client Strategy / Portfolio Lead</div>
+        <div class="edu-meta">FULL-TIME EMPLOYMENT</div>
+      </div>
+    </div>
+
+    <div class="profile-block">
+      <div class="profile-block-title">// Soft Skills</div>
+      <div>
+        <span class="soft-tag">Product Problem Framing</span>
+        <span class="soft-tag">User Research</span>
+        <span class="soft-tag">Strategic Thinking</span>
+        <span class="soft-tag">Stakeholder Communication</span>
+        <span class="soft-tag">Curiosity</span>
+        <span class="soft-tag">Autonomy</span>
+        <span class="soft-tag">Data-Backed Decisions</span>
+        <span class="soft-tag">Retention Strategy</span>
+        <span class="soft-tag">PRD Writing</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ SKILLS ═══ -->
+<div class="section-header" aria-hidden="true">
+  <div class="section-line"></div>
+  <div class="section-title">// Equipment Inventory — Skills</div>
+  <div class="section-line"></div>
+</div>
+
+<section id="skills" aria-label="Skills">
+  <div class="skills-grid">
+    <div class="skill-tag"><span class="skill-dot">▸</span>Figma</div>
+    <div class="skill-tag"><span class="skill-dot">▸</span>Figma Make</div>
+    <div class="skill-tag"><span class="skill-dot">▸</span>Whimsical</div>
+    <div class="skill-tag"><span class="skill-dot">▸</span>Canva</div>
+    <div class="skill-tag"><span class="skill-dot">▸</span>Notion</div>
+    <div class="skill-tag"><span class="skill-dot">▸</span>N8n</div>
+    <div class="skill-tag"><span class="skill-dot">▸</span>SQL</div>
+    <div class="skill-tag"><span class="skill-dot">▸</span>Google Analytics</div>
+    <div class="skill-tag"><span class="skill-dot">▸</span>Lovable</div>
+    <div class="skill-tag"><span class="skill-dot">▸</span>Cursor</div>
+    <div class="skill-tag"><span class="skill-dot">▸</span>Stitch</div>
+    <div class="skill-tag"><span class="skill-dot">▸</span>Emergent</div>
+    <div class="skill-tag"><span class="skill-dot">▸</span>MS Excel</div>
+    <div class="skill-tag"><span class="skill-dot">▸</span>MS PowerPoint</div>
+    <div class="skill-tag"><span class="skill-dot">▸</span>MS SharePoint</div>
+    <div class="skill-tag"><span class="skill-dot">▸</span>Google Workspace</div>
+    <div class="skill-tag"><span class="skill-dot">▸</span>Photoshop</div>
+  </div>
+</section>
+
+<!-- ═══ CONTACT ═══ -->
+<div class="section-header" aria-hidden="true">
+  <div class="section-line"></div>
+  <div class="section-title">// Initiate Contact</div>
+  <div class="section-line"></div>
+</div>
+
+<section id="contact" aria-label="Contact">
+  <div class="contact-block">
+    <div class="contact-hud">SECURE LINE ESTABLISHED &nbsp;//&nbsp; CHANNEL OPEN</div>
+    <h2 class="contact-title">Let's Build Something Together</h2>
+    <div class="contact-sub">// OPEN TO WORK — REMOTE READY</div>
+    <a class="contact-email" href="mailto:aaronbnzn@gmail.com">aaronbnzn@gmail.com</a>
+    <a href="mailto:aaronbnzn@gmail.com" class="btn-primary">[ Initiate Contact ]</a>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
 <footer>
-© 2024 Aaron
+  <div class="footer-text">© 2026 AARON JOHN BENZON</div>
+  <div class="footer-text">LIGNE SÉCURISÉE ÉTABLIE <span class="blink">_</span></div>
 </footer>
 
+<!-- ═══ MODAL ═══ -->
+<div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="m-title">
+  <div class="modal" id="modal-box">
+    <div class="modal-header">
+      <div class="modal-meta">
+        <div class="modal-num" id="m-num">PREUVE #01</div>
+        <h2 class="modal-title" id="m-title">Title</h2>
+        <div class="modal-type-badge" id="m-type">TYPE</div>
+      </div>
+      <button class="modal-close" onclick="closeModal()" aria-label="Close modal">[ Close ESC ]</button>
+    </div>
+    <div class="modal-img-area" aria-hidden="true">
+      <div class="modal-img-bg"></div>
+      <div class="modal-img-label" id="m-img-label">EVIDENCE_IMG.jpg</div>
+    </div>
+    <div class="modal-body">
+      <div class="modal-section">
+        <div class="modal-section-title">// Mission Brief</div>
+        <div class="modal-desc" id="m-brief"></div>
+      </div>
+      <div class="modal-section">
+        <div class="modal-section-title">// Key Highlights</div>
+        <ul class="modal-bullets" id="m-bullets"></ul>
+      </div>
+      <div class="modal-section">
+        <div class="modal-section-title">// Useful Links</div>
+        <div class="modal-links" id="m-links"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
-const container = document.getElementById('sakura');
+  const projects = [
+    {
+      num: 'PREUVE #01',
+      title: 'Lenskart — Reimagining User Engagement',
+      type: 'Case Study',
+      imgLabel: 'EVIDENCE_A — LENSKART.jpg',
+      brief: [
+        'This project explores how Lenskart can increase non-transactional monthly active users by addressing post-purchase disengagement. Through quantitative surveys and qualitative interviews, I identified that while users trust the brand and actively transact, they fail to see value in the app beyond buying eyewear.',
+        'Using structured problem framing and RICE prioritization, I narrowed down multiple solution paths and strategically selected two synergistic features — an omnichannel continuity layer and expert eye-care content. To bring the solution to life, I designed detailed user journeys, low-fidelity wireframes, and high-fidelity prototypes that demonstrate how offline store interactions can be digitally linked and how non-transactional eye-care content can build habitual engagement.',
+        'Success metrics were defined around measurable impact — increasing non-transactional MAU from ~25% to 40–50%, improving post-purchase retention, driving repeat app opens, and unlocking incremental lifetime value through stronger cross-sell and loyalty participation. Together, these solutions aim to shift Lenskart from a transactional platform to an ongoing eye-care companion.'
+      ],
+      bullets: [
+        'Conducted 35 survey responses + 5 in-depth interviews to uncover behavioral gaps',
+        'Identified core drop-offs through existing user journey mapping',
+        'Used the RICE framework for structured prioritization',
+        'Strategically selected Omnichannel + Expert Eye-Care Content for long-term synergy',
+        'Designed end-to-end user journeys for both features',
+        'Created wireframes and interactive prototypes to simulate real usage flows',
+        'Target: Increase non-transactional MAU from ~25% → 40–50%',
+        'Higher post-purchase retention + increased repeat app opens',
+        'Incremental LTV unlock of ~₹1,800 per engaged user',
+      ],
+      links: [
+        { label: 'Project Deep Dive', url: 'https://drive.google.com/drive/folders/1JNV5QJJRDlxFinc4hyeJIjzF9uAmS1fv?usp=sharing' },
+        { label: 'Live Prototype', url: 'https://prototype-aaron-product.lovable.app' },
+      ]
+    },
+    {
+      num: 'PREUVE #02',
+      title: 'MealBud — Smart Meal Planning for Busy Lives',
+      type: 'Product Design',
+      imgLabel: 'EVIDENCE_B — MEALBUD.jpg',
+      brief: [
+        'MealBud is a smart meal-planning web application designed to address a common problem faced by busy professionals: the inability to consistently eat home-cooked meals due to time constraints, mental fatigue, and uncertainty around what to cook. Instead of solving for recipes alone, the product focuses on reducing decision fatigue in everyday cooking.',
+        'The solution was shaped through persona-driven thinking, primarily targeting busy working professionals and fitness-oriented users who value healthy, efficient meal planning. The core idea: use contextual inputs — available ingredients, utensils, dietary preferences, and time — to generate relevant, low-effort meal suggestions.',
+        'User flows were mapped end-to-end, from onboarding and preference capture to recipe suggestions and weekly planning. Based on usability feedback, refinements were made to improve visual engagement, nutritional clarity, and technical reliability.'
+      ],
+      bullets: [
+        'Smart recipe recommendations based on pantry items, utensils, and time available',
+        'Weekly meal planner to reduce repeated daily decision-making',
+        'Personalization for dietary goals — high-protein, healthy meals',
+        'Calm, friendly UI to lower cognitive load and make cooking feel approachable',
+        'End-to-end user flows mapped from onboarding to weekly planning',
+        'Added high-quality food imagery, calorie info, and improved recipe generation logic',
+      ],
+      links: [
+        { label: 'Live Prototype', url: 'https://my-kitchen-plan.lovable.app/home' },
+        { label: 'Loom Walkthrough', url: 'https://www.loom.com/share/dd1561138df94835b378c3f2a0a245a2' },
+      ]
+    },
+    {
+      num: 'PREUVE #03',
+      title: 'VivaFit — Solving the Motivation Drop-Off Problem',
+      type: 'Product Strategy',
+      imgLabel: 'EVIDENCE_C — VIVAFIT.jpg',
+      brief: [
+        'VivaFit is a hypothetical fitness app where the core challenge was low user retention and declining motivation after initial usage. Instead of building a new product from scratch, this project focused on identifying why users were dropping off and designing targeted product improvements to address those issues.',
+        'Through persona analysis and user journey mapping, I identified that beginners and intermediate users struggled to stay motivated due to a lack of personal connection, feedback, and a sense of community. The existing experience was largely solo and session-based, offering little incentive for users to return consistently.',
+        'Using product thinking, I redesigned the user journey from a one-time session flow to a repeat engagement loop driven by challenges, community participation, and visible progress. I translated these ideas into clear user flows and prototypes using Figma, supported by a structured PRD and walkthrough to communicate decisions and trade-offs.'
+      ],
+      bullets: [
+        'Motivation drops quickly when users train alone without feedback or social reinforcement',
+        'Beginners lose confidence early due to perceived skill gaps and lack of belonging',
+        'Intermediate users rely heavily on competition, progression, and constructive feedback',
+        'Skill-level based weekly and seasonal challenges to create progression',
+        'Local leaderboards, badges, and rewards to reinforce consistency',
+        '1-vs-1 rivalries and buddy systems to introduce healthy competition',
+        'Live instructor-led group sessions to add personal touch and community',
+        'AI instructor concept to support new users with instant, personalized feedback',
+      ],
+      links: [
+        { label: 'Product Sense (Loom)', url: 'https://www.loom.com/share/a37dd78700654353afb75ddb5c8e6776' },
+        { label: 'PRD Document', url: 'https://file.notion.so/f/f/5c0ade08-93d9-81c1-b735-00033e393ade/e161ebd2-a7cc-4103-95c1-a7d4b29bfa2a/PRD_VIVA_FIT.pdf' },
+        { label: 'Figma Prototype', url: 'https://www.figma.com/make/MFXqFg9Jodmp4IJTdeVrRZ/VitaFit-App-UI-Design' },
+        { label: 'App Wireframe', url: 'https://www.figma.com/board/TnjjosEPr4niPfgk9gGgVa/vivafit-flow' },
+      ]
+    },
+    {
+      num: 'PREUVE #04',
+      title: 'Amul Organic — Market Research & Product Strategy',
+      type: 'Market Research',
+      imgLabel: 'EVIDENCE_D — AMUL ORGANIC.jpg',
+      brief: [
+        'This project involved conducting on-ground market research to understand the adoption of Amul Organic products across consumers and retailers in Pune. Insights were gathered through structured consumer and retailer surveys, in-store observations, kiosk-based interactions, and direct product pitching at retail outlets.',
+        'A key location-specific insight was uncovered: consumers were not purchasing certain organic products because those crops were already locally grown in that region — reducing the perceived need to buy them. This led to a real-time pivot in sales pitch strategy, shifting focus to organic products not locally produced in that area.',
+        'Overall, the research showed that the primary challenges were related to awareness, positioning, regional relevance, and incentive alignment rather than product quality. The project highlighted opportunities to improve adoption through focused SKU prioritization, region-aware selling strategies, better retailer economics, and clearer consumer communication.'
+      ],
+      bullets: [
+        'Low retailer adoption driven by perceived lack of demand and unattractive margins',
+        'High consumer trust in the Amul brand, but low awareness around organic authenticity',
+        'Strong price sensitivity limiting trial and repeat purchases',
+        'Amul brand perception strongly tied to dairy, reducing credibility in organic staples',
+        'Shifted pitch to focus on organic products NOT locally produced in that region',
+        'Reframed value propositions based on regional needs — not a uniform approach',
+        'Tested objections and messaging in real time during consumer and retailer interactions',
+      ],
+      links: [
+        { label: 'Final Report (PDF)', url: 'https://drive.google.com/file/d/1uFEIsRHidFFhkOVCxx3R6dKfg_mP5L5j/view?usp=sharing' },
+      ]
+    },
+  ];
 
-function createPetal() {
-const p = document.createElement('div');
-p.classList.add('petal');
+  function openModal(i) {
+    const p = projects[i];
+    document.getElementById('m-num').textContent = p.num;
+    document.getElementById('m-title').textContent = p.title;
+    document.getElementById('m-type').textContent = p.type.toUpperCase();
+    document.getElementById('m-img-label').textContent = p.imgLabel;
 
-p.style.width = "6px";
-p.style.height = "4px";
-p.style.left = Math.random() * 100 + "vw";
-p.style.animationDuration = "5s";
+    const brief = document.getElementById('m-brief');
+    brief.innerHTML = p.brief.map(para => `<p>${para}</p>`).join('');
 
-container.appendChild(p);
+    const bullets = document.getElementById('m-bullets');
+    bullets.innerHTML = p.bullets.map(b => `<li>${b}</li>`).join('');
 
-setTimeout(() => p.remove(), 5000);
-}
+    const links = document.getElementById('m-links');
+    links.innerHTML = p.links.map(l =>
+      `<a class="modal-link" href="${l.url}" target="_blank" rel="noopener noreferrer">[ ${l.label} ]</a>`
+    ).join('');
 
-setInterval(createPetal, 300);
+    document.getElementById('modal-overlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    document.getElementById('modal-overlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.getElementById('modal-overlay').addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+  });
+
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+  document.querySelectorAll('.evidence-card, .list-card').forEach(card => {
+    card.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); card.click(); }
+    });
+  });
+
+  function setView(v) {
+    const grid = document.getElementById('view-grid');
+    const list = document.getElementById('view-list');
+    const btnG = document.getElementById('btn-grid');
+    const btnL = document.getElementById('btn-list');
+    if (v === 'grid') {
+      grid.style.display = 'grid'; list.style.display = 'none';
+      btnG.classList.add('active'); btnL.classList.remove('active');
+    } else {
+      grid.style.display = 'none'; list.style.display = 'flex';
+      btnL.classList.add('active'); btnG.classList.remove('active');
+    }
+  }
 </script>
-
 </body>
 </html>
